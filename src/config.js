@@ -56,7 +56,7 @@ export const PASSCODE_ITERATIONS = 120000
 /** PBKDF2(пароль, соль, 120000, SHA-256) → 32 байта в hex.
  *  Пароль по умолчанию: kontur-2026 — ⚠ поменять при первом же пуше. */
 export const PASSCODE_HASH =
-  'de0f0c05299810a8e0381007d1bd1d0efd956545b08e721203fef1c3cdb4be12'
+  '7fe0855720c14b4c5b8c2e01507c8a867ad42f20ecbd4098a0f5f4879e474e70'
 
 /** Срок жизни сессии. Час без действий — и фраза спрашивается снова.
  *  Значение и логика перенесены из boom-cmd/src/composables/useAccessKey.js. */
