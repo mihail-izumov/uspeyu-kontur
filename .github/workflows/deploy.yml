@@ -71,6 +71,8 @@ jobs:
         # и ищет на экранах формулировки, запрещённые docs/STANDARD-safety.md.
         # ⛔ Падение здесь останавливает публикацию: приложение, которое начало
         # советовать «снизь дозу», выкладывать нельзя, даже если оно собралось.
+        env:
+          KONTUR_PASS: ${{ secrets.KONTUR_PASS }}
         run: |
           node scripts/build-preview.mjs
           node scripts/smoke.mjs dist/preview.html

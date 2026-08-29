@@ -133,7 +133,9 @@ await until(() => text().includes('Неверный пароль'))
 check('неверный пароль не пускает', text().includes('Неверный пароль'))
 
 /* ── 3. верный пароль ───────────────────────────────────────────────── */
-type(document.querySelector('input[type="password"]'), 'kontur-2026')
+// Пароль — из окружения: после смены фразы владельцем жёстко вшитый
+// 'kontur-2026' валил бы дым «неверным паролем», пряча настоящую причину.
+type(document.querySelector('input[type="password"]'), process.env.KONTUR_PASS || 'kontur-2026')
 document.querySelector('form').dispatchEvent(new window.Event('submit', { bubbles: true, cancelable: true }))
 await until(() => !text().includes('Доступ в контур'))
 check('верный пароль пускает', !text().includes('Доступ в контур'), text().slice(0, 120))
