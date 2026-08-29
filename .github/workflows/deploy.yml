@@ -1,0 +1,66 @@
+name: Deploy to GitHub Pages
+
+# Сборка и публикация на Pages при каждом пуше в main.
+#
+# ⚠ Данные приложения (public/data/health.json) собираются НЕ здесь, а на
+#   машине владельца командой `python3 tools/build_app_data.py` в репозитории
+#   контура, и приезжают сюда уже готовым файлом. Причина: сам контур
+#   (мастера, tools/) в этот репозиторий не входит — публикуется только /app.
+#   Значит, порядок перед пушем всегда один:
+#       python3 tools/build_app_data.py  →  git add app/public/data  →  push
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Параллельные деплои отменяют друг друга: на Pages имеет смысл только
+# последний, а очередь из трёх сборок задерживает его на минуты.
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+
+      - run: npm ci
+
+      - name: Проверить, что данные контура на месте
+        # Без этой проверки сборка проходит, а приложение открывается пустым
+        # экраном с ошибкой загрузки — и понять причину можно только из
+        # консоли браузера. Пусть падает здесь и с внятной строкой.
+        run: |
+          test -s public/data/health.json || {
+            echo "::error::public/data/health.json отсутствует или пуст."
+            echo "::error::Выполните python3 tools/build_app_data.py в репозитории контура и закоммитьте результат."
+            exit 1
+          }
+
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

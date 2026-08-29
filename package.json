@@ -1,0 +1,32 @@
+{
+  "name": "kontur-health",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "passcode": "node scripts/passcode.mjs",
+    "single": "vite build && node scripts/build-preview.mjs",
+    "test": "vite build && node scripts/build-preview.mjs && node scripts/smoke.mjs dist/preview.html"
+  },
+  "dependencies": {
+    "vue": "^3.5.34"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.6",
+    "autoprefixer": "^10.4.20",
+    "jsdom": "^26.1.0",
+    "postcss": "^8.5.15",
+    "tailwindcss": "^3.4.19",
+    "vite": "^8.0.12"
+  },
+  "browserslist": [
+    ">0.5%",
+    "last 2 versions",
+    "iOS >= 15",
+    "Safari >= 15",
+    "not dead"
+  ]
+}

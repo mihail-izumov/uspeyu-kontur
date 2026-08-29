@@ -1,0 +1,6127 @@
+{
+ "built": "2026-08-29",
+ "owner": {
+  "birth": "1983-04-12",
+  "sex": "M",
+  "height_cm": 187,
+  "age": 43
+ },
+ "last_draw": "2024-01-29",
+ "draws": 13,
+ "systems": [
+  {
+   "code": "CVD",
+   "name": "Сердце и сосуды",
+   "short": "Сердце",
+   "weight": 10,
+   "threat": "Lp(a) 170 + ЛПНП, который растёт пять лет подряд, + ГБ II ст. + курение",
+   "speed": "десятилетия, потом сразу",
+   "doctor": "кардиолог",
+   "markers": [
+    {
+     "key": "ldl",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 4.5,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "был 4,50 при цели существенно ниже",
+     "target": "<1.8",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": 0.2086,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "ЛПНП",
+     "unit": "ммоль/л",
+     "ref": "<4,14 (лаб.)",
+     "fresh": 0.362
+    },
+    {
+     "key": "lpa",
+     "points": 1,
+     "last_date": "2024-01-25",
+     "last_value": 170.4,
+     "age_days": 947,
+     "interval_m": 0.0,
+     "priority": "—",
+     "why_interval": "⛔ генетически задан, 170,4 от 25.01.2024 действителен пожизненно",
+     "target": "—",
+     "target_status": "не",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "once",
+     "in_registry": true,
+     "name": "Липопротеин (а)",
+     "unit": "нмоль/л",
+     "ref": "2–75",
+     "fresh": 1.0
+    },
+    {
+     "key": "apo_b",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 1.33,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "точнее ЛПНП отражает число атерогенных частиц",
+     "target": "<0.9",
+     "target_status": "врач?",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Аполипопротеин В",
+     "unit": "г/л",
+     "ref": "0,66–1,33",
+     "fresh": 0.362
+    },
+    {
+     "key": "chol",
+     "points": 4,
+     "last_date": "2024-01-25",
+     "last_value": 6.53,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "липиды",
+     "target": "<5.2",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": 0.1819,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Холестерин общий",
+     "unit": "ммоль/л",
+     "ref": "3,2–5,2",
+     "fresh": 0.362
+    },
+    {
+     "key": "hdl",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 1.52,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "липиды",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 0.0615,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "ЛПВП",
+     "unit": "ммоль/л",
+     "ref": ">1,45 хорошо",
+     "fresh": 0.362
+    },
+    {
+     "key": "tg",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 1.03,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "липиды",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": -0.0781,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Триглицериды",
+     "unit": "ммоль/л",
+     "ref": "0,1–1,7",
+     "fresh": 0.362
+    },
+    {
+     "key": "ai",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 3.3,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": "<3.0",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": -0.0028,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": false,
+     "name": "Индекс атерогенности",
+     "unit": "—",
+     "ref": "<3,0",
+     "fresh": 0.362
+    },
+    {
+     "key": "sbp",
+     "points": 243,
+     "last_date": "2024-01-31",
+     "last_value": 139.0,
+     "age_days": 941,
+     "interval_m": 0.25,
+     "priority": "🔴",
+     "why_interval": "давление; ⚠ ряд оборвался в апреле 2019",
+     "target": "<130",
+     "target_status": "врач?",
+     "off_target": true,
+     "slope_per_year": 3.2107,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Систолическое АД",
+     "unit": "мм рт.ст.",
+     "ref": "—",
+     "fresh": 0.1
+    },
+    {
+     "key": "dbp",
+     "points": 245,
+     "last_date": "2024-01-31",
+     "last_value": 86.0,
+     "age_days": 941,
+     "interval_m": 0.25,
+     "priority": "🔴",
+     "why_interval": "давление",
+     "target": "<80",
+     "target_status": "врач?",
+     "off_target": true,
+     "slope_per_year": 2.9951,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Диастолическое АД",
+     "unit": "мм рт.ст.",
+     "ref": "—",
+     "fresh": 0.1
+    },
+    {
+     "key": "crp_hs",
+     "points": 3,
+     "last_date": "2022-10-01",
+     "last_value": 0.4,
+     "age_days": 1428,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "воспаление; ⚠ трактовать только вне обострений",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": -3.0257,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "С-реактивный белок высокочувств.",
+     "unit": "мг/л",
+     "ref": "<5,0",
+     "fresh": 0.1
+    },
+    {
+     "key": "homocyst",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 24.0,
+     "priority": "🟠",
+     "why_interval": "следствие дефицита B12 + фактор риска при Lp(a) 170",
+     "target": "<10",
+     "target_status": "мой",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Гомоцистеин",
+     "unit": "мкмоль/л",
+     "ref": "<15",
+     "fresh": 0.0
+    },
+    {
+     "key": "weight",
+     "points": 2,
+     "last_date": "2024-01-31",
+     "last_value": 107.0,
+     "age_days": 941,
+     "interval_m": 1.0,
+     "priority": "🟠",
+     "why_interval": "вес; цель 95 кг",
+     "target": "95",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Вес",
+     "unit": "кг",
+     "ref": "—",
+     "fresh": 0.1
+    },
+    {
+     "key": "bmi",
+     "points": 1,
+     "last_date": "2018-10-29",
+     "last_value": 30.0,
+     "age_days": 2861,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": "<27.2",
+     "target_status": "производная",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "ИМТ",
+     "unit": "кг/м²",
+     "ref": "18,5–25",
+     "fresh": 0.1
+    }
+   ],
+   "alerts": [
+    "Т-8",
+    "Т-10",
+    "Т-3"
+   ]
+  },
+  {
+   "code": "KID",
+   "name": "Почки",
+   "short": "Почки",
+   "weight": 9,
+   "threat": "подагра + НПВС + тиазид + БРА — «тройной удар» по фильтрации, и кислая моча сверху",
+   "speed": "годы, тихо",
+   "doctor": "нефролог",
+   "markers": [
+    {
+     "key": "egfr",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 87.9,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "производное от creat",
+     "target": ">=90",
+     "target_status": "мой",
+     "off_target": true,
+     "slope_per_year": 9.8082,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "СКФ, CKD-EPI 2021",
+     "unit": "мл/мин/1,73м²",
+     "ref": "≥90",
+     "fresh": 0.1
+    },
+    {
+     "key": "creat",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 96.0,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "почки; тройной удар БРА+тиазид+НПВС",
+     "target": "<106",
+     "target_status": "подтверждена",
+     "off_target": false,
+     "slope_per_year": -10.9147,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Креатинин крови",
+     "unit": "мкмоль/л",
+     "ref": "62–106",
+     "fresh": 0.1
+    },
+    {
+     "key": "acr",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "⭐ ОСНОВНАЯ форма: альбумин/креатинин, разовая порция. Ни одной точки",
+     "target": "<30",
+     "target_status": "подтверждена",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "**Альбумин/креатинин в разовой порции (ACR)**",
+     "unit": "мг/г креатинина",
+     "ref": "<30",
+     "fresh": 0.0
+    },
+    {
+     "key": "mau_day",
+     "points": 1,
+     "last_date": "2018-12-02",
+     "last_value": 4.05,
+     "age_days": 2827,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "⚠ прежняя форма (суточный сбор), последний раз 2018",
+     "target": "<30",
+     "target_status": "подтверждена",
+     "off_target": false,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Экскреция микроальбумина за сутки",
+     "unit": "мг/сут",
+     "ref": "0–30",
+     "fresh": 0.1
+    },
+    {
+     "key": "urea",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 5.71,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "без неё креатинин не читается",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Мочевина",
+     "unit": "ммоль/л",
+     "ref": "2,76–8,07",
+     "fresh": 0.1
+    },
+    {
+     "key": "u_ph",
+     "points": 1,
+     "last_date": "2022-11-08",
+     "last_value": 5.5,
+     "age_days": 1390,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "был 5,5 — риск уратных камней",
+     "target": "6.2-6.8",
+     "target_status": "мой",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "pH мочи",
+     "unit": "ед",
+     "ref": "5,5–7,0",
+     "fresh": 0.1
+    },
+    {
+     "key": "k",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 4.38,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "⚠ тиазид выводит калий; при нарушениях проводимости критично",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Калий",
+     "unit": "ммоль/л",
+     "ref": "3,5–5,1",
+     "fresh": 0.1
+    },
+    {
+     "key": "na",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 141.0,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "⚠ тиазид выводит натрий",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Натрий",
+     "unit": "ммоль/л",
+     "ref": "136–145",
+     "fresh": 0.1
+    }
+   ],
+   "alerts": [
+    "Т-9",
+    "Т-7",
+    "Т-5"
+   ]
+  },
+  {
+   "code": "LIV",
+   "name": "Печень",
+   "short": "Печень",
+   "weight": 7,
+   "threat": "жировая болезнь по УЗИ + ожирение + инсулинорезистентность + алкоголь",
+   "speed": "годы, тихо",
+   "doctor": "гастроэнтеролог",
+   "markers": [
+    {
+     "key": "alt",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 24.6,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "печень; жировая болезнь по УЗИ 2022",
+     "target": "<41",
+     "target_status": "подтверждена",
+     "off_target": false,
+     "slope_per_year": 0.1563,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "АЛТ",
+     "unit": "Ед/л",
+     "ref": "5–41",
+     "fresh": 0.362
+    },
+    {
+     "key": "ast",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 23.8,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "печень",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 2.3188,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "АСТ",
+     "unit": "Ед/л",
+     "ref": "5–40",
+     "fresh": 0.362
+    },
+    {
+     "key": "ggt",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 20.4,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "чувствительна к алкоголю и лекарствам",
+     "target": "<40",
+     "target_status": "мой",
+     "off_target": false,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "ГГТП",
+     "unit": "Ед/л",
+     "ref": "10–71",
+     "fresh": 0.362
+    },
+    {
+     "key": "alp",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 45.4,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Щелочная фосфатаза",
+     "unit": "Ед/л",
+     "ref": "40–129",
+     "fresh": 0.362
+    },
+    {
+     "key": "bil_tot",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 13.5,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Билирубин общий",
+     "unit": "мкмоль/л",
+     "ref": "2,5–21",
+     "fresh": 0.362
+    },
+    {
+     "key": "alb",
+     "points": 1,
+     "last_date": "2024-01-25",
+     "last_value": 49.1,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "нужен для трактовки кальция",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Альбумин",
+     "unit": "г/л",
+     "ref": "39,7–49,4",
+     "fresh": 0.362
+    },
+    {
+     "key": "prot_tot",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 75.7,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Общий белок",
+     "unit": "г/л",
+     "ref": "64–83",
+     "fresh": 0.362
+    },
+    {
+     "key": "afp",
+     "points": 1,
+     "last_date": "2024-01-29",
+     "last_value": 5.6,
+     "age_days": 943,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Альфафетопротеин",
+     "unit": "нг/мл",
+     "ref": "<7,0",
+     "fresh": 0.366
+    }
+   ],
+   "alerts": []
+  },
+  {
+   "code": "GIT",
+   "name": "ЖКТ и желудок",
+   "short": "ЖКТ",
+   "weight": 7,
+   "threat": "15 лет двойной дозы ИПП без единой проверки последствий; H. pylori лечился дважды, контроль второй эрадикации не сделан",
+   "speed": "годы, тихо",
+   "doctor": "гастроэнтеролог",
+   "markers": [
+    {
+     "key": "b12",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "⚠⚠ 15 лет ИПП, не измерялся НИ РАЗУ",
+     "target": ">400",
+     "target_status": "мой",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Витамин B12",
+     "unit": "пг/мл",
+     "ref": "197–771",
+     "fresh": 0.0
+    },
+    {
+     "key": "ferr",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "⚠⚠ всасывание железа кислотозависимо, не измерялся НИ РАЗУ",
+     "target": ">50",
+     "target_status": "мой",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Ферритин",
+     "unit": "нг/мл",
+     "ref": "30–400",
+     "fresh": 0.0
+    },
+    {
+     "key": "fe",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "железо",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Железо сыворотки",
+     "unit": "мкмоль/л",
+     "ref": "11–28",
+     "fresh": 0.0
+    },
+    {
+     "key": "folate",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "то же",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Фолиевая кислота",
+     "unit": "нг/мл",
+     "ref": "3,1–20",
+     "fresh": 0.0
+    },
+    {
+     "key": "mcv",
+     "points": 6,
+     "last_date": "2024-01-25",
+     "last_value": 89.6,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "косвенный маркёр дефицита B12",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 0.4985,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Средний объём эритроцита",
+     "unit": "фл",
+     "ref": "86,5–101,8",
+     "fresh": 0.362
+    },
+    {
+     "key": "hgb",
+     "points": 6,
+     "last_date": "2024-01-25",
+     "last_value": 145.0,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "ОАК",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 0.4005,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Гемоглобин",
+     "unit": "г/л",
+     "ref": "131,9–168,7",
+     "fresh": 0.362
+    },
+    {
+     "key": "hp",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": -1.0,
+     "priority": "⛔",
+     "why_interval": "⛔ НЕ измерять самовольно: на фоне ИПП ложноотрицательный. Готовит врач",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "blocked",
+     "in_registry": true,
+     "name": "Helicobacter pylori",
+     "unit": "—",
+     "ref": "не обнаружено",
+     "fresh": 0.0
+    },
+    {
+     "key": "elastase",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 0.0,
+     "priority": "🟠",
+     "why_interval": "копрограмма намекает на панкреатическую недостаточность",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Панкреатическая эластаза кала",
+     "unit": "мкг/г",
+     "ref": ">200",
+     "fresh": 0.0
+    },
+    {
+     "key": "gastrin",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": false,
+     "name": "Гастрин",
+     "unit": "пг/мл",
+     "ref": "—",
+     "fresh": 0.0
+    },
+    {
+     "key": "pg_ratio",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": false,
+     "name": "Отношение PGI/PGII",
+     "unit": "—",
+     "ref": ">3",
+     "fresh": 0.0
+    }
+   ],
+   "alerts": [
+    "Т-11",
+    "Т-2"
+   ]
+  },
+  {
+   "code": "JNT",
+   "name": "Суставы и обмен",
+   "short": "Суставы",
+   "weight": 7,
+   "threat": "подагра без базисной терапии, тиазид в схеме, аркоксия 10 дней каждый месяц",
+   "speed": "месяцы (боль), годы (кость)",
+   "doctor": "ревматолог",
+   "markers": [
+    {
+     "key": "ua",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 455.0,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "ведущий показатель подагры; на фоне тиазида и подбора терапии — чаще",
+     "target": "<360",
+     "target_status": "врач?",
+     "off_target": true,
+     "slope_per_year": -24.6035,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Мочевая кислота",
+     "unit": "мкмоль/л",
+     "ref": "202–416",
+     "fresh": 0.1
+    },
+    {
+     "key": "glu",
+     "points": 5,
+     "last_date": "2024-01-29",
+     "last_value": 6.12,
+     "age_days": 943,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "гипергликемия натощак",
+     "target": "<5.6",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": -0.1723,
+     "direction": "to",
+     "status": "stale",
+     "in_registry": true,
+     "name": "Глюкоза натощак",
+     "unit": "ммоль/л",
+     "ref": "4,11–5,89",
+     "fresh": 0.366
+    },
+    {
+     "key": "hba1c",
+     "points": 1,
+     "last_date": "2024-01-29",
+     "last_value": 5.76,
+     "age_days": 943,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "был 5,76 при границе 5,9",
+     "target": "<5.7",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Гликированный гемоглобин",
+     "unit": "%",
+     "ref": "4,8–5,9",
+     "fresh": 0.366
+    },
+    {
+     "key": "homa",
+     "points": 1,
+     "last_date": "2024-01-29",
+     "last_value": 3.13,
+     "age_days": 943,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": "<2.7",
+     "target_status": "мой",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "HOMA-IR",
+     "unit": "—",
+     "ref": "<2,7",
+     "fresh": 0.366
+    },
+    {
+     "key": "waist",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 3.0,
+     "priority": "🟠",
+     "why_interval": "⚠ не измерялась ни разу; точнее ИМТ при абдоминальном типе",
+     "target": "<94",
+     "target_status": "подтверждена",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Окружность талии",
+     "unit": "см",
+     "ref": "<94",
+     "fresh": 0.0
+    },
+    {
+     "key": "vit_d",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 22.96,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "был 22,96; контроль назначен врачом 31.01.2024 и не сдан",
+     "target": "40-60",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "25-ОН витамин D",
+     "unit": "нг/мл",
+     "ref": "≥30 цель",
+     "fresh": 0.1
+    },
+    {
+     "key": "ca",
+     "points": 1,
+     "last_date": "2024-01-25",
+     "last_value": 2.34,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "🟡",
+     "why_interval": "с поправкой на альбумин",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Кальций общий",
+     "unit": "ммоль/л",
+     "ref": "2,15–2,50",
+     "fresh": 0.362
+    },
+    {
+     "key": "mg",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 0.95,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "⚠ тиазид выводит, ИПП мешает всасывать",
+     "target": ">0.85",
+     "target_status": "мой",
+     "off_target": false,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Магний",
+     "unit": "ммоль/л",
+     "ref": "0,66–1,07",
+     "fresh": 0.1
+    },
+    {
+     "key": "esr",
+     "points": 3,
+     "last_date": "2022-04-26",
+     "last_value": 2.0,
+     "age_days": 1586,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 0.286,
+     "direction": "away",
+     "status": "stale",
+     "in_registry": false,
+     "name": "СОЭ",
+     "unit": "мм/ч",
+     "ref": "2–20",
+     "fresh": 0.1
+    },
+    {
+     "key": "rf",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 8.1,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Ревматоидный фактор",
+     "unit": "МЕ/мл",
+     "ref": "0–14",
+     "fresh": 0.362
+    },
+    {
+     "key": "pth",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 0.0,
+     "priority": "🟠",
+     "why_interval": "треугольник костного обмена с ca и vit_d",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Паратгормон",
+     "unit": "пг/мл",
+     "ref": "15–65",
+     "fresh": 0.0
+    }
+   ],
+   "alerts": [
+    "Т-6",
+    "Т-1"
+   ]
+  },
+  {
+   "code": "NEU",
+   "name": "Мозг и нервная система",
+   "short": "Мозг",
+   "weight": 5,
+   "threat": "дефициты, которые дают утомляемость и расфокус, за 15 лет ИПП не проверялись ни разу",
+   "speed": "месяцы",
+   "doctor": "невролог / психиатр (⚠ только после кардиолога — QT)",
+   "markers": [
+    {
+     "key": "b12",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🔴",
+     "why_interval": "⚠⚠ 15 лет ИПП, не измерялся НИ РАЗУ",
+     "target": ">400",
+     "target_status": "мой",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Витамин B12",
+     "unit": "пг/мл",
+     "ref": "197–771",
+     "fresh": 0.0
+    },
+    {
+     "key": "folate",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 12.0,
+     "priority": "🟠",
+     "why_interval": "то же",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Фолиевая кислота",
+     "unit": "нг/мл",
+     "ref": "3,1–20",
+     "fresh": 0.0
+    },
+    {
+     "key": "homocyst",
+     "points": 0,
+     "last_date": null,
+     "last_value": null,
+     "age_days": null,
+     "interval_m": 24.0,
+     "priority": "🟠",
+     "why_interval": "следствие дефицита B12 + фактор риска при Lp(a) 170",
+     "target": "<10",
+     "target_status": "мой",
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "gap",
+     "in_registry": true,
+     "name": "Гомоцистеин",
+     "unit": "мкмоль/л",
+     "ref": "<15",
+     "fresh": 0.0
+    },
+    {
+     "key": "vit_d",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 22.96,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "был 22,96; контроль назначен врачом 31.01.2024 и не сдан",
+     "target": "40-60",
+     "target_status": "подтверждена",
+     "off_target": true,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "25-ОН витамин D",
+     "unit": "нг/мл",
+     "ref": "≥30 цель",
+     "fresh": 0.1
+    },
+    {
+     "key": "mg",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 0.95,
+     "age_days": 947,
+     "interval_m": 6.0,
+     "priority": "🔴",
+     "why_interval": "⚠ тиазид выводит, ИПП мешает всасывать",
+     "target": ">0.85",
+     "target_status": "мой",
+     "off_target": false,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "Магний",
+     "unit": "ммоль/л",
+     "ref": "0,66–1,07",
+     "fresh": 0.1
+    },
+    {
+     "key": "tsh",
+     "points": 3,
+     "last_date": "2024-01-25",
+     "last_value": 0.985,
+     "age_days": 947,
+     "interval_m": 24.0,
+     "priority": "🟡",
+     "why_interval": "щитовидная, стабильна",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": 0.1145,
+     "direction": null,
+     "status": "stale",
+     "in_registry": true,
+     "name": "ТТГ",
+     "unit": "мкМЕ/мл",
+     "ref": "0,27–4,20",
+     "fresh": 0.881
+    },
+    {
+     "key": "ft4",
+     "points": 2,
+     "last_date": "2024-01-25",
+     "last_value": 1.22,
+     "age_days": 947,
+     "interval_m": 12.0,
+     "priority": "",
+     "why_interval": "",
+     "target": null,
+     "target_status": null,
+     "off_target": null,
+     "slope_per_year": null,
+     "direction": null,
+     "status": "stale",
+     "in_registry": false,
+     "name": "Т4 свободный",
+     "unit": "нг/дл",
+     "ref": "0,97–1,65",
+     "fresh": 0.362
+    }
+   ],
+   "alerts": []
+  }
+ ],
+ "alerts": [
+  {
+   "code": "Т-8",
+   "date": "2026-08-27",
+   "organ": "CVD",
+   "organ_label": "CVD сердце",
+   "title": "⚠⚠ удлинённый QT — и планы на препараты, которые его удлиняют",
+   "seen": "Холтер 29.09.2022 (Ситилаб): «Зарегистрировано значительное удлинение корригированного QT-интервала от 450 до 482 мс в течение 4 ч 54 мин, что может являться признаком синдрома удлиненного QT-интервала. Наблюдается гиперадаптация QT к ЧСС (slope QT/RR 0,272 при норме 0,13–0,24)». Кардиолог Дмитриева 02.10.2022 внесла «Синдром удлиненного QT» в диагноз.",
+   "doctor": "Кардиолог — до психиатра, не после. Нужны: свежая ЭКГ с измерением QTc, повторный холтер, заключение о допустимости препаратов, удлиняющих QT. В-16, задачи DOC-1, DOC-6.",
+   "outcome": "QTc в норме → тревога пустая, ограничение снимается. QTc снова >450 → подтвердилась, и вопрос о препаратах СДВГ решается только вместе с кардиологом."
+  },
+  {
+   "code": "Т-9",
+   "date": "2026-08-27",
+   "organ": "KID",
+   "organ_label": "KID почки",
+   "title": "⚠⚠ ХБП С2 поставлена в 2022 и не наблюдается с тех пор",
+   "seen": "Нефролог 10.11.2022: «Хронический интерстициальный нефрит (бактериальный, дисметаболический), фаза латентного воспаления. ХБП С2 (СКФ CKD-EPI 77 мл/мин)».",
+   "doctor": "Нефролог — повторно. Задача DOC-11. Ближайшее действие — креатинин, мочевина, электролиты, микроальбумин и ОАМ 29.08.2026.",
+   "outcome": "egfr ≥ 90 и acr < 30 мг/г (категория A1) → стабилизация, наблюдение раз в 6 мес. egfr < 90 или acr ≥ 30 → подтвердилась, нефролог обязателен."
+  },
+  {
+   "code": "Т-10",
+   "date": "2026-08-27",
+   "organ": "CVD",
+   "organ_label": "CVD липиды",
+   "title": "⚠ ЛПНП растёт пять лет подряд, монотонно",
+   "seen": "Впервые появился настоящий ряд из трёх точек, и он монотонный:",
+   "doctor": "Кардиолог. В-6, В-18.",
+   "outcome": "ЛПНП ниже 4,0 → тренд сломан. ЛПНП ≥ 4,5 → подтвердилась, четвёртая точка подряд вверх."
+  },
+  {
+   "code": "Т-6",
+   "date": "2026-08-27",
+   "organ": "JNT",
+   "organ_label": "JNT суставы",
+   "title": "⚠⚠ тиазидный диуретик в схеме при неконтролируемой подагре",
+   "seen": "С февраля–марта 2026 ежедневно принимается Телпрес Плюс 80/12,5 — телмисартан плюс гидрохлортиазид. Гидрохлортиазид — тиазидный диуретик; повышение мочевой кислоты и провокация подагрических атак у этого класса описаны давно и хорошо, а в клинических рекомендациях по подагре тиазиды прямо называют среди препаратов, которых при подагре по возможности избегают.",
+   "doctor": "Кардиолог. Вопрос В-9, задача DOC-1. Формулировка — meds/spravki/telpres-plus.md §8.",
+   "outcome": "ua заметно выше 455 → вклад тиазида вероятен, тревога подтвердилась. ua на прежнем уровне или ниже → вклад меньше ожидаемого. Врач сменил схему → тревога отработала."
+  },
+  {
+   "code": "Т-7",
+   "date": "2026-08-27",
+   "organ": "KID",
+   "organ_label": "KID почки",
+   "title": "«тройной удар» — три препарата на фильтрацию одновременно",
+   "seen": "С февраля–марта 2026 в схеме одновременно:",
+   "doctor": "Ближайшее действие — не консультация, а анализ: креатинин + мочевина + СКФ + ОАМ с pH, желательно микроальбумин (29.08.2026). При отклонении — нефролог.",
+   "outcome": "egfr ≥ 90 и acr < 30 → тревога пустая, наблюдение остаётся. egfr < 90 или acr ≥ 30 → подтвердилась, к нефрологу. ⚠ Плюс отдельный результат: категория альбуминурии A1/A2/A3 определится впервые — до сих пор ХБП стоит только по СКФ."
+  },
+  {
+   "code": "Т-1",
+   "date": "2026-08-27",
+   "organ": "JNT",
+   "organ_label": "JNT суставы",
+   "title": "подагра не контролируется",
+   "seen": "Мочевая кислота 444 (09.11.2022) → 455 (25.01.2024), обе выше референса 416 и обе значительно выше целевого коридора при подагре (~360). Второе значение получено на фоне приёма Милурита 100 мг — то есть уратснижающая терапия в этой дозе цели не достигала. ⚠⚠ Со слов владельца (26.08.2026): «Обычно я пью раз в месяц 10 дней аркоксия 120» — то есть около 120 дней приёма максимальной дозы НПВС в год при инструкционном м…",
+   "doctor": "Ревматолог. Вопрос В-5: «Обострения примерно ежемесячные; в 2024 году на Милурите 100 мг мочевая кислота была 455. Что с базисной терапией?»",
+   "outcome": "ua ≤ 416 → тревога пустая, картина изменилась. ua > 416 → подтвердилась."
+  },
+  {
+   "code": "Т-11",
+   "date": "2026-08-27",
+   "organ": "GIT",
+   "organ_label": "GIT ЖКТ",
+   "title": "вторая эрадикация H. pylori без подтверждённого исхода, 4-й год",
+   "seen": "H. pylori лечился дважды: в 2016 году (со слов, гастроэнтерологу 28.09.2022) и в 2022 — Хелпил-тест при ЭГДС 01.10.2022 положительный, эрадикация назначена 07.11.2022 (эзомепразол + амоксициллин + джозамицин, 14 дней). Врач назначил контроль ПЦР кала через 1,5–2 месяца. Контрольного теста в архиве нет — ни в 2022, ни позже. С тех пор прошло 3 года 9 месяцев.",
+   "doctor": "Гастроэнтеролог — В-17, задача DOC-4. Вопрос ставится так: «как проверить статус, если ИПП отменять нельзя».",
+   "outcome": "Тест проведён и отрицательный → тревога закрыта, эрадикация удалась. Положительный → лечение, и разговор об ИПП меняется полностью. Врач счёл проверку ненужной → записать его довод дословно."
+  },
+  {
+   "code": "Т-2",
+   "date": "2026-08-27",
+   "organ": "GIT",
+   "organ_label": "GIT ЖКТ",
+   "title": "15 лет ИПП без единой проверки последствий",
+   "seen": "Эзомепразол 40 мг/сут непрерывно с ~2011 года. За всё это время: B12 — не измерялся ни разу, фолаты — ни разу, ферритин и железо — ни разу, гомоцистеин — ни разу, H. pylori — ни разу, гастроскопия — в контуре отсутствует.",
+   "doctor": "Гастроэнтеролог (наблюдение рекомендовано ещё 31.01.2024). Вопросы В-2, В-7.",
+   "outcome": "Все в целевых → тревога пустая, но контроль остаётся ежегодным. Любой ниже цели → подтвердилась."
+  },
+  {
+   "code": "Т-3",
+   "date": "2026-08-27",
+   "organ": "CVD",
+   "organ_label": "CVD сосуды",
+   "title": "сумма факторов не пересматривалась с Lp(a)",
+   "seen": "На 25.01.2024 одновременно: Lp(a) 170,4 нмоль/л (в 2,3 раза выше верхней границы), ЛПНП 4,50, холестерин 6,53, ApoB 1,33 (верхняя граница), индекс атерогенности 3,30, диагноз ГБ II ст. АГ 2 ст. риск 3, ожирение I ст., гипергликемия натощак. С 2025 года добавилось курение ~5 сигарет в день. Индекс атерогенности был повышен уже в 2018 году (3,1).",
+   "doctor": "Кардиолог. Вопросы В-6, В-8.",
+   "outcome": "Врач учёл и пересмотрел цели → тревога отработала. Не предъявлено → не проверена."
+  },
+  {
+   "code": "Т-4",
+   "date": "2026-08-27",
+   "organ": null,
+   "organ_label": "весь контур",
+   "title": "картина устарела на 2 года 7 месяцев",
+   "seen": "Последний лабораторный забор — 29.01.2024. Последний замер веса — 31.01.2024. Последний замер АД — 31.01.2024. Последнее домашнее измерение давления — апрель 2019. Восемь пунктов назначений от 31.01.2024 не выполнены, включая глюкозотолерантный тест при HbA1c 5,76 и контроль витамина D.",
+   "doctor": "Терапевт или эндокринолог — базовый набор. План — docs/PLAN-checkup.md.",
+   "outcome": "Свежие данные внесены → тревога снята и переоценка всех остальных."
+  },
+  {
+   "code": "Т-5",
+   "date": "2026-08-27",
+   "organ": "KID",
+   "organ_label": "KID почки",
+   "title": "невыясненный эпизод креатинина 112,4",
+   "seen": "Креатинин 94,65 (ноябрь 2018) → 112,4 (09.11.2022, выше референса) → 96,0 (25.01.2024). Одиночный выброс между двумя нормальными значениями. Днём ранее, 08.11.2022, pH мочи 5,5 и плотность 1,021 — картина концентрированной кислой мочи. Мочевина в тот забор не сдавалась, микроальбумин не сдавался с 2018 года.",
+   "doctor": "Терапевт/нефролог при повторении. Ближайшее действие — не консультация, а анализ: acr (разовая порция), creat+urea, общий анализ мочи с pH.",
+   "outcome": "egfr ≥ 90 и acr < 30 → пустая. egfr < 90 повторно или acr ≥ 30 → подтвердилась, к нефрологу."
+  }
+ ],
+ "questions": [
+  {
+   "code": "В-1",
+   "who": "ревматолог / терапевт",
+   "title": "что из назначенного я принимаю",
+   "question": "Что из этого списка отменялось врачом, а что прекратилось само? Особенно: Милурит (аллопуринол) и Телмиста (телмисартан).",
+   "open": false
+  },
+  {
+   "code": "В-2",
+   "who": "гастроэнтеролог",
+   "title": "пятнадцать лет ИПП",
+   "question": "(1) Нужно ли проверить последствия длительного приёма — дефициты и слизистую? (2) Обсуждается ли в моём случае снижение дозы или переход на приём по требованию, и что для этого надо обследовать сначала?",
+   "open": true
+  },
+  {
+   "code": "В-3",
+   "who": "кардиолог / ревматолог",
+   "title": "НПВС при моём давлении",
+   "question": "Насколько безопасен для меня эторикоксиб при таком давлении, и какой контроль нужен, если он остаётся?",
+   "open": true
+  },
+  {
+   "code": "В-4",
+   "who": "кардиолог",
+   "title": "ледяная вода и мой ритм",
+   "question": "(1) Нужно ли повторить ХМ ЭКГ? (2) Безопасно ли для меня длительное погружение в ледяную воду при такой картине проводимости и при ГБ II ст.?",
+   "open": true
+  },
+  {
+   "code": "В-5",
+   "who": "ревматолог",
+   "title": "подагра контролируется?",
+   "question": "Мне нужна базисная уратснижающая терапия с достижением целевого уровня, или текущая схема «обезболивающее по требованию» считается достаточной?",
+   "open": true
+  },
+  {
+   "code": "В-6",
+   "who": "кардиолог",
+   "title": "липопротеин (а) 170,4",
+   "question": "(1) Меняет ли Lp(a) 170 мою оценку риска и целевой уровень ЛПНП? (2) Есть ли смысл обследовать сосуды (дуплекс БЦА) сейчас? (3) Стоит ли проверить Lp(a) у детей и близких родственников — показатель наследуемый?",
+   "open": true
+  },
+  {
+   "code": "В-7",
+   "who": "гастроэнтеролог",
+   "title": "неполное переваривание",
+   "question": "Стоит ли проверить панкреатическую эластазу кала?",
+   "open": true
+  },
+  {
+   "code": "В-8",
+   "who": "кардиолог/терапевт",
+   "title": "давление сейчас",
+   "question": "Какой режим домашнего контроля мне нужен и какие цифры считать поводом прийти?",
+   "open": true
+  },
+  {
+   "code": "В-9",
+   "who": "кардиолог",
+   "title": "⚠⚠ тиазид в моей схеме при подагре",
+   "question": "(1) Почему схема сменилась на комбинацию с тиазидом? (2) Можно ли рассмотреть комбинацию без него — например, телмисартан с амлодипином? (3) Если тиазид остаётся, какой контроль нужен — как часто мочевая кислота, калий, креатинин?",
+   "open": true
+  },
+  {
+   "code": "В-10",
+   "who": "уролог",
+   "title": "обострение простатита и когда сдавать ПСА",
+   "question": "(1) Нужно ли обследование при таких обострениях — посев, УЗИ? (2) Через сколько недель после стихания корректно сдавать ПСА? (3) Есть ли смысл в том, что я принимаю, или нужна другая схема?",
+   "open": true
+  },
+  {
+   "code": "В-11",
+   "who": "дерматолог",
+   "title": "шелушение лица и зуд",
+   "question": "(1) Что это? (2) Нужно ли проверять дефициты — цинк, витамины группы B? (3) Может ли это быть связано с препаратами?",
+   "open": true
+  },
+  {
+   "code": "В-12",
+   "who": "психиатр",
+   "title": "оценка на СДВГ",
+   "question": "Клиническая оценка на СДВГ у взрослого с дифференциальной диагностикой; целесообразность медикаментозной поддержки с учётом кардиологического заключения.",
+   "open": true
+  },
+  {
+   "code": "В-13",
+   "who": "кардиолог",
+   "title": "холтер 2022 и свежая ЭКГ",
+   "question": "(1) Можно ли получить копию холтера 2022 и заключений за 2023–2026? (2) Нужна ли свежая ЭКГ с оценкой интервала QT — она понадобится психиатру? (3) Нужно ли повторить холтер, учитывая паузы >2 с в 2018 году?",
+   "open": true
+  },
+  {
+   "code": "В-14",
+   "who": "кардиолог",
+   "title": "ночное давление 46 мм рт.ст. на терапии",
+   "question": "Такой размах — от 193 днём до 33 ночью — это нормально на терапии? Не слишком ли низко ночью, и не связано ли это со временем приёма препарата?",
+   "open": true
+  },
+  {
+   "code": "В-15",
+   "who": "кардиолог",
+   "title": "NYHA изменился с 0 на II",
+   "question": "Что означает переход с NYHA 0 на NYHA II в моём случае и нужно ли обследование (ЭхоКГ в динамике, стресс-тест)? Назначенные тогда ВЭМ или стресс-ЭхоКГ я не делал.",
+   "open": true
+  },
+  {
+   "code": "В-16",
+   "who": "кардиолог",
+   "title": "⚠⚠ удлинённый QT и препараты",
+   "question": "(1) Нужен ли повторный холтер и консультация аритмолога сейчас, спустя 4 года? (2) ⚠⚠ Я планирую обследование у психиатра по поводу СДВГ, где могут быть назначены атомоксетин или стимуляторы. Атомоксетин удлиняет QT. Что вы скажете об этом с учётом моего QTc 482? (3) Есть ли группы лекарств, которые мне вообще нельзя, и что говорить врачам при новых назначениях?",
+   "open": true
+  },
+  {
+   "code": "В-17",
+   "who": "гастроэнтеролог",
+   "title": "эрадикация H. pylori — чем закончилась?",
+   "question": "(1) Проводился ли контроль и был ли он успешным? (2) Если нет — нужно ли проверить сейчас? (3) ⚠ Для теста нужна отмена ИПП на 2 недели — как это сделать правильно при ГПОД и рефлюкс-эзофагите 2 ст.?",
+   "open": true
+  },
+  {
+   "code": "В-18",
+   "who": "кардиолог",
+   "title": "статин назначался дважды, ЛПНП вырос",
+   "question": "(1) Принимал ли я его в действительности достаточно долго — и если да, почему ЛПНП вырос? (2) Нужна ли другая доза или другой препарат с учётом Lp(a)?",
+   "open": true
+  },
+  {
+   "code": "В-19",
+   "who": "ревматолог",
+   "title": "фебуксостат назначался, но не прижился",
+   "question": "(1) Какой именно препарат повышал давление — аллопуринол или фебуксостат? Это разные вещества. (2) Учитывая ХБП С2 и что сейчас в схеме снова тиазид — какая уратснижающая терапия возможна? (3) Аркоксию вы назначали на 7 дней при приступе, а я принимаю по 10 дней каждый месяц — что с этим делать?",
+   "open": true
+  },
+  {
+   "code": "В-20",
+   "who": "кардиолог/аритмолог",
+   "title": "энергетик с женьшенем, кофеином и элеутерококком при удлинённом QT",
+   "question": "1. Женьшень в исследованиях на здоровых добровольцах удлинял QTc; там это признали клинически незначимым. Переносится ли этот вывод на исходный QTc 482 мс? 2. Дополнительный кофеин поверх кофе — при 25 сериях пауз и АВ-блокаде 2 ст. это допустимо или нет? 3. Элеутерококк: в инструкциях к аптечным формам артериальная гипертензия стоит противопоказанием. Относится ли это к дозе в составе БАДа? 4. И более общий: что мне вообще нельзя из безрецептурных стимуляторов при моём QT и проводимости? Проще получить границу один раз, чем спрашивать про каждую банку.",
+   "open": true
+  }
+ ],
+ "tasks": [
+  {
+   "code": "LAB-1",
+   "status": "Готово",
+   "what": "Оформить предзаказ Ситилаб на 29.08 по списку docs/PLAN-checkup-2026-08-29.md",
+   "why": "первая свежая точка за 941 день",
+   "due": "✅ 29.08.2026",
+   "linked": "Т-4",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "LAB-2",
+   "status": "Готово",
+   "what": "Сдать кровь и мочу 29.08, натощак 12 ч, 48 ч без алкоголя/мяса. ⚠ Микроальбумин спросить отдельно: ACR в разовой порции с пересчётом на креатинин, НЕ суточный",
+   "why": "суточный сбор в субботу не сдать; пересчёт на креатинин снимает влияние разведения",
+   "due": "✅ сдан 29.08.2026, результаты ~31.08",
+   "linked": "LAB-1",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "LAB-3",
+   "status": "К работе",
+   "what": "Внести результаты в labs_master.md с указанием принимаемых препаратов. ⚠ В провенанс забора обязательны три строки: витамин С 500 мг — единственный приём утро 28.08 · шаурма 28.08 ~18:30 (пуриновая нагрузка, ua смещена вверх) · утро 29.08 только вода, кофе не было",
+   "why": "без этого сдача не считается выполненной; без провенанса цифры прочитаются неверно",
+   "due": "31.08.2026",
+   "linked": "Т-1,Т-4,Т-5,Т-6, Д-26",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "DOC-1",
+   "status": "К работе",
+   "what": "Кардиолог: показать, что Телпрес Плюс содержит гидрохлортиазид, а у меня подагра с ежемесячными обострениями",
+   "why": "тиазид повышает мочевую кислоту — возможная причина того, что подагра не поддаётся",
+   "due": "2 недели",
+   "linked": "Т-6, В-9",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "DOC-10",
+   "status": "К работе",
+   "what": "⚠⚠ Кардиолог: показать QTc 482 мс из холтера 2022 ДО визита к психиатру. ➕ 29.08.2026: заодно В-20 — можно ли мне безрецептурные стимуляторы (женьшень, кофеин, элеутерококк) при QTc 482 и паузах до 2048 мс. Просить границу один раз, а не разрешение на каждую банку",
+   "why": "атомоксетин удлиняет QT; без заключения кардиолога разговор о препаратах СДВГ невозможен. Стимуляторы из БАДов — та же ось",
+   "due": "2 недели",
+   "linked": "Т-8, В-16, В-20, MED-9",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "DOC-11",
+   "status": "К работе",
+   "what": "⚠⚠ Нефролог: ХБП С2 поставлена 10.11.2022, не наблюдается 3,8 года",
+   "why": "назначения нефролога (эдарби, контроль креатинина ежемесячно) не выполнялись",
+   "due": "2 недели",
+   "linked": "Т-9, DOC-1",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "MED-1",
+   "status": "В работе",
+   "what": "⛔ Телпрес Плюс не отменять самостоятельно — только через кардиолога",
+   "why": "резкая отмена антигипертензивной терапии опасна",
+   "due": "постоянно",
+   "linked": "В-9",
+   "bucket": "🔴 Горит — окно закрывается",
+   "done": false
+  },
+  {
+   "code": "DOC-2",
+   "status": "К работе",
+   "what": "Ревматолог (В-19: фебуксостат назначался 03.2023, не прижился): подагра не контролируется (ua 455 на Милурите 100, аркоксия 10 дней каждый месяц, уратснижающие брошены)",
+   "why": "базисная терапия vs обезболивание по требованию",
+   "due": "сентябрь",
+   "linked": "Т-1, В-5",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "DOC-3",
+   "status": "К работе",
+   "what": "Уролог по текущему обострению простатита",
+   "why": "обострение идёт сейчас, самолечение свечами — не план",
+   "due": "1 неделя",
+   "linked": "В-10",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "DOC-4",
+   "status": "К работе",
+   "what": "⚠⚠ Гастроэнтеролог: 15 лет ИПП + H. pylori лечился дважды, контроль второй эрадикации не сделан (идёт 4-й год)",
+   "why": "B12, железо, дефициты; ⛔ как проверить H. pylori, если ИПП отменять нельзя — самовольный тест ложноотрицателен",
+   "due": "сентябрь",
+   "linked": "Т-2, Т-11, В-2, В-7, В-17",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "DATA-2",
+   "status": "К работе",
+   "what": "Найти заключения кардиолога за 2023–2026 (наблюдение 1 раз в год)",
+   "why": "4 визита, ни одного документа в контуре",
+   "due": "2 недели",
+   "linked": "Т-3",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "DATA-4",
+   "status": "К работе",
+   "what": "Есть ли анализы 2024–2026 вне папки",
+   "why": "возможно, Т-4 — просто пробел архива",
+   "due": "1 неделя",
+   "linked": "Т-4",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "MED-2",
+   "status": "Готово",
+   "what": "Купить витамин С — аскорбат натрия 500 мг (не аскорбиновую кислоту)",
+   "why": "кофактор синтеза коллагена для UESUPPS; ⚠ при подагре доза выше 1000 мг/сут не нужна",
+   "due": "✅ 28.08.2026",
+   "linked": "VitaScience, куплен и начат 28.08 — ⚠ на день раньше плана, разбор в spravki/vitamin-c.md §10 и Д-26",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "SYS-4",
+   "status": "К работе",
+   "what": "Первый пуш приложения на GitHub Pages — создать репозиторий, git -C app push, включить Pages. ⚠ И сразу сменить пароль по умолчанию: npm run passcode \"фраза\" → src/config.js",
+   "why": "приложение собрано и проверено, но живёт только на диске; пароль в коде — kontur-2026, он опубликован в README",
+   "due": "3 дня",
+   "linked": "Д-29",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "SYS-3",
+   "status": "К работе",
+   "what": "Сохранить 6 скиллов в аккаунт Cowork — мастера в docs/skills/, порядок в 00-SKILLS.md",
+   "why": "без этого скиллы не вгружаются по триггеру и не работают",
+   "due": "3 дня",
+   "linked": "—",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "SYS-1",
+   "status": "К работе",
+   "what": "Первая недельная отметка weekly/weekly_2026.md",
+   "why": "ряд начинается с неё; без него Н-1…Н-11 не проверить",
+   "due": "30.08.2026",
+   "linked": "Н-1…Н-9",
+   "bucket": "🟠 Высокий",
+   "done": false
+  },
+  {
+   "code": "DOC-5",
+   "status": "К работе",
+   "what": "Дерматолог: чешуйки и краснота брови/нос 4 мес + зуд головы и спины",
+   "why": "картина узнаваемая, но диагноз ставит врач; заодно вопрос о связи с дефицитами",
+   "due": "октябрь",
+   "linked": "В-11",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DOC-6",
+   "status": "К работе",
+   "what": "Психиатр по СДВГ — с выжимкой от 17.02.2026 + заключением кардиолога",
+   "why": "⚠ порядок важен: сначала кардиолог (ЭКГ, QT), потом психиатр",
+   "due": "после DOC-1",
+   "linked": "В-12",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-4",
+   "status": "Ждёт",
+   "what": "Решение по Омакору: покупать сейчас или после липидограммы",
+   "why": "⚠ Омакор снижает триглицериды, но может слегка поднимать ЛПНП — нужны исходные цифры",
+   "due": "после LAB-3",
+   "linked": "spravki/omacor.md",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-5",
+   "status": "Ждёт",
+   "what": "Решение по возврату магния L-треоната",
+   "why": "3 месяца приёма дали субъективное улучшение фокуса; ⚠ тиазид и ИПП оба выводят магний — сначала измерить",
+   "due": "после LAB-3",
+   "linked": "Н-9, spravki/magnesium-threonate.md",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-6",
+   "status": "В работе",
+   "what": "UESUPPS Flex: курс 2–3 месяца, 3 таблетки в день во время еды",
+   "why": "хондропротектор работает накопительно, минимум 2 мес",
+   "due": "до 27.10.2026",
+   "linked": "spravki/uesupps-flex.md",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-7",
+   "status": "Готово",
+   "what": "Записать дозу теанина в мг с упаковки",
+   "why": "без дозы оценка бессмысленна",
+   "due": "✅ 29.08.2026",
+   "linked": "500 мг — в 2–5 раз выше допущения справки; переоценено взаимодействие с Телпресом",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-9",
+   "status": "Отменено",
+   "what": "Решение по Fitness Catalyst Energy Booster",
+   "why": "✅ решение владельца 29.08.2026: не покупается. Довод: с энергией всё отлично, задачи, которую решает продукт, нет; выигрыша ноль при трёх открытых тревогах (QTc 482 · паузы 2048 мс · ГБ II ст.). ⚠ В-20 остаётся открытым — граница по безрецептурным стимуляторам нужна до визита к психиатру независимо от этой банки",
+   "due": "—",
+   "linked": "В-20, Т-8, Т-3, spravki/energy-booster.md",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-10",
+   "status": "К работе",
+   "what": "Записать точную дату последнего приёма теанина (осталась 1 таблетка)",
+   "why": "от неё считается первая неделя без теанина; без даты Н-12 не состоится",
+   "due": "3 дня",
+   "linked": "Н-12, SYS-1",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "MED-8",
+   "status": "К работе",
+   "what": "Завести кофе как учитываемый фактор: чашек в день, время последней, чем запивается утренняя таблетка",
+   "why": "кофеин влияет на АД (Телпрес), на диурез (обезвоживание — триггер подагры) и служит носителем теанина; сейчас не ведётся нигде",
+   "due": "вместе с SYS-1",
+   "linked": "Т-1, Т-6, spravki/theanine.md",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "LAB-4",
+   "status": "Ждёт",
+   "what": "ПСА — не раньше 4–6 недель после стихания обострения простатита",
+   "why": "в обострении ложно повышен",
+   "due": "октябрь",
+   "linked": "В-10",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-8",
+   "status": "К работе",
+   "what": "Вычитать СДВГ-выжимку перед визитом к психиатру — там неверно указано место жительства (Вена)",
+   "why": "одна ошибка в анамнезе ставит под сомнение весь документ в глазах врача",
+   "due": "до DOC-6",
+   "linked": "А-1",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-13",
+   "status": "К работе",
+   "what": "Восстановить экспозицию нексиума: точный год начала, доза во времени, перерывы, пробовал ли отменять и что было",
+   "why": "15 лет — самая длинная терапия; «примерно пятнадцать» гастроэнтерологу не ответ (Д-23)",
+   "due": "до DOC-4",
+   "linked": "Д-23",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-12",
+   "status": "К работе",
+   "what": "Сверить с бланком нормобласты 12,9% в заборе 01.10.2022",
+   "why": "в норме ноль; 12,9% — картина тяжёлой патологии, которой нет в остальных данных. Вероятна ошибка распознавания",
+   "due": "1 неделя",
+   "linked": "—",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-9",
+   "status": "Готово",
+   "what": "К работе",
+   "why": "Оцифровать архив 73 скана — docs/REGL-massovaya-ocifrovka.md",
+   "due": "ряды вырастут с 11 заборов до ~60–70; многие показатели впервые перейдут порог 3 точек и дадут тренды",
+   "linked": "2 недели",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-10",
+   "status": "Ждёт",
+   "what": "⚠ Если у сканов нет текстового слоя — пересканировать приложением с OCR",
+   "why": "полчаса работы против сотни страниц через модель",
+   "due": "после scan_triage",
+   "linked": "DATA-9",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-6",
+   "status": "К работе",
+   "what": "Годы моржевания: какие сезоны, когда прекращено",
+   "why": "без этого Н-1 не с чем сопоставлять",
+   "due": "2 недели",
+   "linked": "Н-1",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "DATA-7",
+   "status": "К работе",
+   "what": "Уточнить дату забора «ноябрь 2018»",
+   "why": "точка выпадает из всех рядов",
+   "due": "—",
+   "linked": "—",
+   "bucket": "🟡 Средний",
+   "done": false
+  },
+  {
+   "code": "LAB-5",
+   "status": "Бэклог",
+   "what": "Глюкозотолерантный тест",
+   "why": "назначен 31.01.2024, не сдан",
+   "due": "",
+   "linked": "",
+   "bucket": "⚪ Низкий / бэклог",
+   "done": false
+  },
+  {
+   "code": "LAB-6",
+   "status": "Бэклог",
+   "what": "Тестостерон, ГСПГ, пролактин",
+   "why": "назначены 31.01.2024, не сданы",
+   "due": "",
+   "linked": "",
+   "bucket": "⚪ Низкий / бэклог",
+   "done": false
+  },
+  {
+   "code": "DOC-9",
+   "status": "Бэклог",
+   "what": "Повторное ХМ ЭКГ",
+   "why": "последнему 8 лет, в нём паузы >2 с",
+   "due": "",
+   "linked": "",
+   "bucket": "⚪ Низкий / бэклог",
+   "done": false
+  },
+  {
+   "code": "LAB-0",
+   "status": "Отменено",
+   "what": "Липопротеин (а) повторно",
+   "why": "⛔ уже измерен 25.01.2024 = 170,4 нмоль/л. Генетически задан, не меняется — действителен пожизненно",
+   "due": "",
+   "linked": "",
+   "bucket": "Отменено",
+   "done": false
+  }
+ ],
+ "meds": [
+  {
+   "name": "Нексиум (эзомепразол) 20 мг × 2/сут",
+   "note": "⚠ 15 лет непрерывно",
+   "group": "постоянно",
+   "regimen": "утром и перед сном, суммарно 40 мг/сут",
+   "why": "ГЭРБ + хронический гастродуоденит (с 12 лет, т.е. с ~1995)",
+   "since": "~2011",
+   "prescriber": "",
+   "warn": "⚠⚠ Самая длительная и самая недообследованная позиция контура. Справка — spravki/nexium.md. Тревога Т-2."
+  },
+  {
+   "name": "Телпрес Плюс 80 мг + 12,5 мг",
+   "note": "⚠⚠ ежедневно ~полгода",
+   "group": "постоянно",
+   "regimen": "1 таблетка ежедневно",
+   "why": "гипертоническая болезнь II ст., АГ 2 ст., риск 3",
+   "since": "~февраль–март 2026 (владелец 27.08.2026: «последние полгода»; точная дата не зафиксирована)",
+   "prescriber": "предположительно кардиолог — ⚠ подтверждения в контуре нет (DATA-2)",
+   "warn": "⚠⚠⚠ ГИДРОХЛОРТИАЗИД ПОВЫШАЕТ МОЧЕВУЮ КИСЛОТУ. Тиазидные диуретики — одна из самых известных лекарственных причин гиперурикемии и провокации подагрических атак. Вы принимаете его ежедневно полгода, и всё это время подагра обостряется примерно раз в месяц. Это не совпадение, которое можно игнорировать"
+  },
+  {
+   "name": "Омакор 1000 мг (омега-3, ЭПК/ДГК)",
+   "note": "",
+   "group": "постоянно",
+   "regimen": "курсами по пачке",
+   "why": "",
+   "since": "сентябрь 2022",
+   "prescriber": "кардиолог, сентябрь 2022, по результатам холтеровского обследования",
+   "warn": "⚠⚠ Этого холтера в контуре НЕТ. В папке лежит ХМ ЭКГ 2018 года, где желудочковая экстрасистолия прямо не обнаружена — а в диагнозе 2024 года она есть. Холтер 2022 года, вероятно, и есть источник. Задача DATA-1."
+  },
+  {
+   "name": "Аркоксия (эторикоксиб) 120 мг",
+   "note": "⚠⚠ 10 дней каждый месяц",
+   "group": "курсом / по требованию",
+   "regimen": "10 дней подряд раз в месяц, 120 мг (дословно, 26.08.2026: «Обычно я пью раз в месяц 10 дней аркоксия 120 и в целом жить можно»)",
+   "why": "",
+   "since": "~2023",
+   "prescriber": "",
+   "warn": "⚠⚠ Это примерно 120 дней приёма максимальной дозы НПВС в год. Для эторикоксиба 120 мг в инструкции указан максимум 8 дней на курс — доза предназначена для купирования острого приступа, а не для ежемесячных десятидневных циклов."
+  },
+  {
+   "name": "Витапрост (свечи)",
+   "note": "начат 26.08.2026",
+   "group": "курсом / по требованию",
+   "regimen": "",
+   "why": "обострение хронического простатита",
+   "since": "",
+   "prescriber": "",
+   "warn": ""
+  },
+  {
+   "name": "Простамол Уно (Serenoa repens)",
+   "note": "начат 27.08.2026",
+   "group": "курсом / по требованию",
+   "regimen": "1 таблетка в день",
+   "why": "",
+   "since": "",
+   "prescriber": "",
+   "warn": ""
+  },
+  {
+   "name": "UESUPPS Ultra Energy Flex Formula",
+   "note": "начат ~26.08.2026",
+   "group": "курсом / по требованию",
+   "regimen": "",
+   "why": "",
+   "since": "",
+   "prescriber": "",
+   "warn": "⚠ Хондропротектор работает накопительно: эффект MSM через 7–14 дней, глюкозамина и хондроитина — не раньше 4–6 недель. Курс меньше месяца бессмыслен."
+  },
+  {
+   "name": "Витамин С (аскорбат натрия) 500 мг, VitaScience",
+   "note": "начат 28.08.2026",
+   "group": "курсом / по требованию",
+   "regimen": "1 таблетка утром, во время плотного завтрака с кофе, вместе с первой таблеткой UESUPPS и теанином",
+   "why": "кофактор гидроксилирования пролина/лизина — сборка коллагена; вспомогательное к UESUPPS Flex, не самостоятельная терапия",
+   "since": "28.08.2026 (утро, со слов владельца 28.08.2026; состав утреннего приёма уточнён 29.08.2026)",
+   "prescriber": "",
+   "warn": "⚠⚠ Начат за сутки до забора 29.08 — на день раньше, чем планировал сам контур (MED-2 стоял на 29.08, справка §9: «покупать после сдачи, первую точку лучше получить чистой»). Утром 29.08 приём пропускается — забор натощак. Провенанс забора должен это содержать. См. Д-26."
+  },
+  {
+   "name": "Теанин с кофе",
+   "note": "последние 3 месяца",
+   "group": "курсом / по требованию",
+   "regimen": "1–2 таблетки с кофе, кофе — во время плотного завтрака (уточнено 29.08.2026)",
+   "why": "со слов — сглаживание эффекта кофеина, концентрация",
+   "since": "~май–июнь 2026",
+   "prescriber": "",
+   "warn": "⚠⚠ При 500–1000 мг гипотензивный эффект теанина складывается с Телпресом заметнее, чем считалось при оценке «100–250 мг»"
+  },
+  {
+   "name": "Циновит (шампунь)",
+   "note": "2 раза в неделю, всё тело",
+   "group": "курсом / по требованию",
+   "regimen": "",
+   "why": "со слов — «голова часто чешется и кожа на спине и в целом верхней части тела тоже»",
+   "since": "",
+   "prescriber": "",
+   "warn": "⚠ Шампунь применяется на всё тело — это вне обычного назначения шампуня; отметить дерматологу"
+  },
+  {
+   "name": "Наружное на лицо",
+   "note": "с ~20.08.2026",
+   "group": "курсом / по требованию",
+   "regimen": "",
+   "why": "",
+   "since": "",
+   "prescriber": "",
+   "warn": "⚠ Всё же оценка теперь идёт по паре «Липикар неделю → Липобейз дальше», а не по одному средству. Если станет хуже — первым делом проверить, не в переносимости ли конкретного крема дело."
+  }
+ ],
+ "conditions": [
+  {
+   "name": "Подагра, хроническое течение, подагрический артрит",
+   "flag": "",
+   "source": "studies/_istochniki/Изюмов_М_Э_,_Первичная_консультация_эндокринолога,_Митрошина_Е_В.pdf",
+   "led_by": "ревматолог",
+   "orphan": false
+  },
+  {
+   "name": "ГЭРБ. Хронический гастродуоденит",
+   "flag": "",
+   "source": "консультация 31.01.2024, цитата: «ГЭРБ. Хронический гастродуоденит.» ⚠ В PDF это строка анамнеза заболевания, а не блока «Диагноз» — то есть записано со слов пациента, а не выставлено этим врачом. Первичный документ (гастроэнтеролог) в контуре отсутствует.",
+   "led_by": "гастроэнтеролог (рекомендовано наблюдение 31.01.2024)",
+   "orphan": false
+  },
+  {
+   "name": "Гипертоническая болезнь II стадии, АГ 2 степени, риск 3",
+   "flag": "",
+   "source": "консультация 31.01.2024, цитата: «Наблюдается у кардиолога — Гипертоническая болезнь 2 стадии. АГ 2 ст. Риск 3. Желудочковая экстрасистолия транзиторная (I 49.3) Гиперхолестеринемия.»",
+   "led_by": "кардиолог",
+   "orphan": false
+  },
+  {
+   "name": "Атеросклероз артерий брахиоцефального ствола (БЦС)",
+   "flag": "⚠⚠",
+   "source": "консультация кардиолога Яшкиной 26.01.2024, labs/_scans/Консультация кардиолога 26.01.2024/",
+   "led_by": "кардиолог",
+   "orphan": false
+  },
+  {
+   "name": "ХБП С2 · Хронический интерстициальный нефрит",
+   "flag": "⚠⚠",
+   "source": "консультация нефролога 10.11.2022, Ситилаб · labs/_scans/_small/очередь_2__Скан_2.jpeg",
+   "led_by": "⛔ никем с ноября 2022. Задача DOC-11.",
+   "orphan": true
+  },
+  {
+   "name": "Хронический аутоиммунный тиреоидит (ХАИТ), эутиреоз",
+   "flag": "",
+   "source": "УЗИ щитовидной 28.09.2022 («УЗ-признаки хронического аутоиммунного тиреоидита, псевдокист щитовидной железы»); диагноз подтверждён нефрологом 10.11.2022 и кардиологом 02.10.2022",
+   "led_by": "⛔ никем",
+   "orphan": true
+  },
+  {
+   "name": "Синдром удлинённого QT (под вопросом) · АВ-блокада 2 ст.",
+   "flag": "⚠⚠",
+   "source": "холтер 29.09.2022 (Ситилаб, врач Кодякова А.В.); диагноз оформлен кардиологом Дмитриевой Н.В. 02.10.2022",
+   "led_by": "⛔ никем",
+   "orphan": true
+  },
+  {
+   "name": "Хронический калькулёзный простатит (N41.1)",
+   "flag": "",
+   "source": "осмотр уролога Тимофеева А.Б. (МЕДГАРД) 24.02.2022 — «Хронический калькулёзный простатит», МКБ «[N41.1] Хронический простатит»",
+   "led_by": "⛔ никем. DOC-3, В-10",
+   "orphan": true
+  },
+  {
+   "name": "Грыжа пищеводного отверстия диафрагмы (ГПОД) · рефлюкс-эзофагит 2 ст.",
+   "flag": "",
+   "source": "ЭГДС 01.10.2022 — «Признаки ГПОД, рефлюкс-эзофагита 2 ст. (Savary-Miller), эритематозной гастродуоденопатии в ст. обострения»; ГПОД также в сопутствующих диагнозах COVID-эпикриза 2021",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Хеликобактерная инфекция (перенесена, статус контроля неизвестен)",
+   "flag": "",
+   "source": "Хелпил-тест при ЭГДС 01.10.2022 — положительная уреазная активность",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Хронический паренхиматозный панкреатит с экскреторной недостаточностью",
+   "flag": "",
+   "source": "гастроэнтеролог 28.09.2022 и 07.11.2022 — «Хронический паренхиматозный панкреатит с экскреторной недостаточностью железы, умеренное обострение»",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Дорсопатия",
+   "flag": "",
+   "source": "та же консультация 26.01.2024",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Дислипидемия / гиперхолестеринемия",
+   "flag": "",
+   "source": "консультация 31.01.2024",
+   "led_by": "кардиолог",
+   "orphan": false
+  },
+  {
+   "name": "Экзогенно-конституциональное ожирение I степени (Е66.0)",
+   "flag": "",
+   "source": "консультация 31.01.2024",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Гипергликемия натощак (R73.9)",
+   "flag": "",
+   "source": "консультация 31.01.2024",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Метаболически ассоциированная жировая болезнь печени",
+   "flag": "",
+   "source": "консультация 31.01.2024; УЗИ ОБП 2022",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Недостаточность витамина D",
+   "flag": "",
+   "source": "консультация 31.01.2024; vit_d 22,96 нг/мл",
+   "led_by": "",
+   "orphan": false
+  },
+  {
+   "name": "Транзиторная желудочковая экстрасистолия (I49.3)",
+   "flag": "",
+   "source": "консультация 31.01.2024 (со слов кардиолога)",
+   "led_by": "",
+   "orphan": false
+  }
+ ],
+ "therapy_gaps": [
+  {
+   "med": "Телпрес Плюс (ГХТЗ)",
+   "watch": [
+    "ua",
+    "k",
+    "na",
+    "mg",
+    "creat",
+    "egfr",
+    "sbp",
+    "dbp"
+   ],
+   "since": "~2026-03"
+  },
+  {
+   "med": "Нексиум (ИПП)",
+   "watch": [
+    "b12",
+    "folate",
+    "ferr",
+    "fe",
+    "mg",
+    "homocyst"
+   ],
+   "since": "~2011"
+  },
+  {
+   "med": "Аркоксия (НПВС)",
+   "watch": [
+    "creat",
+    "egfr",
+    "sbp",
+    "dbp"
+   ],
+   "since": "~2023"
+  },
+  {
+   "med": "Омакор",
+   "watch": [
+    "tg",
+    "ldl"
+   ],
+   "since": "2022-09"
+  },
+  {
+   "med": "UESUPPS (глюкозамин)",
+   "watch": [
+    "hba1c"
+   ],
+   "since": "2026-08-26"
+  }
+ ],
+ "weekly": [
+  {
+   "week": "2026-W35",
+   "fields": {
+    "arcoxia": 0.0,
+    "prostate": 5.0,
+    "other_meds": "витапрост свечи с 26.08, простамол уно с 27.08, UESUPPS с 26.08",
+    "alcohol": 1.0,
+    "skin_face": 2.0,
+    "telpres": 7.0,
+    "nexium": 2.0,
+    "events": "26.08 обострение простатита, начаты витапрост + UESUPPS; 27.08 начат простамол, липикар заменён на липобейз; 26.08 мясо и вино; 29.08 запланирован чекап Ситилаб"
+   }
+  }
+ ],
+ "series": {
+  "wbc": [
+   [
+    "2018-07-25",
+    7.08
+   ],
+   [
+    "2019-01-09",
+    5.8
+   ],
+   [
+    "2021-07-26",
+    3.66
+   ],
+   [
+    "2022-04-26",
+    4.97
+   ],
+   [
+    "2022-10-01",
+    5.21
+   ],
+   [
+    "2024-01-25",
+    4.48
+   ]
+  ],
+  "rbc": [
+   [
+    "2018-07-25",
+    5.34
+   ],
+   [
+    "2019-01-09",
+    4.86
+   ],
+   [
+    "2021-07-26",
+    5.32
+   ],
+   [
+    "2022-04-26",
+    4.96
+   ],
+   [
+    "2022-10-01",
+    5.4
+   ],
+   [
+    "2024-01-25",
+    5.0
+   ]
+  ],
+  "hgb": [
+   [
+    "2018-07-25",
+    152.0
+   ],
+   [
+    "2019-01-09",
+    140.0
+   ],
+   [
+    "2021-07-26",
+    155.0
+   ],
+   [
+    "2022-04-26",
+    144.0
+   ],
+   [
+    "2022-10-01",
+    157.0
+   ],
+   [
+    "2024-01-25",
+    145.0
+   ]
+  ],
+  "hct": [
+   [
+    "2018-07-25",
+    46.1
+   ],
+   [
+    "2019-01-09",
+    42.4
+   ],
+   [
+    "2021-07-26",
+    46.1
+   ],
+   [
+    "2022-04-26",
+    44.1
+   ],
+   [
+    "2022-10-01",
+    47.6
+   ],
+   [
+    "2024-01-25",
+    44.8
+   ]
+  ],
+  "mcv": [
+   [
+    "2018-07-25",
+    86.3
+   ],
+   [
+    "2019-01-09",
+    87.2
+   ],
+   [
+    "2021-07-26",
+    86.7
+   ],
+   [
+    "2022-04-26",
+    88.9
+   ],
+   [
+    "2022-10-01",
+    88.1
+   ],
+   [
+    "2024-01-25",
+    89.6
+   ]
+  ],
+  "mch": [
+   [
+    "2018-07-25",
+    28.5
+   ],
+   [
+    "2019-01-09",
+    28.8
+   ],
+   [
+    "2021-07-26",
+    29.1
+   ],
+   [
+    "2022-04-26",
+    29.0
+   ],
+   [
+    "2022-10-01",
+    29.1
+   ],
+   [
+    "2024-01-25",
+    29.0
+   ]
+  ],
+  "mchc": [
+   [
+    "2018-07-25",
+    330.0
+   ],
+   [
+    "2019-01-09",
+    330.0
+   ],
+   [
+    "2021-07-26",
+    336.0
+   ],
+   [
+    "2022-04-26",
+    327.0
+   ],
+   [
+    "2022-10-01",
+    330.0
+   ],
+   [
+    "2024-01-25",
+    324.0
+   ]
+  ],
+  "plt": [
+   [
+    "2018-07-25",
+    339.0
+   ],
+   [
+    "2019-01-09",
+    162.0
+   ],
+   [
+    "2021-07-26",
+    180.0
+   ],
+   [
+    "2022-04-26",
+    284.0
+   ],
+   [
+    "2022-10-01",
+    310.0
+   ],
+   [
+    "2024-01-25",
+    270.0
+   ]
+  ],
+  "pct": [
+   [
+    "2018-07-25",
+    0.34
+   ],
+   [
+    "2021-07-26",
+    0.2
+   ],
+   [
+    "2022-10-01",
+    0.35
+   ]
+  ],
+  "rdw_sd": [
+   [
+    "2018-07-25",
+    39.2
+   ],
+   [
+    "2019-01-09",
+    40.6
+   ],
+   [
+    "2021-07-26",
+    38.3
+   ],
+   [
+    "2022-10-01",
+    39.8
+   ]
+  ],
+  "rdw_cv": [
+   [
+    "2018-07-25",
+    12.5
+   ],
+   [
+    "2019-01-09",
+    12.1
+   ],
+   [
+    "2021-07-26",
+    12.0
+   ],
+   [
+    "2022-10-01",
+    12.3
+   ]
+  ],
+  "pdw": [
+   [
+    "2018-07-25",
+    12.2
+   ],
+   [
+    "2019-01-09",
+    13.4
+   ],
+   [
+    "2021-07-26",
+    13.5
+   ],
+   [
+    "2022-10-01",
+    14.1
+   ]
+  ],
+  "mpv": [
+   [
+    "2018-07-25",
+    10.1
+   ],
+   [
+    "2019-01-09",
+    10.0
+   ],
+   [
+    "2021-07-26",
+    11.3
+   ],
+   [
+    "2022-10-01",
+    11.2
+   ]
+  ],
+  "esr": [
+   [
+    "2018-07-25",
+    6.0
+   ],
+   [
+    "2021-07-26",
+    17.0
+   ],
+   [
+    "2022-04-26",
+    2.0
+   ]
+  ],
+  "neu_p": [
+   [
+    "2018-07-25",
+    53.3
+   ],
+   [
+    "2019-01-09",
+    40.5
+   ],
+   [
+    "2021-07-26",
+    50.0
+   ],
+   [
+    "2022-04-26",
+    52.5
+   ],
+   [
+    "2022-10-01",
+    51.7
+   ],
+   [
+    "2024-01-25",
+    43.0
+   ]
+  ],
+  "lym_p": [
+   [
+    "2018-07-25",
+    33.3
+   ],
+   [
+    "2019-01-09",
+    44.5
+   ],
+   [
+    "2021-07-26",
+    40.4
+   ],
+   [
+    "2022-04-26",
+    33.4
+   ],
+   [
+    "2022-10-01",
+    27.6
+   ],
+   [
+    "2024-01-25",
+    40.6
+   ]
+  ],
+  "mon_p": [
+   [
+    "2018-07-25",
+    8.9
+   ],
+   [
+    "2021-07-26",
+    9.0
+   ],
+   [
+    "2022-04-26",
+    9.7
+   ],
+   [
+    "2022-10-01",
+    10.2
+   ],
+   [
+    "2024-01-25",
+    9.4
+   ]
+  ],
+  "eos_p": [
+   [
+    "2018-07-25",
+    3.7
+   ],
+   [
+    "2021-07-26",
+    0.3
+   ],
+   [
+    "2022-04-26",
+    3.6
+   ],
+   [
+    "2022-10-01",
+    8.6
+   ],
+   [
+    "2024-01-25",
+    6.3
+   ]
+  ],
+  "bas_p": [
+   [
+    "2018-07-25",
+    0.8
+   ],
+   [
+    "2021-07-26",
+    0.3
+   ],
+   [
+    "2022-04-26",
+    0.8
+   ],
+   [
+    "2022-10-01",
+    1.9
+   ],
+   [
+    "2024-01-25",
+    0.7
+   ]
+  ],
+  "tg": [
+   [
+    "2018-10-27",
+    1.47
+   ],
+   [
+    "2022-10-01",
+    1.24
+   ],
+   [
+    "2024-01-25",
+    1.03
+   ]
+  ],
+  "chol": [
+   [
+    "2018-10-27",
+    5.3
+   ],
+   [
+    "2022-10-01",
+    6.38
+   ],
+   [
+    "2022-11-09",
+    4.99
+   ],
+   [
+    "2024-01-25",
+    6.53
+   ]
+  ],
+  "hdl": [
+   [
+    "2018-10-27",
+    1.28
+   ],
+   [
+    "2022-10-01",
+    1.73
+   ],
+   [
+    "2024-01-25",
+    1.52
+   ]
+  ],
+  "ldl": [
+   [
+    "2018-10-27",
+    3.35
+   ],
+   [
+    "2022-10-01",
+    4.03
+   ],
+   [
+    "2024-01-25",
+    4.5
+   ]
+  ],
+  "ft4_pmol": [
+   [
+    "2018-10-27",
+    12.47
+   ]
+  ],
+  "tsh": [
+   [
+    "2018-10-27",
+    0.427
+   ],
+   [
+    "2022-10-01",
+    0.984
+   ],
+   [
+    "2024-01-25",
+    0.985
+   ]
+  ],
+  "ai": [
+   [
+    "2018-10-27",
+    3.14
+   ],
+   [
+    "2022-10-01",
+    2.69
+   ],
+   [
+    "2024-01-25",
+    3.3
+   ]
+  ],
+  "weight": [
+   [
+    "2018-10-29",
+    105.0
+   ],
+   [
+    "2024-01-31",
+    107.0
+   ]
+  ],
+  "sbp_max": [
+   [
+    "2018-10-29",
+    208.0
+   ]
+  ],
+  "dbp_max": [
+   [
+    "2018-10-29",
+    91.0
+   ]
+  ],
+  "bmi": [
+   [
+    "2018-10-29",
+    30.0
+   ]
+  ],
+  "mau": [
+   [
+    "2018-12-02",
+    2.7
+   ]
+  ],
+  "mau_day": [
+   [
+    "2018-12-02",
+    4.05
+   ]
+  ],
+  "diuresis": [
+   [
+    "2018-12-02",
+    1.5
+   ]
+  ],
+  "mxd_p": [
+   [
+    "2019-01-09",
+    15.0
+   ]
+  ],
+  "p_lcr": [
+   [
+    "2019-01-09",
+    25.8
+   ]
+  ],
+  "crp_hs": [
+   [
+    "2021-07-26",
+    3.78
+   ],
+   [
+    "2022-04-26",
+    0.5
+   ],
+   [
+    "2022-10-01",
+    0.4
+   ]
+  ],
+  "neu_abs": [
+   [
+    "2021-07-26",
+    1.83
+   ],
+   [
+    "2022-10-01",
+    2.69
+   ]
+  ],
+  "lym_abs": [
+   [
+    "2021-07-26",
+    1.48
+   ],
+   [
+    "2022-10-01",
+    1.44
+   ]
+  ],
+  "mon_abs": [
+   [
+    "2021-07-26",
+    0.33
+   ],
+   [
+    "2022-10-01",
+    0.53
+   ]
+  ],
+  "eos_abs": [
+   [
+    "2021-07-26",
+    0.01
+   ],
+   [
+    "2022-10-01",
+    0.45
+   ]
+  ],
+  "bas_abs": [
+   [
+    "2021-07-26",
+    0.01
+   ],
+   [
+    "2022-10-01",
+    0.1
+   ]
+  ],
+  "ig_p": [
+   [
+    "2021-07-26",
+    0.3
+   ],
+   [
+    "2022-10-01",
+    0.4
+   ]
+  ],
+  "ig_abs": [
+   [
+    "2021-07-26",
+    0.01
+   ],
+   [
+    "2022-10-01",
+    0.02
+   ]
+  ],
+  "nrbc_p": [
+   [
+    "2021-07-26",
+    0.0
+   ]
+  ],
+  "nrbc_abs": [
+   [
+    "2021-07-26",
+    0.0
+   ]
+  ],
+  "aptt": [
+   [
+    "2021-07-26",
+    23.1
+   ]
+  ],
+  "dd": [
+   [
+    "2021-07-26",
+    0.23
+   ],
+   [
+    "2022-04-26",
+    0.19
+   ]
+  ],
+  "fibr": [
+   [
+    "2021-07-26",
+    4.18
+   ]
+  ],
+  "glu": [
+   [
+    "2021-07-26",
+    6.39
+   ],
+   [
+    "2022-10-01",
+    6.64
+   ],
+   [
+    "2022-11-09",
+    6.62
+   ],
+   [
+    "2024-01-25",
+    6.03
+   ],
+   [
+    "2024-01-29",
+    6.12
+   ]
+  ],
+  "prot_tot": [
+   [
+    "2022-10-01",
+    79.4
+   ],
+   [
+    "2024-01-25",
+    75.7
+   ]
+  ],
+  "creat": [
+   [
+    "2022-10-01",
+    107.9
+   ],
+   [
+    "2022-11-09",
+    112.4
+   ],
+   [
+    "2024-01-25",
+    96.0
+   ]
+  ],
+  "urea": [
+   [
+    "2022-10-01",
+    6.54
+   ],
+   [
+    "2024-01-25",
+    5.71
+   ]
+  ],
+  "ua": [
+   [
+    "2022-10-01",
+    519.0
+   ],
+   [
+    "2022-11-09",
+    444.0
+   ],
+   [
+    "2024-01-25",
+    455.0
+   ]
+  ],
+  "bil_tot": [
+   [
+    "2022-10-01",
+    13.4
+   ],
+   [
+    "2024-01-25",
+    13.5
+   ]
+  ],
+  "bil_dir": [
+   [
+    "2022-10-01",
+    4.4
+   ],
+   [
+    "2024-01-25",
+    3.8
+   ]
+  ],
+  "bil_ind": [
+   [
+    "2022-10-01",
+    9.0
+   ],
+   [
+    "2024-01-25",
+    9.7
+   ]
+  ],
+  "alt": [
+   [
+    "2022-04-26",
+    24.0
+   ],
+   [
+    "2022-10-01",
+    25.2
+   ],
+   [
+    "2024-01-25",
+    24.6
+   ]
+  ],
+  "ast": [
+   [
+    "2022-04-26",
+    19.6
+   ],
+   [
+    "2022-10-01",
+    21.1
+   ],
+   [
+    "2024-01-25",
+    23.8
+   ]
+  ],
+  "ggt": [
+   [
+    "2022-10-01",
+    30.2
+   ],
+   [
+    "2024-01-25",
+    20.4
+   ]
+  ],
+  "alp": [
+   [
+    "2022-10-01",
+    52.8
+   ],
+   [
+    "2024-01-25",
+    45.4
+   ]
+  ],
+  "amyl": [
+   [
+    "2022-10-01",
+    42.4
+   ],
+   [
+    "2024-01-25",
+    47.7
+   ]
+  ],
+  "k": [
+   [
+    "2022-10-01",
+    4.2
+   ],
+   [
+    "2024-01-25",
+    4.38
+   ]
+  ],
+  "na": [
+   [
+    "2022-10-01",
+    141.0
+   ],
+   [
+    "2024-01-25",
+    141.0
+   ]
+  ],
+  "cl": [
+   [
+    "2022-10-01",
+    100.6
+   ],
+   [
+    "2024-01-25",
+    101.7
+   ]
+  ],
+  "mg": [
+   [
+    "2022-10-01",
+    0.86
+   ],
+   [
+    "2024-01-25",
+    0.95
+   ]
+  ],
+  "rf": [
+   [
+    "2022-10-01",
+    10.0
+   ],
+   [
+    "2024-01-25",
+    8.1
+   ]
+  ],
+  "vit_d": [
+   [
+    "2022-10-01",
+    37.6
+   ],
+   [
+    "2024-01-25",
+    22.96
+   ]
+  ],
+  "ft4": [
+   [
+    "2022-10-01",
+    1.48
+   ],
+   [
+    "2024-01-25",
+    1.22
+   ]
+  ],
+  "at_tpo": [
+   [
+    "2022-10-01",
+    13.4
+   ],
+   [
+    "2024-01-25",
+    11.8
+   ]
+  ],
+  "lpa_mgdl": [
+   [
+    "2022-10-01",
+    110.79
+   ]
+  ],
+  "apo_a1": [
+   [
+    "2022-10-01",
+    1.84
+   ],
+   [
+    "2024-01-25",
+    1.59
+   ]
+  ],
+  "apo_b": [
+   [
+    "2022-10-01",
+    1.18
+   ],
+   [
+    "2024-01-25",
+    1.33
+   ]
+  ],
+  "egfr": [
+   [
+    "2022-10-01",
+    77.1
+   ],
+   [
+    "2022-11-09",
+    73.3
+   ],
+   [
+    "2024-01-25",
+    87.9
+   ]
+  ],
+  "u_dens": [
+   [
+    "2022-11-08",
+    1.021
+   ]
+  ],
+  "u_ph": [
+   [
+    "2022-11-08",
+    5.5
+   ]
+  ],
+  "alb": [
+   [
+    "2024-01-25",
+    49.1
+   ]
+  ],
+  "ca": [
+   [
+    "2024-01-25",
+    2.34
+   ]
+  ],
+  "at_tg": [
+   [
+    "2024-01-25",
+    22.25
+   ]
+  ],
+  "psa": [
+   [
+    "2024-01-25",
+    1.05
+   ]
+  ],
+  "psa_free": [
+   [
+    "2024-01-25",
+    0.276
+   ]
+  ],
+  "psa_ratio": [
+   [
+    "2024-01-25",
+    26.29
+   ]
+  ],
+  "lpa": [
+   [
+    "2024-01-25",
+    170.4
+   ]
+  ],
+  "hba1c": [
+   [
+    "2024-01-29",
+    5.76
+   ]
+  ],
+  "hba1c_ifcc": [
+   [
+    "2024-01-29",
+    39.45
+   ]
+  ],
+  "fruct": [
+   [
+    "2024-01-29",
+    255.4
+   ]
+  ],
+  "ins": [
+   [
+    "2024-01-29",
+    11.5
+   ]
+  ],
+  "cpept": [
+   [
+    "2024-01-29",
+    3.47
+   ]
+  ],
+  "afp": [
+   [
+    "2024-01-29",
+    5.6
+   ]
+  ],
+  "cea": [
+   [
+    "2024-01-29",
+    1.5
+   ]
+  ],
+  "ca72_4": [
+   [
+    "2024-01-29",
+    4.82
+   ]
+  ],
+  "ca19_9": [
+   [
+    "2024-01-29",
+    0.6
+   ]
+  ],
+  "hcg": [
+   [
+    "2024-01-29",
+    0.1
+   ]
+  ],
+  "homa": [
+   [
+    "2024-01-29",
+    3.13
+   ]
+  ],
+  "sbp": [
+   [
+    "2018-11-15",
+    124.0
+   ],
+   [
+    "2018-11-19",
+    143.0
+   ],
+   [
+    "2018-11-20",
+    122.0
+   ],
+   [
+    "2018-11-21",
+    112.0
+   ],
+   [
+    "2018-11-21",
+    121.0
+   ],
+   [
+    "2018-11-21",
+    134.0
+   ],
+   [
+    "2018-11-22",
+    142.0
+   ],
+   [
+    "2018-11-23",
+    110.0
+   ],
+   [
+    "2018-11-23",
+    119.0
+   ],
+   [
+    "2018-11-23",
+    120.0
+   ],
+   [
+    "2018-11-23",
+    129.0
+   ],
+   [
+    "2018-11-24",
+    114.0
+   ],
+   [
+    "2018-11-24",
+    128.0
+   ],
+   [
+    "2018-11-25",
+    106.0
+   ],
+   [
+    "2018-11-25",
+    130.0
+   ],
+   [
+    "2018-11-26",
+    112.0
+   ],
+   [
+    "2018-11-26",
+    127.0
+   ],
+   [
+    "2018-11-26",
+    131.0
+   ],
+   [
+    "2018-11-27",
+    126.0
+   ],
+   [
+    "2018-11-28",
+    120.0
+   ],
+   [
+    "2018-11-28",
+    126.0
+   ],
+   [
+    "2018-11-28",
+    143.0
+   ],
+   [
+    "2018-11-29",
+    113.0
+   ],
+   [
+    "2018-11-29",
+    133.0
+   ],
+   [
+    "2018-11-30",
+    115.0
+   ],
+   [
+    "2018-11-30",
+    116.0
+   ],
+   [
+    "2018-11-30",
+    125.0
+   ],
+   [
+    "2018-12-01",
+    122.0
+   ],
+   [
+    "2018-12-02",
+    123.0
+   ],
+   [
+    "2018-12-02",
+    125.0
+   ],
+   [
+    "2018-12-03",
+    114.0
+   ],
+   [
+    "2018-12-03",
+    116.0
+   ],
+   [
+    "2018-12-03",
+    128.0
+   ],
+   [
+    "2018-12-04",
+    128.0
+   ],
+   [
+    "2018-12-05",
+    118.0
+   ],
+   [
+    "2018-12-05",
+    120.0
+   ],
+   [
+    "2018-12-06",
+    121.0
+   ],
+   [
+    "2018-12-06",
+    124.0
+   ],
+   [
+    "2018-12-07",
+    119.0
+   ],
+   [
+    "2018-12-07",
+    125.0
+   ],
+   [
+    "2018-12-08",
+    110.0
+   ],
+   [
+    "2018-12-09",
+    108.0
+   ],
+   [
+    "2018-12-09",
+    115.0
+   ],
+   [
+    "2018-12-09",
+    119.0
+   ],
+   [
+    "2018-12-09",
+    121.0
+   ],
+   [
+    "2018-12-10",
+    124.0
+   ],
+   [
+    "2018-12-10",
+    127.0
+   ],
+   [
+    "2018-12-11",
+    114.0
+   ],
+   [
+    "2018-12-11",
+    116.0
+   ],
+   [
+    "2018-12-11",
+    117.0
+   ],
+   [
+    "2018-12-12",
+    115.0
+   ],
+   [
+    "2018-12-12",
+    122.0
+   ],
+   [
+    "2018-12-12",
+    129.0
+   ],
+   [
+    "2018-12-13",
+    116.0
+   ],
+   [
+    "2018-12-13",
+    127.0
+   ],
+   [
+    "2018-12-14",
+    120.0
+   ],
+   [
+    "2018-12-14",
+    130.0
+   ],
+   [
+    "2018-12-15",
+    121.0
+   ],
+   [
+    "2018-12-16",
+    114.0
+   ],
+   [
+    "2018-12-16",
+    121.0
+   ],
+   [
+    "2018-12-16",
+    136.0
+   ],
+   [
+    "2018-12-17",
+    127.0
+   ],
+   [
+    "2018-12-18",
+    119.0
+   ],
+   [
+    "2018-12-18",
+    125.0
+   ],
+   [
+    "2018-12-19",
+    115.0
+   ],
+   [
+    "2018-12-19",
+    121.0
+   ],
+   [
+    "2018-12-19",
+    133.0
+   ],
+   [
+    "2018-12-20",
+    107.0
+   ],
+   [
+    "2018-12-20",
+    117.0
+   ],
+   [
+    "2018-12-20",
+    125.0
+   ],
+   [
+    "2018-12-21",
+    111.0
+   ],
+   [
+    "2018-12-21",
+    118.0
+   ],
+   [
+    "2018-12-21",
+    125.0
+   ],
+   [
+    "2018-12-22",
+    117.0
+   ],
+   [
+    "2018-12-24",
+    126.0
+   ],
+   [
+    "2018-12-24",
+    130.0
+   ],
+   [
+    "2018-12-25",
+    130.0
+   ],
+   [
+    "2018-12-25",
+    131.0
+   ],
+   [
+    "2018-12-26",
+    110.0
+   ],
+   [
+    "2018-12-26",
+    127.0
+   ],
+   [
+    "2018-12-27",
+    111.0
+   ],
+   [
+    "2018-12-28",
+    107.0
+   ],
+   [
+    "2018-12-29",
+    124.0
+   ],
+   [
+    "2018-12-30",
+    120.0
+   ],
+   [
+    "2018-12-30",
+    125.0
+   ],
+   [
+    "2018-12-30",
+    127.0
+   ],
+   [
+    "2018-12-31",
+    117.0
+   ],
+   [
+    "2019-01-01",
+    114.0
+   ],
+   [
+    "2019-01-01",
+    123.0
+   ],
+   [
+    "2019-01-03",
+    114.0
+   ],
+   [
+    "2019-01-04",
+    104.0
+   ],
+   [
+    "2019-01-05",
+    119.0
+   ],
+   [
+    "2019-01-05",
+    132.0
+   ],
+   [
+    "2019-01-06",
+    113.0
+   ],
+   [
+    "2019-01-07",
+    119.0
+   ],
+   [
+    "2019-01-07",
+    127.0
+   ],
+   [
+    "2019-01-08",
+    120.0
+   ],
+   [
+    "2019-01-09",
+    121.0
+   ],
+   [
+    "2019-01-09",
+    122.0
+   ],
+   [
+    "2019-01-10",
+    125.0
+   ],
+   [
+    "2019-01-10",
+    130.0
+   ],
+   [
+    "2019-01-11",
+    121.0
+   ],
+   [
+    "2019-01-11",
+    127.0
+   ],
+   [
+    "2019-01-13",
+    115.0
+   ],
+   [
+    "2019-01-13",
+    120.0
+   ],
+   [
+    "2019-01-14",
+    117.0
+   ],
+   [
+    "2019-01-15",
+    114.0
+   ],
+   [
+    "2019-01-15",
+    127.0
+   ],
+   [
+    "2019-01-16",
+    122.0
+   ],
+   [
+    "2019-01-17",
+    123.0
+   ],
+   [
+    "2019-01-18",
+    129.0
+   ],
+   [
+    "2019-01-19",
+    110.0
+   ],
+   [
+    "2019-01-19",
+    121.0
+   ],
+   [
+    "2019-01-19",
+    132.0
+   ],
+   [
+    "2019-01-20",
+    117.0
+   ],
+   [
+    "2019-01-20",
+    127.0
+   ],
+   [
+    "2019-01-20",
+    130.0
+   ],
+   [
+    "2019-01-21",
+    119.0
+   ],
+   [
+    "2019-01-21",
+    124.0
+   ],
+   [
+    "2019-01-21",
+    129.0
+   ],
+   [
+    "2019-01-21",
+    132.0
+   ],
+   [
+    "2019-01-21",
+    134.0
+   ],
+   [
+    "2019-01-22",
+    122.0
+   ],
+   [
+    "2019-01-22",
+    124.0
+   ],
+   [
+    "2019-01-22",
+    126.0
+   ],
+   [
+    "2019-01-22",
+    128.0
+   ],
+   [
+    "2019-01-22",
+    129.0
+   ],
+   [
+    "2019-01-22",
+    131.0
+   ],
+   [
+    "2019-01-23",
+    120.0
+   ],
+   [
+    "2019-01-23",
+    121.0
+   ],
+   [
+    "2019-01-23",
+    129.0
+   ],
+   [
+    "2019-01-23",
+    130.0
+   ],
+   [
+    "2019-01-24",
+    120.0
+   ],
+   [
+    "2019-01-24",
+    123.0
+   ],
+   [
+    "2019-01-25",
+    108.0
+   ],
+   [
+    "2019-01-25",
+    125.0
+   ],
+   [
+    "2019-01-25",
+    127.0
+   ],
+   [
+    "2019-01-25",
+    128.0
+   ],
+   [
+    "2019-01-26",
+    113.0
+   ],
+   [
+    "2019-01-26",
+    116.0
+   ],
+   [
+    "2019-01-26",
+    125.0
+   ],
+   [
+    "2019-01-26",
+    137.0
+   ],
+   [
+    "2019-01-27",
+    120.0
+   ],
+   [
+    "2019-01-27",
+    129.0
+   ],
+   [
+    "2019-01-27",
+    135.0
+   ],
+   [
+    "2019-01-28",
+    124.0
+   ],
+   [
+    "2019-01-28",
+    128.0
+   ],
+   [
+    "2019-01-28",
+    134.0
+   ],
+   [
+    "2019-01-29",
+    116.0
+   ],
+   [
+    "2019-01-29",
+    127.0
+   ],
+   [
+    "2019-01-29",
+    131.0
+   ],
+   [
+    "2019-01-30",
+    129.0
+   ],
+   [
+    "2019-01-30",
+    130.0
+   ],
+   [
+    "2019-01-31",
+    119.0
+   ],
+   [
+    "2019-02-01",
+    122.0
+   ],
+   [
+    "2019-02-01",
+    128.0
+   ],
+   [
+    "2019-02-01",
+    136.0
+   ],
+   [
+    "2019-02-01",
+    148.0
+   ],
+   [
+    "2019-02-02",
+    120.0
+   ],
+   [
+    "2019-02-02",
+    127.0
+   ],
+   [
+    "2019-02-02",
+    129.0
+   ],
+   [
+    "2019-02-02",
+    132.0
+   ],
+   [
+    "2019-02-02",
+    134.0
+   ],
+   [
+    "2019-02-02",
+    135.0
+   ],
+   [
+    "2019-02-03",
+    122.0
+   ],
+   [
+    "2019-02-03",
+    127.0
+   ],
+   [
+    "2019-02-03",
+    134.0
+   ],
+   [
+    "2019-02-04",
+    116.0
+   ],
+   [
+    "2019-02-04",
+    122.0
+   ],
+   [
+    "2019-02-04",
+    123.0
+   ],
+   [
+    "2019-02-04",
+    125.0
+   ],
+   [
+    "2019-02-04",
+    128.0
+   ],
+   [
+    "2019-02-04",
+    132.0
+   ],
+   [
+    "2019-02-04",
+    133.0
+   ],
+   [
+    "2019-02-04",
+    140.0
+   ],
+   [
+    "2019-02-05",
+    114.0
+   ],
+   [
+    "2019-02-05",
+    122.0
+   ],
+   [
+    "2019-02-05",
+    125.0
+   ],
+   [
+    "2019-02-05",
+    126.0
+   ],
+   [
+    "2019-02-05",
+    127.0
+   ],
+   [
+    "2019-02-05",
+    135.0
+   ],
+   [
+    "2019-02-06",
+    114.0
+   ],
+   [
+    "2019-02-06",
+    117.0
+   ],
+   [
+    "2019-02-06",
+    124.0
+   ],
+   [
+    "2019-02-06",
+    127.0
+   ],
+   [
+    "2019-02-07",
+    117.0
+   ],
+   [
+    "2019-02-07",
+    121.0
+   ],
+   [
+    "2019-02-07",
+    124.0
+   ],
+   [
+    "2019-02-07",
+    126.0
+   ],
+   [
+    "2019-02-07",
+    131.0
+   ],
+   [
+    "2019-02-08",
+    116.0
+   ],
+   [
+    "2019-02-08",
+    120.0
+   ],
+   [
+    "2019-02-08",
+    124.0
+   ],
+   [
+    "2019-02-09",
+    116.0
+   ],
+   [
+    "2019-02-10",
+    121.0
+   ],
+   [
+    "2019-02-10",
+    128.0
+   ],
+   [
+    "2019-02-11",
+    124.0
+   ],
+   [
+    "2019-02-12",
+    121.0
+   ],
+   [
+    "2019-02-13",
+    124.0
+   ],
+   [
+    "2019-02-13",
+    130.0
+   ],
+   [
+    "2019-02-14",
+    115.0
+   ],
+   [
+    "2019-02-15",
+    112.0
+   ],
+   [
+    "2019-02-15",
+    118.0
+   ],
+   [
+    "2019-02-17",
+    117.0
+   ],
+   [
+    "2019-02-17",
+    120.0
+   ],
+   [
+    "2019-02-18",
+    123.0
+   ],
+   [
+    "2019-02-19",
+    112.0
+   ],
+   [
+    "2019-02-19",
+    128.0
+   ],
+   [
+    "2019-02-20",
+    120.0
+   ],
+   [
+    "2019-02-20",
+    123.0
+   ],
+   [
+    "2019-02-21",
+    116.0
+   ],
+   [
+    "2019-02-22",
+    117.0
+   ],
+   [
+    "2019-02-22",
+    122.0
+   ],
+   [
+    "2019-02-23",
+    112.0
+   ],
+   [
+    "2019-02-23",
+    130.0
+   ],
+   [
+    "2019-02-24",
+    127.0
+   ],
+   [
+    "2019-02-24",
+    133.0
+   ],
+   [
+    "2019-02-25",
+    124.0
+   ],
+   [
+    "2019-02-26",
+    117.0
+   ],
+   [
+    "2019-02-26",
+    122.0
+   ],
+   [
+    "2019-02-26",
+    130.0
+   ],
+   [
+    "2019-02-27",
+    116.0
+   ],
+   [
+    "2019-02-27",
+    124.0
+   ],
+   [
+    "2019-02-28",
+    125.0
+   ],
+   [
+    "2019-03-01",
+    131.0
+   ],
+   [
+    "2019-03-01",
+    132.0
+   ],
+   [
+    "2019-03-02",
+    122.0
+   ],
+   [
+    "2019-03-03",
+    123.0
+   ],
+   [
+    "2019-03-05",
+    110.0
+   ],
+   [
+    "2019-03-07",
+    124.0
+   ],
+   [
+    "2019-03-08",
+    122.0
+   ],
+   [
+    "2019-03-08",
+    128.0
+   ],
+   [
+    "2019-03-10",
+    120.0
+   ],
+   [
+    "2019-03-11",
+    123.0
+   ],
+   [
+    "2019-03-12",
+    120.0
+   ],
+   [
+    "2019-03-12",
+    128.0
+   ],
+   [
+    "2019-03-13",
+    120.0
+   ],
+   [
+    "2019-03-16",
+    110.0
+   ],
+   [
+    "2019-03-18",
+    108.0
+   ],
+   [
+    "2019-03-24",
+    117.0
+   ],
+   [
+    "2019-03-30",
+    116.0
+   ],
+   [
+    "2019-04-03",
+    120.0
+   ],
+   [
+    "2024-01-31",
+    139.0
+   ]
+  ],
+  "dbp": [
+   [
+    "2018-11-15",
+    71.0
+   ],
+   [
+    "2018-11-19",
+    85.0
+   ],
+   [
+    "2018-11-20",
+    71.0
+   ],
+   [
+    "2018-11-21",
+    71.0
+   ],
+   [
+    "2018-11-21",
+    73.0
+   ],
+   [
+    "2018-11-21",
+    76.0
+   ],
+   [
+    "2018-11-22",
+    72.0
+   ],
+   [
+    "2018-11-23",
+    67.0
+   ],
+   [
+    "2018-11-23",
+    69.0
+   ],
+   [
+    "2018-11-23",
+    70.0
+   ],
+   [
+    "2018-11-23",
+    77.0
+   ],
+   [
+    "2018-11-24",
+    65.0
+   ],
+   [
+    "2018-11-24",
+    68.0
+   ],
+   [
+    "2018-11-25",
+    72.0
+   ],
+   [
+    "2018-11-26",
+    65.0
+   ],
+   [
+    "2018-11-26",
+    71.0
+   ],
+   [
+    "2018-11-26",
+    79.0
+   ],
+   [
+    "2018-11-27",
+    70.0
+   ],
+   [
+    "2018-11-28",
+    71.0
+   ],
+   [
+    "2018-11-28",
+    73.0
+   ],
+   [
+    "2018-11-28",
+    74.0
+   ],
+   [
+    "2018-11-29",
+    63.0
+   ],
+   [
+    "2018-11-29",
+    73.0
+   ],
+   [
+    "2018-11-30",
+    63.0
+   ],
+   [
+    "2018-11-30",
+    64.0
+   ],
+   [
+    "2018-11-30",
+    74.0
+   ],
+   [
+    "2018-12-01",
+    82.0
+   ],
+   [
+    "2018-12-02",
+    61.0
+   ],
+   [
+    "2018-12-02",
+    66.0
+   ],
+   [
+    "2018-12-03",
+    62.0
+   ],
+   [
+    "2018-12-03",
+    66.0
+   ],
+   [
+    "2018-12-03",
+    71.0
+   ],
+   [
+    "2018-12-04",
+    72.0
+   ],
+   [
+    "2018-12-05",
+    60.0
+   ],
+   [
+    "2018-12-05",
+    68.0
+   ],
+   [
+    "2018-12-06",
+    67.0
+   ],
+   [
+    "2018-12-07",
+    64.0
+   ],
+   [
+    "2018-12-07",
+    71.0
+   ],
+   [
+    "2018-12-08",
+    66.0
+   ],
+   [
+    "2018-12-09",
+    63.0
+   ],
+   [
+    "2018-12-09",
+    64.0
+   ],
+   [
+    "2018-12-09",
+    67.0
+   ],
+   [
+    "2018-12-09",
+    75.0
+   ],
+   [
+    "2018-12-10",
+    64.0
+   ],
+   [
+    "2018-12-10",
+    72.0
+   ],
+   [
+    "2018-12-11",
+    61.0
+   ],
+   [
+    "2018-12-11",
+    64.0
+   ],
+   [
+    "2018-12-11",
+    66.0
+   ],
+   [
+    "2018-12-12",
+    65.0
+   ],
+   [
+    "2018-12-12",
+    66.0
+   ],
+   [
+    "2018-12-12",
+    68.0
+   ],
+   [
+    "2018-12-13",
+    67.0
+   ],
+   [
+    "2018-12-13",
+    68.0
+   ],
+   [
+    "2018-12-13",
+    69.0
+   ],
+   [
+    "2018-12-14",
+    65.0
+   ],
+   [
+    "2018-12-14",
+    78.0
+   ],
+   [
+    "2018-12-15",
+    59.0
+   ],
+   [
+    "2018-12-16",
+    63.0
+   ],
+   [
+    "2018-12-16",
+    66.0
+   ],
+   [
+    "2018-12-16",
+    70.0
+   ],
+   [
+    "2018-12-17",
+    76.0
+   ],
+   [
+    "2018-12-18",
+    63.0
+   ],
+   [
+    "2018-12-18",
+    67.0
+   ],
+   [
+    "2018-12-19",
+    62.0
+   ],
+   [
+    "2018-12-19",
+    65.0
+   ],
+   [
+    "2018-12-19",
+    67.0
+   ],
+   [
+    "2018-12-20",
+    67.0
+   ],
+   [
+    "2018-12-20",
+    69.0
+   ],
+   [
+    "2018-12-20",
+    75.0
+   ],
+   [
+    "2018-12-21",
+    59.0
+   ],
+   [
+    "2018-12-21",
+    65.0
+   ],
+   [
+    "2018-12-21",
+    76.0
+   ],
+   [
+    "2018-12-22",
+    62.0
+   ],
+   [
+    "2018-12-24",
+    68.0
+   ],
+   [
+    "2018-12-24",
+    73.0
+   ],
+   [
+    "2018-12-25",
+    71.0
+   ],
+   [
+    "2018-12-25",
+    74.0
+   ],
+   [
+    "2018-12-26",
+    55.0
+   ],
+   [
+    "2018-12-26",
+    71.0
+   ],
+   [
+    "2018-12-27",
+    61.0
+   ],
+   [
+    "2018-12-28",
+    70.0
+   ],
+   [
+    "2018-12-29",
+    69.0
+   ],
+   [
+    "2018-12-30",
+    57.0
+   ],
+   [
+    "2018-12-30",
+    68.0
+   ],
+   [
+    "2018-12-30",
+    70.0
+   ],
+   [
+    "2018-12-31",
+    72.0
+   ],
+   [
+    "2019-01-01",
+    64.0
+   ],
+   [
+    "2019-01-01",
+    67.0
+   ],
+   [
+    "2019-01-03",
+    70.0
+   ],
+   [
+    "2019-01-04",
+    63.0
+   ],
+   [
+    "2019-01-05",
+    65.0
+   ],
+   [
+    "2019-01-05",
+    75.0
+   ],
+   [
+    "2019-01-06",
+    72.0
+   ],
+   [
+    "2019-01-07",
+    66.0
+   ],
+   [
+    "2019-01-07",
+    70.0
+   ],
+   [
+    "2019-01-08",
+    67.0
+   ],
+   [
+    "2019-01-09",
+    69.0
+   ],
+   [
+    "2019-01-09",
+    71.0
+   ],
+   [
+    "2019-01-09",
+    72.0
+   ],
+   [
+    "2019-01-10",
+    70.0
+   ],
+   [
+    "2019-01-10",
+    74.0
+   ],
+   [
+    "2019-01-11",
+    68.0
+   ],
+   [
+    "2019-01-11",
+    72.0
+   ],
+   [
+    "2019-01-13",
+    60.0
+   ],
+   [
+    "2019-01-13",
+    68.0
+   ],
+   [
+    "2019-01-14",
+    68.0
+   ],
+   [
+    "2019-01-15",
+    71.0
+   ],
+   [
+    "2019-01-15",
+    78.0
+   ],
+   [
+    "2019-01-16",
+    75.0
+   ],
+   [
+    "2019-01-17",
+    73.0
+   ],
+   [
+    "2019-01-18",
+    76.0
+   ],
+   [
+    "2019-01-19",
+    72.0
+   ],
+   [
+    "2019-01-19",
+    75.0
+   ],
+   [
+    "2019-01-19",
+    77.0
+   ],
+   [
+    "2019-01-20",
+    63.0
+   ],
+   [
+    "2019-01-20",
+    73.0
+   ],
+   [
+    "2019-01-20",
+    78.0
+   ],
+   [
+    "2019-01-21",
+    66.0
+   ],
+   [
+    "2019-01-21",
+    71.0
+   ],
+   [
+    "2019-01-21",
+    75.0
+   ],
+   [
+    "2019-01-21",
+    77.0
+   ],
+   [
+    "2019-01-22",
+    67.0
+   ],
+   [
+    "2019-01-22",
+    68.0
+   ],
+   [
+    "2019-01-22",
+    72.0
+   ],
+   [
+    "2019-01-22",
+    74.0
+   ],
+   [
+    "2019-01-22",
+    75.0
+   ],
+   [
+    "2019-01-22",
+    76.0
+   ],
+   [
+    "2019-01-23",
+    56.0
+   ],
+   [
+    "2019-01-23",
+    61.0
+   ],
+   [
+    "2019-01-23",
+    65.0
+   ],
+   [
+    "2019-01-23",
+    72.0
+   ],
+   [
+    "2019-01-23",
+    76.0
+   ],
+   [
+    "2019-01-24",
+    60.0
+   ],
+   [
+    "2019-01-24",
+    62.0
+   ],
+   [
+    "2019-01-24",
+    71.0
+   ],
+   [
+    "2019-01-25",
+    57.0
+   ],
+   [
+    "2019-01-25",
+    64.0
+   ],
+   [
+    "2019-01-25",
+    67.0
+   ],
+   [
+    "2019-01-25",
+    68.0
+   ],
+   [
+    "2019-01-25",
+    72.0
+   ],
+   [
+    "2019-01-26",
+    64.0
+   ],
+   [
+    "2019-01-26",
+    70.0
+   ],
+   [
+    "2019-01-26",
+    71.0
+   ],
+   [
+    "2019-01-26",
+    72.0
+   ],
+   [
+    "2019-01-27",
+    70.0
+   ],
+   [
+    "2019-01-27",
+    72.0
+   ],
+   [
+    "2019-01-27",
+    75.0
+   ],
+   [
+    "2019-01-28",
+    63.0
+   ],
+   [
+    "2019-01-28",
+    69.0
+   ],
+   [
+    "2019-01-28",
+    71.0
+   ],
+   [
+    "2019-01-28",
+    75.0
+   ],
+   [
+    "2019-01-29",
+    61.0
+   ],
+   [
+    "2019-01-29",
+    68.0
+   ],
+   [
+    "2019-01-29",
+    78.0
+   ],
+   [
+    "2019-01-30",
+    64.0
+   ],
+   [
+    "2019-01-30",
+    72.0
+   ],
+   [
+    "2019-01-30",
+    81.0
+   ],
+   [
+    "2019-01-31",
+    66.0
+   ],
+   [
+    "2019-02-01",
+    63.0
+   ],
+   [
+    "2019-02-01",
+    72.0
+   ],
+   [
+    "2019-02-01",
+    73.0
+   ],
+   [
+    "2019-02-01",
+    74.0
+   ],
+   [
+    "2019-02-02",
+    62.0
+   ],
+   [
+    "2019-02-02",
+    64.0
+   ],
+   [
+    "2019-02-02",
+    67.0
+   ],
+   [
+    "2019-02-02",
+    68.0
+   ],
+   [
+    "2019-02-02",
+    71.0
+   ],
+   [
+    "2019-02-02",
+    73.0
+   ],
+   [
+    "2019-02-03",
+    64.0
+   ],
+   [
+    "2019-02-03",
+    65.0
+   ],
+   [
+    "2019-02-03",
+    74.0
+   ],
+   [
+    "2019-02-04",
+    43.0
+   ],
+   [
+    "2019-02-04",
+    61.0
+   ],
+   [
+    "2019-02-04",
+    64.0
+   ],
+   [
+    "2019-02-04",
+    68.0
+   ],
+   [
+    "2019-02-04",
+    69.0
+   ],
+   [
+    "2019-02-04",
+    70.0
+   ],
+   [
+    "2019-02-04",
+    71.0
+   ],
+   [
+    "2019-02-04",
+    72.0
+   ],
+   [
+    "2019-02-05",
+    64.0
+   ],
+   [
+    "2019-02-05",
+    69.0
+   ],
+   [
+    "2019-02-05",
+    73.0
+   ],
+   [
+    "2019-02-05",
+    75.0
+   ],
+   [
+    "2019-02-05",
+    78.0
+   ],
+   [
+    "2019-02-06",
+    64.0
+   ],
+   [
+    "2019-02-06",
+    67.0
+   ],
+   [
+    "2019-02-06",
+    70.0
+   ],
+   [
+    "2019-02-07",
+    67.0
+   ],
+   [
+    "2019-02-07",
+    68.0
+   ],
+   [
+    "2019-02-07",
+    71.0
+   ],
+   [
+    "2019-02-07",
+    72.0
+   ],
+   [
+    "2019-02-07",
+    74.0
+   ],
+   [
+    "2019-02-08",
+    71.0
+   ],
+   [
+    "2019-02-08",
+    72.0
+   ],
+   [
+    "2019-02-08",
+    77.0
+   ],
+   [
+    "2019-02-09",
+    71.0
+   ],
+   [
+    "2019-02-10",
+    67.0
+   ],
+   [
+    "2019-02-10",
+    70.0
+   ],
+   [
+    "2019-02-11",
+    56.0
+   ],
+   [
+    "2019-02-11",
+    81.0
+   ],
+   [
+    "2019-02-12",
+    75.0
+   ],
+   [
+    "2019-02-13",
+    76.0
+   ],
+   [
+    "2019-02-13",
+    77.0
+   ],
+   [
+    "2019-02-14",
+    65.0
+   ],
+   [
+    "2019-02-14",
+    67.0
+   ],
+   [
+    "2019-02-15",
+    61.0
+   ],
+   [
+    "2019-02-15",
+    69.0
+   ],
+   [
+    "2019-02-17",
+    72.0
+   ],
+   [
+    "2019-02-18",
+    68.0
+   ],
+   [
+    "2019-02-19",
+    60.0
+   ],
+   [
+    "2019-02-19",
+    64.0
+   ],
+   [
+    "2019-02-20",
+    68.0
+   ],
+   [
+    "2019-02-21",
+    68.0
+   ],
+   [
+    "2019-02-22",
+    68.0
+   ],
+   [
+    "2019-02-22",
+    72.0
+   ],
+   [
+    "2019-02-23",
+    72.0
+   ],
+   [
+    "2019-02-23",
+    74.0
+   ],
+   [
+    "2019-02-24",
+    66.0
+   ],
+   [
+    "2019-02-24",
+    76.0
+   ],
+   [
+    "2019-02-25",
+    66.0
+   ],
+   [
+    "2019-02-26",
+    61.0
+   ],
+   [
+    "2019-02-26",
+    66.0
+   ],
+   [
+    "2019-02-26",
+    75.0
+   ],
+   [
+    "2019-02-27",
+    66.0
+   ],
+   [
+    "2019-02-27",
+    76.0
+   ],
+   [
+    "2019-02-28",
+    72.0
+   ],
+   [
+    "2019-03-01",
+    71.0
+   ],
+   [
+    "2019-03-01",
+    73.0
+   ],
+   [
+    "2019-03-02",
+    68.0
+   ],
+   [
+    "2019-03-03",
+    66.0
+   ],
+   [
+    "2019-03-05",
+    69.0
+   ],
+   [
+    "2019-03-07",
+    61.0
+   ],
+   [
+    "2019-03-08",
+    65.0
+   ],
+   [
+    "2019-03-08",
+    69.0
+   ],
+   [
+    "2019-03-10",
+    70.0
+   ],
+   [
+    "2019-03-11",
+    70.0
+   ],
+   [
+    "2019-03-12",
+    68.0
+   ],
+   [
+    "2019-03-12",
+    70.0
+   ],
+   [
+    "2019-03-13",
+    66.0
+   ],
+   [
+    "2019-03-16",
+    57.0
+   ],
+   [
+    "2019-03-18",
+    60.0
+   ],
+   [
+    "2019-03-24",
+    68.0
+   ],
+   [
+    "2019-03-30",
+    63.0
+   ],
+   [
+    "2019-04-03",
+    65.0
+   ],
+   [
+    "2024-01-31",
+    86.0
+   ]
+  ],
+  "hr": [
+   [
+    "2024-01-31",
+    68.0
+   ]
+  ]
+ },
+ "dictionary": {
+  "creat": {
+   "name": "Креатинин крови",
+   "unit": "мкмоль/л",
+   "ref": "62–106"
+  },
+  "egfr": {
+   "name": "СКФ, CKD-EPI 2021",
+   "unit": "мл/мин/1,73м²",
+   "ref": "≥90"
+  },
+  "urea": {
+   "name": "Мочевина",
+   "unit": "ммоль/л",
+   "ref": "2,76–8,07"
+  },
+  "mau": {
+   "name": "Микроальбумин мочи (концентрация)",
+   "unit": "мг/л",
+   "ref": "—"
+  },
+  "acr": {
+   "name": "**Альбумин/креатинин в разовой порции (ACR)**",
+   "unit": "мг/г креатинина",
+   "ref": "<30"
+  },
+  "mau_day": {
+   "name": "Экскреция микроальбумина за сутки",
+   "unit": "мг/сут",
+   "ref": "0–30"
+  },
+  "u_prot": {
+   "name": "Белок в моче",
+   "unit": "г/л",
+   "ref": "<0,14"
+  },
+  "u_ph": {
+   "name": "pH мочи",
+   "unit": "ед",
+   "ref": "5,5–7,0"
+  },
+  "u_dens": {
+   "name": "Относительная плотность мочи",
+   "unit": "—",
+   "ref": "1,005–1,025"
+  },
+  "u_ery": {
+   "name": "Эритроциты в моче",
+   "unit": "кл/мкл или п/зр",
+   "ref": "зависит от метода"
+  },
+  "u_salt": {
+   "name": "Кристаллы солей",
+   "unit": "крист/мкл",
+   "ref": "0–0,3"
+  },
+  "alt": {
+   "name": "АЛТ",
+   "unit": "Ед/л",
+   "ref": "5–41"
+  },
+  "ast": {
+   "name": "АСТ",
+   "unit": "Ед/л",
+   "ref": "5–40"
+  },
+  "ggt": {
+   "name": "ГГТП",
+   "unit": "Ед/л",
+   "ref": "10–71"
+  },
+  "alp": {
+   "name": "Щелочная фосфатаза",
+   "unit": "Ед/л",
+   "ref": "40–129"
+  },
+  "bil_tot": {
+   "name": "Билирубин общий",
+   "unit": "мкмоль/л",
+   "ref": "2,5–21"
+  },
+  "bil_dir": {
+   "name": "Билирубин прямой",
+   "unit": "мкмоль/л",
+   "ref": "1,2–5,0"
+  },
+  "bil_ind": {
+   "name": "Билирубин непрямой",
+   "unit": "мкмоль/л",
+   "ref": "<19"
+  },
+  "prot_tot": {
+   "name": "Общий белок",
+   "unit": "г/л",
+   "ref": "64–83"
+  },
+  "alb": {
+   "name": "Альбумин",
+   "unit": "г/л",
+   "ref": "39,7–49,4"
+  },
+  "amyl": {
+   "name": "Альфа-амилаза",
+   "unit": "Ед/л",
+   "ref": "28–100"
+  },
+  "chol": {
+   "name": "Холестерин общий",
+   "unit": "ммоль/л",
+   "ref": "3,2–5,2"
+  },
+  "ldl": {
+   "name": "ЛПНП",
+   "unit": "ммоль/л",
+   "ref": "<4,14 (лаб.)"
+  },
+  "hdl": {
+   "name": "ЛПВП",
+   "unit": "ммоль/л",
+   "ref": ">1,45 хорошо"
+  },
+  "tg": {
+   "name": "Триглицериды",
+   "unit": "ммоль/л",
+   "ref": "0,1–1,7"
+  },
+  "ai": {
+   "name": "Индекс атерогенности",
+   "unit": "—",
+   "ref": "<3,0"
+  },
+  "non_hdl": {
+   "name": "Холестерин не-ЛПВП",
+   "unit": "ммоль/л",
+   "ref": "<3,4"
+  },
+  "vldl": {
+   "name": "ЛПОНП",
+   "unit": "ммоль/л",
+   "ref": "0,26–1,04"
+  },
+  "lpa": {
+   "name": "Липопротеин (а)",
+   "unit": "нмоль/л",
+   "ref": "2–75"
+  },
+  "apo_a1": {
+   "name": "Аполипопротеин А1",
+   "unit": "г/л",
+   "ref": "1,04–2,02"
+  },
+  "apo_b": {
+   "name": "Аполипопротеин В",
+   "unit": "г/л",
+   "ref": "0,66–1,33"
+  },
+  "crp_hs": {
+   "name": "С-реактивный белок высокочувств.",
+   "unit": "мг/л",
+   "ref": "<5,0"
+  },
+  "dd": {
+   "name": "Д-димер",
+   "unit": "мг/л",
+   "ref": "0–0,55"
+  },
+  "homocyst": {
+   "name": "Гомоцистеин",
+   "unit": "мкмоль/л",
+   "ref": "<15"
+  },
+  "sbp": {
+   "name": "Систолическое АД",
+   "unit": "мм рт.ст.",
+   "ref": "—"
+  },
+  "dbp": {
+   "name": "Диастолическое АД",
+   "unit": "мм рт.ст.",
+   "ref": "—"
+  },
+  "ua": {
+   "name": "Мочевая кислота",
+   "unit": "мкмоль/л",
+   "ref": "202–416"
+  },
+  "rf": {
+   "name": "Ревматоидный фактор",
+   "unit": "МЕ/мл",
+   "ref": "0–14"
+  },
+  "esr": {
+   "name": "СОЭ",
+   "unit": "мм/ч",
+   "ref": "2–20"
+  },
+  "vit_d": {
+   "name": "25-ОН витамин D",
+   "unit": "нг/мл",
+   "ref": "≥30 цель"
+  },
+  "ca": {
+   "name": "Кальций общий",
+   "unit": "ммоль/л",
+   "ref": "2,15–2,50"
+  },
+  "ca_ion": {
+   "name": "Кальций ионизированный",
+   "unit": "ммоль/л",
+   "ref": "1,03–1,29"
+  },
+  "mg": {
+   "name": "Магний",
+   "unit": "ммоль/л",
+   "ref": "0,66–1,07"
+  },
+  "pth": {
+   "name": "Паратгормон",
+   "unit": "пг/мл",
+   "ref": "15–65"
+  },
+  "p": {
+   "name": "Фосфор",
+   "unit": "ммоль/л",
+   "ref": "0,81–1,45"
+  },
+  "fob": {
+   "name": "Скрытая кровь в кале",
+   "unit": "—",
+   "ref": "не обнаружено"
+  },
+  "hp": {
+   "name": "Helicobacter pylori",
+   "unit": "—",
+   "ref": "не обнаружено"
+  },
+  "gastrin": {
+   "name": "Гастрин",
+   "unit": "пг/мл",
+   "ref": "—"
+  },
+  "pg1": {
+   "name": "Пепсиноген I",
+   "unit": "нг/мл",
+   "ref": "—"
+  },
+  "pg2": {
+   "name": "Пепсиноген II",
+   "unit": "нг/мл",
+   "ref": "—"
+  },
+  "pg_ratio": {
+   "name": "Отношение PGI/PGII",
+   "unit": "—",
+   "ref": ">3"
+  },
+  "b12": {
+   "name": "Витамин B12",
+   "unit": "пг/мл",
+   "ref": "197–771"
+  },
+  "folate": {
+   "name": "Фолиевая кислота",
+   "unit": "нг/мл",
+   "ref": "3,1–20"
+  },
+  "fe": {
+   "name": "Железо сыворотки",
+   "unit": "мкмоль/л",
+   "ref": "11–28"
+  },
+  "ferr": {
+   "name": "Ферритин",
+   "unit": "нг/мл",
+   "ref": "30–400"
+  },
+  "elastase": {
+   "name": "Панкреатическая эластаза кала",
+   "unit": "мкг/г",
+   "ref": ">200"
+  },
+  "glu": {
+   "name": "Глюкоза натощак",
+   "unit": "ммоль/л",
+   "ref": "4,11–5,89"
+  },
+  "hba1c": {
+   "name": "Гликированный гемоглобин",
+   "unit": "%",
+   "ref": "4,8–5,9"
+  },
+  "ins": {
+   "name": "Инсулин",
+   "unit": "мкЕд/мл",
+   "ref": "2,6–24,9"
+  },
+  "homa": {
+   "name": "HOMA-IR",
+   "unit": "—",
+   "ref": "<2,7"
+  },
+  "cpept": {
+   "name": "С-пептид",
+   "unit": "нг/мл",
+   "ref": "1,10–4,40"
+  },
+  "fruct": {
+   "name": "Фруктозамин",
+   "unit": "мкмоль/л",
+   "ref": "205–285"
+  },
+  "weight": {
+   "name": "Вес",
+   "unit": "кг",
+   "ref": "—"
+  },
+  "bmi": {
+   "name": "ИМТ",
+   "unit": "кг/м²",
+   "ref": "18,5–25"
+  },
+  "waist": {
+   "name": "Окружность талии",
+   "unit": "см",
+   "ref": "<94"
+  },
+  "test_tot": {
+   "name": "Тестостерон общий",
+   "unit": "нмоль/л",
+   "ref": "8,6–29"
+  },
+  "shbg": {
+   "name": "ГСПГ",
+   "unit": "нмоль/л",
+   "ref": "18,3–54,1"
+  },
+  "prl": {
+   "name": "Пролактин",
+   "unit": "мЕд/л",
+   "ref": "73–407"
+  },
+  "tsh": {
+   "name": "ТТГ",
+   "unit": "мкМЕ/мл",
+   "ref": "0,27–4,20"
+  },
+  "ft4": {
+   "name": "Т4 свободный",
+   "unit": "нг/дл",
+   "ref": "0,97–1,65"
+  },
+  "at_tg": {
+   "name": "Антитела к тиреоглобулину",
+   "unit": "МЕ/мл",
+   "ref": "<115"
+  },
+  "at_tpo": {
+   "name": "Антитела к ТПО",
+   "unit": "МЕ/мл",
+   "ref": "<34"
+  },
+  "wbc": {
+   "name": "Лейкоциты",
+   "unit": "10⁹/л",
+   "ref": "3,89–9,23"
+  },
+  "rbc": {
+   "name": "Эритроциты",
+   "unit": "10¹²/л",
+   "ref": "4,24–5,65"
+  },
+  "hgb": {
+   "name": "Гемоглобин",
+   "unit": "г/л",
+   "ref": "131,9–168,7"
+  },
+  "hct": {
+   "name": "Гематокрит",
+   "unit": "%",
+   "ref": "39,06–51,27"
+  },
+  "mcv": {
+   "name": "Средний объём эритроцита",
+   "unit": "фл",
+   "ref": "86,5–101,8"
+  },
+  "mch": {
+   "name": "Среднее содержание Hb",
+   "unit": "пг",
+   "ref": "27,2–33,6"
+  },
+  "mchc": {
+   "name": "Средняя концентрация Hb",
+   "unit": "г/л",
+   "ref": "314,5–347,4"
+  },
+  "plt": {
+   "name": "Тромбоциты",
+   "unit": "10⁹/л",
+   "ref": "146,6–420,8"
+  },
+  "neu_p": {
+   "name": "Нейтрофилы",
+   "unit": "%",
+   "ref": "40,8–70,4"
+  },
+  "lym_p": {
+   "name": "Лимфоциты",
+   "unit": "%",
+   "ref": "20,1–46,8"
+  },
+  "mon_p": {
+   "name": "Моноциты",
+   "unit": "%",
+   "ref": "4,9–10,4"
+  },
+  "eos_p": {
+   "name": "Эозинофилы",
+   "unit": "%",
+   "ref": "0,73–8,86"
+  },
+  "bas_p": {
+   "name": "Базофилы",
+   "unit": "%",
+   "ref": "0,2–1,5"
+  },
+  "k": {
+   "name": "Калий",
+   "unit": "ммоль/л",
+   "ref": "3,5–5,1"
+  },
+  "na": {
+   "name": "Натрий",
+   "unit": "ммоль/л",
+   "ref": "136–145"
+  },
+  "cl": {
+   "name": "Хлор",
+   "unit": "ммоль/л",
+   "ref": "98–107"
+  },
+  "pct": {
+   "name": "Тромбокрит",
+   "unit": "%",
+   "ref": "0,16–0,39"
+  },
+  "mpv": {
+   "name": "Средний объём тромбоцита",
+   "unit": "фл",
+   "ref": "9,1–12,6"
+  },
+  "pdw": {
+   "name": "Индекс распределения тромбоцитов",
+   "unit": "фл",
+   "ref": "9,3–16,7"
+  },
+  "rdw_sd": {
+   "name": "Индекс распределения эритроцитов, SD",
+   "unit": "фл",
+   "ref": "38,3–51,62"
+  },
+  "rdw_cv": {
+   "name": "Индекс распределения эритроцитов, CV",
+   "unit": "%",
+   "ref": "11,4–15,29"
+  },
+  "mxd_p": {
+   "name": "Смешанная фракция MXD (моноциты+эозинофилы+базофилы)",
+   "unit": "%",
+   "ref": "3–15"
+  },
+  "p_lcr": {
+   "name": "Доля крупных тромбоцитов (P-LCR)",
+   "unit": "%",
+   "ref": "13–43"
+  },
+  "neu_abs": {
+   "name": "Нейтрофилы, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,78–6,04"
+  },
+  "lym_abs": {
+   "name": "Лимфоциты, абс.",
+   "unit": "10⁹/л",
+   "ref": "1,24–3,05"
+  },
+  "mon_abs": {
+   "name": "Моноциты, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,29–0,72"
+  },
+  "eos_abs": {
+   "name": "Эозинофилы, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,04–0,58"
+  },
+  "bas_abs": {
+   "name": "Базофилы, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,01–0,09"
+  },
+  "ig_p": {
+   "name": "Незрелые гранулоциты",
+   "unit": "%",
+   "ref": "0,00–0,60"
+  },
+  "ig_abs": {
+   "name": "Незрелые гранулоциты, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,00–0,04"
+  },
+  "nrbc_p": {
+   "name": "Нормобласты",
+   "unit": "%",
+   "ref": "0,00–0,20"
+  },
+  "nrbc_abs": {
+   "name": "Нормобласты, абс.",
+   "unit": "10⁹/л",
+   "ref": "0,00–0,11"
+  },
+  "band_p": {
+   "name": "Палочкоядерные (микроскопия)",
+   "unit": "%",
+   "ref": "1–6"
+  },
+  "seg_p": {
+   "name": "Сегментоядерные (микроскопия)",
+   "unit": "%",
+   "ref": "47–72"
+  },
+  "aptt": {
+   "name": "АЧТВ",
+   "unit": "сек",
+   "ref": "23,0–32,0"
+  },
+  "lpa_mgdl": {
+   "name": "Липопротеин (а) в мг/дл",
+   "unit": "мг/дл",
+   "ref": "<30"
+  },
+  "inr": {
+   "name": "МНО",
+   "unit": "ед",
+   "ref": "0,9–1,0"
+  },
+  "fibr": {
+   "name": "Фибриноген",
+   "unit": "г/л",
+   "ref": "1,8–3,5"
+  },
+  "psa": {
+   "name": "ПСА общий",
+   "unit": "нг/мл",
+   "ref": "<2,0"
+  },
+  "psa_free": {
+   "name": "ПСА свободный",
+   "unit": "нг/мл",
+   "ref": "—"
+  },
+  "psa_ratio": {
+   "name": "ПСА своб./общий",
+   "unit": "%",
+   "ref": "25–100"
+  },
+  "afp": {
+   "name": "Альфафетопротеин",
+   "unit": "нг/мл",
+   "ref": "<7,0"
+  },
+  "cea": {
+   "name": "РЭА",
+   "unit": "нг/мл",
+   "ref": "<4,7"
+  },
+  "ca19_9": {
+   "name": "СА 19-9",
+   "unit": "Ед/мл",
+   "ref": "0–27"
+  },
+  "ca72_4": {
+   "name": "СА 72-4",
+   "unit": "Ед/мл",
+   "ref": "<6,9"
+  },
+  "ft4_pmol": {
+   "name": "Т4 свободный в пмоль/л",
+   "unit": "пмоль/л",
+   "ref": "9,0–19,05"
+  },
+  "hba1c_ifcc": {
+   "name": "HbA1c по IFCC",
+   "unit": "ммоль/моль",
+   "ref": "29–42"
+  },
+  "hcg": {
+   "name": "Хорионический гонадотропин",
+   "unit": "мМЕ/мл",
+   "ref": "<2,0"
+  },
+  "diuresis": {
+   "name": "Суточный диурез",
+   "unit": "л",
+   "ref": "0,8–2,5"
+  },
+  "sbp_max": {
+   "name": "Пиковое систолическое АД за сутки",
+   "unit": "мм рт.ст.",
+   "ref": "—"
+  },
+  "dbp_max": {
+   "name": "Пиковое диастолическое АД за сутки",
+   "unit": "мм рт.ст.",
+   "ref": "—"
+  },
+  "pt_quick": {
+   "name": "Протромбин по Квику",
+   "unit": "%",
+   "ref": "77–120"
+  }
+ },
+ "intervals": {
+  "ua": {
+   "interval_m": 6.0,
+   "why": "ведущий показатель подагры; на фоне тиазида и подбора терапии — чаще",
+   "priority": "🔴"
+  },
+  "creat": {
+   "interval_m": 6.0,
+   "why": "почки; тройной удар БРА+тиазид+НПВС",
+   "priority": "🔴"
+  },
+  "egfr": {
+   "interval_m": 6.0,
+   "why": "производное от creat",
+   "priority": "🔴"
+  },
+  "urea": {
+   "interval_m": 6.0,
+   "why": "без неё креатинин не читается",
+   "priority": "🔴"
+  },
+  "k": {
+   "interval_m": 6.0,
+   "why": "⚠ тиазид выводит калий; при нарушениях проводимости критично",
+   "priority": "🔴"
+  },
+  "na": {
+   "interval_m": 6.0,
+   "why": "⚠ тиазид выводит натрий",
+   "priority": "🔴"
+  },
+  "mg": {
+   "interval_m": 6.0,
+   "why": "⚠ тиазид выводит, ИПП мешает всасывать",
+   "priority": "🔴"
+  },
+  "alt": {
+   "interval_m": 12.0,
+   "why": "печень; жировая болезнь по УЗИ 2022",
+   "priority": "🟠"
+  },
+  "ast": {
+   "interval_m": 12.0,
+   "why": "печень",
+   "priority": "🟠"
+  },
+  "ggt": {
+   "interval_m": 12.0,
+   "why": "чувствительна к алкоголю и лекарствам",
+   "priority": "🟠"
+  },
+  "glu": {
+   "interval_m": 12.0,
+   "why": "гипергликемия натощак",
+   "priority": "🟠"
+  },
+  "hba1c": {
+   "interval_m": 12.0,
+   "why": "был 5,76 при границе 5,9",
+   "priority": "🔴"
+  },
+  "ldl": {
+   "interval_m": 12.0,
+   "why": "был 4,50 при цели существенно ниже",
+   "priority": "🔴"
+  },
+  "chol": {
+   "interval_m": 12.0,
+   "why": "липиды",
+   "priority": "🟠"
+  },
+  "hdl": {
+   "interval_m": 12.0,
+   "why": "липиды",
+   "priority": "🟡"
+  },
+  "tg": {
+   "interval_m": 12.0,
+   "why": "липиды",
+   "priority": "🟡"
+  },
+  "apo_b": {
+   "interval_m": 12.0,
+   "why": "точнее ЛПНП отражает число атерогенных частиц",
+   "priority": "🟡"
+  },
+  "vit_d": {
+   "interval_m": 6.0,
+   "why": "был 22,96; контроль назначен врачом 31.01.2024 и не сдан",
+   "priority": "🔴"
+  },
+  "b12": {
+   "interval_m": 12.0,
+   "why": "⚠⚠ 15 лет ИПП, не измерялся НИ РАЗУ",
+   "priority": "🔴"
+  },
+  "folate": {
+   "interval_m": 12.0,
+   "why": "то же",
+   "priority": "🟠"
+  },
+  "ferr": {
+   "interval_m": 12.0,
+   "why": "⚠⚠ всасывание железа кислотозависимо, не измерялся НИ РАЗУ",
+   "priority": "🔴"
+  },
+  "fe": {
+   "interval_m": 12.0,
+   "why": "железо",
+   "priority": "🟠"
+  },
+  "homocyst": {
+   "interval_m": 24.0,
+   "why": "следствие дефицита B12 + фактор риска при Lp(a) 170",
+   "priority": "🟠"
+  },
+  "acr": {
+   "interval_m": 12.0,
+   "why": "⭐ ОСНОВНАЯ форма: альбумин/креатинин, разовая порция. Ни одной точки",
+   "priority": "🔴"
+  },
+  "mau_day": {
+   "interval_m": 12.0,
+   "why": "⚠ прежняя форма (суточный сбор), последний раз 2018",
+   "priority": "🟠"
+  },
+  "u_ph": {
+   "interval_m": 12.0,
+   "why": "был 5,5 — риск уратных камней",
+   "priority": "🟠"
+  },
+  "crp_hs": {
+   "interval_m": 12.0,
+   "why": "воспаление; ⚠ трактовать только вне обострений",
+   "priority": "🟡"
+  },
+  "hgb": {
+   "interval_m": 12.0,
+   "why": "ОАК",
+   "priority": "🟡"
+  },
+  "mcv": {
+   "interval_m": 12.0,
+   "why": "косвенный маркёр дефицита B12",
+   "priority": "🟠"
+  },
+  "plt": {
+   "interval_m": 12.0,
+   "why": "ОАК",
+   "priority": "🟡"
+  },
+  "wbc": {
+   "interval_m": 12.0,
+   "why": "ОАК",
+   "priority": "🟡"
+  },
+  "ca": {
+   "interval_m": 12.0,
+   "why": "с поправкой на альбумин",
+   "priority": "🟡"
+  },
+  "alb": {
+   "interval_m": 12.0,
+   "why": "нужен для трактовки кальция",
+   "priority": "🟡"
+  },
+  "tsh": {
+   "interval_m": 24.0,
+   "why": "щитовидная, стабильна",
+   "priority": "🟡"
+  },
+  "psa": {
+   "interval_m": 12.0,
+   "why": "⚠ НЕ сдавать в обострение простатита — минимум 4-6 нед после",
+   "priority": "🟠"
+  },
+  "weight": {
+   "interval_m": 1.0,
+   "why": "вес; цель 95 кг",
+   "priority": "🟠"
+  },
+  "waist": {
+   "interval_m": 3.0,
+   "why": "⚠ не измерялась ни разу; точнее ИМТ при абдоминальном типе",
+   "priority": "🟠"
+  },
+  "sbp": {
+   "interval_m": 0.25,
+   "why": "давление; ⚠ ряд оборвался в апреле 2019",
+   "priority": "🔴"
+  },
+  "dbp": {
+   "interval_m": 0.25,
+   "why": "давление",
+   "priority": "🔴"
+  },
+  "lpa": {
+   "interval_m": 0.0,
+   "why": "⛔ генетически задан, 170,4 от 25.01.2024 действителен пожизненно",
+   "priority": "—"
+  },
+  "hp": {
+   "interval_m": -1.0,
+   "why": "⛔ НЕ измерять самовольно: на фоне ИПП ложноотрицательный. Готовит врач",
+   "priority": "⛔"
+  },
+  "elastase": {
+   "interval_m": 0.0,
+   "why": "копрограмма намекает на панкреатическую недостаточность",
+   "priority": "🟠"
+  },
+  "pth": {
+   "interval_m": 0.0,
+   "why": "треугольник костного обмена с ca и vit_d",
+   "priority": "🟠"
+  }
+ }
+}

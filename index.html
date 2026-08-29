@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru" data-theme="auth-dark">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- viewport-fit=cover — обязателен, иначе env(safe-area-inset-*) всегда
+         нули, и содержимое уезжает под чёлку и под полосу жеста. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0A0A" />
+    <meta name="color-scheme" content="light dark" />
+    <meta name="description" content="Личный контур здоровья: риски по системам, заряд, недельные отметки" />
+
+    <!-- ⛔ Приложение не должно попадать в поисковую выдачу. Репозиторий
+         открытый по решению владельца, но «открытый» и «проиндексированный»
+         — разные вещи: первое означает «кто знает адрес, тот видит», второе
+         — «находится по фамилии». -->
+    <meta name="robots" content="noindex, nofollow" />
+
+    <!-- Полноэкранный режим при запуске с домашнего экрана iOS. -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Контур" />
+    <link rel="apple-touch-icon" href="./icons/icon-180.png" />
+
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" type="image/svg+xml" href="./icons/icon.svg" />
+
+    <title>Контур — здоровье</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
