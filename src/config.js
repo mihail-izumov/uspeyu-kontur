@@ -66,6 +66,11 @@ export const SESSION_TTL_MS = 60 * 60 * 1000
  *  на устройстве — в мастере контура она при этом остаётся. */
 export const WEEKLY_STORAGE_KEY = 'kontur.weekly.v1'
 
+/** Ключ хранилища отметок химического слоя (SYS-10, Д-33). Отметки живут
+ *  здесь до переноса в meds/intake_2026.md; смена ключа обнуляет их на
+ *  устройстве, в мастере контура они при этом остаются. */
+export const INTAKE_STORAGE_KEY = 'kontur.intake.v1'
+
 /** Ключ снимка последнего показанного «Заряда» (для дельты «против прошлой
  *  недели» и для замка закрытого периода — см. chargeModel.js). */
 export const CHARGE_STORAGE_KEY = 'kontur.charge.v1'

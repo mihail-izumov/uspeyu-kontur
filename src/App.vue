@@ -4,12 +4,14 @@ import AccessGate from './components/AccessGate.vue'
 import AppShell from './components/AppShell.vue'
 import SurveySheet from './components/SurveySheet.vue'
 import ChargeScreen from './screens/ChargeScreen.vue'
+import DayScreen from './screens/DayScreen.vue'
 import SystemsScreen from './screens/SystemsScreen.vue'
 import ProgressScreen from './screens/ProgressScreen.vue'
 import DataScreen from './screens/DataScreen.vue'
 import { useGate } from './composables/useGate.js'
 import { useData } from './composables/useData.js'
 import { useWeekly } from './composables/useWeekly.js'
+import { useIntake } from './composables/useIntake.js'
 import { computeCharge, chargeSeries } from './composables/chargeModel.js'
 
 const gate = useGate()
@@ -18,8 +20,20 @@ const { data, error: dataError, load } = useData()
 const masterWeeks = computed(() => data.value?.weekly || [])
 const weekly = useWeekly(masterWeeks)
 
+/* Химический слой (SYS-10, Д-33). События из мастера приезжают в генерате;
+ * отметки, ещё не перенесённые в мастер, живут в телефоне — как у недельного
+ * слоя, и по той же причине: мастер остаётся единственным источником истины. */
+const masterEvents = computed(() => data.value?.chemistry?.events || [])
+const intake = useIntake(masterEvents)
+
+/* ⚠ Пятая вкладка, а не шестая. «День» — единственный экран, куда пишут, и
+ *   он стоит вторым, сразу за «Зарядом». «Задачи» отдельной вкладкой не
+ *   заводились: они живут разделом внутри «Данных», где уже стоят просрочки,
+ *   пробелы и препараты. Шесть вкладок в капсуле перестают читаться —
+ *   и первым перестаёт читаться то, что реже открывают. */
 const TABS = [
   { id: 'charge', label: 'Заряд', icon: 'charge', title: 'Заряд' },
+  { id: 'day', label: 'День', icon: 'day', title: 'День' },
   { id: 'systems', label: 'Системы', icon: 'systems', title: 'Системы' },
   { id: 'progress', label: 'Прогресс', icon: 'progress', title: 'Прогресс' },
   { id: 'data', label: 'Данные', icon: 'data', title: 'Данные' },
@@ -82,6 +96,7 @@ const shellTitle = computed(() => TABS.find((t) => t.id === active.value)?.title
 const shellSubtitle = computed(() => {
   if (!data.value) return ''
   if (active.value === 'charge') return `Метод ${charge.value?.method || ''}`
+  if (active.value === 'day') return 'Химический слой · только отклонения от схемы'
   if (active.value === 'systems') return 'Шесть систем · органы-мишени контура'
   if (active.value === 'progress') return `${weekly.weeks.value.length} отметок в ряду`
   return `Данные собраны ${data.value.built}`
@@ -136,6 +151,14 @@ onMounted(() => {
         :week-filled="currentWeekFilled"
         :is-survey-due="isSurveyDue"
         @open-survey="openSurvey"
+      />
+      <DayScreen
+        v-else-if="active === 'day'"
+        :chemistry="data.chemistry || {}"
+        :entries="intake.entries.value"
+        :editable-days="intake.editableDays.value"
+        :pending-export="intake.pendingExport.value"
+        @save="intake.save"
       />
       <SystemsScreen v-else-if="active === 'systems'" :data="data" />
       <ProgressScreen
