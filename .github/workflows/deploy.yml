@@ -51,6 +51,15 @@ jobs:
 
       - run: npm run build
 
+      - name: Дымовая проверка и границы контура
+        # Поднимает собранное приложение, проходит вход, открывает все разделы
+        # и ищет на экранах формулировки, запрещённые docs/STANDARD-safety.md.
+        # ⛔ Падение здесь останавливает публикацию: приложение, которое начало
+        # советовать «снизь дозу», выкладывать нельзя, даже если оно собралось.
+        run: |
+          node scripts/build-preview.mjs
+          node scripts/smoke.mjs dist/preview.html
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
