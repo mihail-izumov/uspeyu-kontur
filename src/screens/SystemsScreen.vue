@@ -2,6 +2,7 @@
 import { computed, ref } from 'vue'
 import StatusChip from '../components/StatusChip.vue'
 import BottomSheet from '../components/BottomSheet.vue'
+import TrendChart from '../components/TrendChart.vue'
 import { systemLight } from '../composables/chargeModel.js'
 import { humanAge, fmtDate } from '../composables/useData.js'
 
@@ -214,6 +215,16 @@ function toggleValue(key) {
               class="border-t px-4 py-3 text-[0.8125rem] leading-relaxed"
               :style="{ borderColor: 'var(--line)', background: 'var(--surface-2)', color: 'var(--text-secondary)' }"
             >
+              <!-- SYS-5: ряд глазами. Рисуется при ≥2 точках; данные — только
+                   из series генерата, приложение ничего не пересчитывает. -->
+              <TrendChart
+                v-if="(data.series?.[m.key] || []).length >= 2"
+                class="mb-3"
+                :points="data.series[m.key]"
+                :ref-range="m.ref || ''"
+                :target="m.target || ''"
+                :unit="m.unit || ''"
+              />
               <p v-if="m.last_value !== null">
                 <span :style="{ color: 'var(--text-muted)' }">последнее:</span>
                 <span class="font-mono tabular-nums" :style="{ color: 'var(--text)' }"> {{ m.last_value }} {{ m.unit }}</span>

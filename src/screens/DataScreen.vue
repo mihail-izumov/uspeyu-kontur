@@ -72,6 +72,24 @@ function parseSince(s) {
 }
 
 const orphanConditions = computed(() => (props.data.conditions || []).filter((c) => c.orphan))
+
+/* ═══ SYS-8 (Д-32): «К визиту» ═══
+ * Сопоставление «врач ↔ вопросы/тревоги/показатели» сделано генератором
+ * (build_visits в build_app_data.py) — здесь только отрисовка по кодам.
+ * Правка содержимого визита = правка мастера, не этого файла. */
+const visit = ref(null) // открытая страница врача
+
+const visits = computed(() => props.data.visits || [])
+const questionsByCode = computed(() =>
+  Object.fromEntries((props.data.questions || []).map((q) => [q.code, q])),
+)
+const alertsByCode2 = computed(() =>
+  Object.fromEntries((props.data.alerts || []).map((a) => [a.code, a])),
+)
+/* Список принимаемого — целиком, из мастера. Правило vizit-k-vrachu:
+ * врач слышит полный список, а не «по памяти». */
+const allMeds = computed(() => props.data.meds || [])
+function cap(s) { return s ? s[0].toUpperCase() + s.slice(1) : s }
 const openTasks = computed(() => (props.data.tasks || []).filter((t) => !t.done))
 
 const lastDrawAge = computed(() => ageDays(props.data.last_draw))
@@ -118,6 +136,125 @@ const medDetail = ref(null)
         </div>
       </div>
     </section>
+
+    <!-- ═══ К ВИЗИТУ (SYS-8) ═══ -->
+    <section v-if="visits.length">
+      <h2 class="mb-2 font-label text-[0.75rem] uppercase tracking-[0.14em]" :style="{ color: 'var(--text-muted)' }">
+        К визиту
+      </h2>
+      <div class="flex flex-col gap-1.5">
+        <button
+          v-for="v in visits"
+          :key="v.doctor"
+          type="button"
+          class="flex w-full items-center gap-3 rounded-[14px] border px-4 py-3 text-left active:opacity-80"
+          :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
+          @click="visit = v"
+        >
+          <div class="min-w-0 flex-1">
+            <p class="text-[0.9375rem] font-medium">{{ cap(v.doctor) }}</p>
+            <p class="mt-0.5 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">
+              <template v-if="v.questions.length">вопросов: {{ v.questions.length }}</template>
+              <template v-if="v.questions.length && v.alerts.length"> · </template>
+              <template v-if="v.alerts.length">тревог: {{ v.alerts.length }}</template>
+              <template v-if="v.attention.length"> · показать: {{ v.attention.length }}</template>
+            </p>
+          </div>
+          <span aria-hidden="true" :style="{ color: 'var(--text-muted)' }">›</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ═══ СТРАНИЦА ВИЗИТА ═══ -->
+    <BottomSheet
+      :open="!!visit"
+      :title="visit ? cap(visit.doctor) : ''"
+      subtitle="Страница на один приём: показать врачу как есть"
+      @close="visit = null"
+    >
+      <template v-if="visit">
+        <template v-if="visit.questions.length">
+          <h3 class="mb-2 font-label text-[0.75rem] uppercase tracking-[0.14em]" :style="{ color: 'var(--text-muted)' }">
+            Спросить
+          </h3>
+          <ol class="flex flex-col gap-2">
+            <li
+              v-for="(code, i) in visit.questions"
+              :key="code"
+              class="rounded-[14px] border px-4 py-3"
+              :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
+            >
+              <div class="flex items-center gap-2 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">
+                <span class="font-mono">{{ i + 1 }}. {{ code }}</span>
+              </div>
+              <p class="mt-1 text-[0.9375rem] leading-snug">
+                {{ questionsByCode[code]?.question || questionsByCode[code]?.title }}
+              </p>
+            </li>
+          </ol>
+        </template>
+
+        <template v-if="visit.alerts.length">
+          <h3 class="mb-2 mt-6 font-label text-[0.75rem] uppercase tracking-[0.14em]" :style="{ color: 'var(--text-muted)' }">
+            Тревоги контура — адресованы этому врачу
+          </h3>
+          <div class="flex flex-col gap-2">
+            <article
+              v-for="code in visit.alerts"
+              :key="code"
+              class="rounded-[14px] border px-4 py-3"
+              :style="{ background: 'var(--sig-alarm-fill)', borderColor: 'var(--sig-alarm)' }"
+            >
+              <span class="font-mono text-[0.75rem]" :style="{ color: 'var(--sig-alarm-ink)' }">{{ code }}</span>
+              <p class="mt-1 text-[0.875rem] font-medium leading-snug" :style="{ color: 'var(--sig-alarm-ink)' }">
+                {{ alertsByCode2[code]?.title }}
+              </p>
+            </article>
+          </div>
+        </template>
+
+        <template v-if="visit.attention.length">
+          <h3 class="mb-2 mt-6 font-label text-[0.75rem] uppercase tracking-[0.14em]" :style="{ color: 'var(--text-muted)' }">
+            Показать: что вне цели или не измерялось
+          </h3>
+          <ul class="flex flex-col gap-1.5">
+            <li
+              v-for="a in visit.attention"
+              :key="a.key"
+              class="flex items-baseline justify-between gap-3 rounded-[12px] border px-4 py-2.5"
+              :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
+            >
+              <span class="min-w-0 flex-1 truncate text-[0.875rem]">{{ a.name }}</span>
+              <span class="shrink-0 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">
+                <template v-if="a.last_value !== null">{{ a.last_value }} {{ a.unit }} · </template>{{ a.why }}
+              </span>
+            </li>
+          </ul>
+        </template>
+
+        <h3 class="mb-2 mt-6 font-label text-[0.75rem] uppercase tracking-[0.14em]" :style="{ color: 'var(--text-muted)' }">
+          Принимаю сейчас — список целиком
+        </h3>
+        <p class="mb-2 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">
+          Полный список, не по памяти: врач, слышащий часть схемы, решает по неверным вводным.
+        </p>
+        <ul class="flex flex-col gap-1">
+          <li
+            v-for="m in allMeds"
+            :key="m.name"
+            class="rounded-[12px] border px-4 py-2.5 text-[0.875rem]"
+            :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
+          >
+            {{ m.name }}
+            <span class="text-[0.75rem]" :style="{ color: 'var(--text-muted)' }"> · {{ m.group }}<template v-if="m.regimen"> · {{ m.regimen }}</template></span>
+          </li>
+        </ul>
+
+        <p class="mt-6 text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
+          ⛔ Это подготовка к разговору, а не заключение. Решения — в кабинете.
+        </p>
+      </template>
+    </BottomSheet>
 
     <!-- ═══ ВКЛАДКИ ═══ -->
     <div class="flex gap-1 rounded-full p-1" :style="{ background: 'var(--surface-2)' }">

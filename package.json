@@ -9,7 +9,9 @@
     "preview": "vite preview",
     "passcode": "node scripts/passcode.mjs",
     "single": "vite build && node scripts/build-preview.mjs",
-    "test": "vite build && node scripts/build-preview.mjs && node scripts/smoke.mjs dist/preview.html"
+    "test": "vite build && node scripts/build-preview.mjs && node scripts/smoke.mjs dist/preview.html",
+    "data:encrypt": "node scripts/encrypt-data.mjs",
+    "data:decrypt": "node scripts/encrypt-data.mjs --decrypt"
   },
   "dependencies": {
     "vue": "^3.5.34"

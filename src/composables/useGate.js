@@ -1,5 +1,6 @@
 import { ref } from 'vue'
 import { LOGIN, PASSCODE_HASH, PASSCODE_SALT, PASSCODE_ITERATIONS, SESSION_TTL_MS } from '../config.js'
+import { setDataKey } from './useData.js'
 
 /* ═══════════════════════════════════════════════════════════════════════
    ГЕЙТ ВХОДА
@@ -103,6 +104,21 @@ export function useGate() {
         sessionStartedAt = Date.now()
         authed.value = true
         scheduleExpiry()
+        /* SYS-6 (Д-32): из той же фразы выводится ключ данных — соль с
+         * суффиксом ':data', чтобы ключ никогда не совпадал с хешем входа,
+         * который лежит в публичном config.js. Ключ уходит в useData и
+         * нигде не хранится: ни в state, ни в storage. Схема обязана
+         * побайтно совпадать со scripts/encrypt-data.mjs. */
+        const enc = new TextEncoder()
+        const km = await crypto.subtle.importKey('raw', enc.encode(v), 'PBKDF2', false, ['deriveKey'])
+        const dataKey = await crypto.subtle.deriveKey(
+          { name: 'PBKDF2', salt: enc.encode(PASSCODE_SALT + ':data'), iterations: PASSCODE_ITERATIONS, hash: 'SHA-256' },
+          km,
+          { name: 'AES-GCM', length: 256 },
+          false,
+          ['decrypt'],
+        )
+        await setDataKey(dataKey)
       } else {
         error.value = true
       }

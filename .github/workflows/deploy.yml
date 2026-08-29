@@ -39,15 +39,30 @@ jobs:
       - run: npm ci
 
       - name: Проверить, что данные контура на месте
-        # Без этой проверки сборка проходит, а приложение открывается пустым
-        # экраном с ошибкой загрузки — и понять причину можно только из
-        # консоли браузера. Пусть падает здесь и с внятной строкой.
+        # SYS-6 (Д-32): в репозитории лежит ТОЛЬКО шифрованный файл. Без него
+        # сборка проходит, а приложение открывается пустым экраном — пусть
+        # падает здесь и с внятной строкой.
         run: |
-          test -s public/data/health.json || {
-            echo "::error::public/data/health.json отсутствует или пуст."
-            echo "::error::Выполните python3 tools/build_app_data.py в репозитории контура и закоммитьте результат."
+          test -s public/data/health.enc.json || {
+            echo "::error::public/data/health.enc.json отсутствует или пуст."
+            echo "::error::Выполните: python3 tools/build_app_data.py, затем KONTUR_PASS='фраза' npm run data:encrypt — и закоммитьте .enc."
             exit 1
           }
+
+      - name: Расшифровать данные для дымовой проверки
+        # Открытого health.json в репозитории нет (SYS-6). Дымовой проверке он
+        # нужен — восстанавливаем из .enc секретом KONTUR_PASS (Settings →
+        # Secrets and variables → Actions). Файл живёт только в раннере.
+        # ⛔ Без секрета проверка границ не пройдёт — публикация остановится:
+        # выкладывать непроверенное хуже, чем не выложить.
+        env:
+          KONTUR_PASS: ${{ secrets.KONTUR_PASS }}
+        run: |
+          test -n "$KONTUR_PASS" || {
+            echo "::error::Секрет KONTUR_PASS не задан — дымовую проверку не на чем прогнать."
+            exit 1
+          }
+          npm run data:decrypt
 
       - run: npm run build
 

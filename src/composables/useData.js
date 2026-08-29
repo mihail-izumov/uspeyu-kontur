@@ -19,6 +19,42 @@ const loading = ref(false)
 const error = ref(null)
 
 let started = false
+let pendingCipher = null // health.enc.json, ждущий ключа от гейта (SYS-6)
+
+/* ═══ SYS-6 (Д-32): шифрованные данные ═══
+ * В публичном репозитории лежит только health.enc.json (AES-256-GCM,
+ * scripts/encrypt-data.mjs). Открытый health.json существует лишь локально
+ * у владельца — если он есть в сборке (dev, дымовая проверка), берётся он.
+ * Ключ приезжает из гейта после верного пароля (setDataKey) — эта сторона
+ * данные не расшифрует, пока человек не введёт фразу. */
+
+async function decryptPending(key) {
+  const iv = Uint8Array.from(atob(pendingCipher.iv), (c) => c.charCodeAt(0))
+  const ct = Uint8Array.from(atob(pendingCipher.ct), (c) => c.charCodeAt(0))
+  const buf = await crypto.subtle.decrypt({ name: 'AES-GCM', iv }, key, ct)
+  data.value = JSON.parse(new TextDecoder().decode(buf))
+  pendingCipher = null
+}
+
+/** Гейт зовёт после успешного входа. Расшифровка здесь, ключ дальше не живёт. */
+export async function setDataKey(key) {
+  if (!pendingCipher) return
+  try {
+    await decryptPending(key)
+    error.value = null
+  } catch {
+    // Пароль верен для гейта, но файл им не расшифровался — значит .enc
+    // собран другой фразой. Это ошибка сборки, и сказать нужно именно это.
+    error.value =
+      'Пароль принят, но данные им не расшифровались: health.enc.json собран другой фразой. ' +
+      "Пересоберите: KONTUR_PASS='текущая фраза' npm run data:encrypt — и запушьте."
+  }
+}
+
+/** Есть ли расшифровка, которую ждём (для экрана ожидания). */
+export function waitingForKey() {
+  return pendingCipher !== null
+}
 
 export function useData() {
   async function load() {
@@ -35,15 +71,23 @@ export function useData() {
       }
       const base = import.meta.env.BASE_URL || './'
       const res = await fetch(`${base}data/health.json`, { cache: 'no-cache' })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      data.value = await res.json()
+      if (res.ok) {
+        data.value = await res.json()
+        return
+      }
+      // Открытого файла нет — штатно для публичной сборки: берём шифрованный
+      // и ждём ключ от гейта.
+      const enc = await fetch(`${base}data/health.enc.json`, { cache: 'no-cache' })
+      if (!enc.ok) throw new Error(`HTTP ${enc.status}`)
+      pendingCipher = await enc.json()
     } catch (e) {
       // Честная формулировка вместо «что-то пошло не так»: единственная
       // реальная причина здесь — файла нет в сборке, то есть забыли прогнать
       // генератор перед пушем. Так и написано, чтобы чинилось за минуту.
       error.value =
-        'Не удалось прочитать данные контура. Проверьте, что перед сборкой был ' +
-        'выполнен python3 tools/build_app_data.py и файл data/health.json попал в репозиторий.'
+        'Не удалось прочитать данные контура. Проверьте, что перед сборкой были ' +
+        'выполнены python3 tools/build_app_data.py и npm run data:encrypt, ' +
+        'и файл data/health.enc.json попал в репозиторий.'
       started = false
     } finally {
       loading.value = false
