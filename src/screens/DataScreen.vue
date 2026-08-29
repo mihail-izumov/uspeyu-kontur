@@ -1,5 +1,5 @@
 <script setup>
-import { computed, ref } from 'vue'
+import { computed, reactive, ref } from 'vue'
 import StatusChip from '../components/StatusChip.vue'
 import BottomSheet from '../components/BottomSheet.vue'
 import { humanAge, fmtDate, ageDays } from '../composables/useData.js'
@@ -90,7 +90,69 @@ const alertsByCode2 = computed(() =>
  * врач слышит полный список, а не «по памяти». */
 const allMeds = computed(() => props.data.meds || [])
 function cap(s) { return s ? s[0].toUpperCase() + s.slice(1) : s }
+/* ═══ SYS-15 (Д-33): раздел «Задачи» ═══
+ *
+ * Устройство перенесено из приложения boom-cmd (раздел «Проекты»), по слову
+ * владельца «один в один»: сворачиваемые группы с круглым счётчиком в
+ * заголовке, все свёрнуты по умолчанию (ревизия эталона 12.06.2026 — экран
+ * открывается компактной сводкой), спокойная монохромная карточка, детали в
+ * read-only модалке.
+ *
+ * ⚠ ОДНО ОТЛИЧИЕ, И ОНО ОСОЗНАННОЕ. В эталоне группы — это статусы, а на
+ * карточке стоит значок приоритета. Здесь наоборот: группы — приоритет
+ * (владелец просил 🔴/🟠/🟡/бэклог), а на карточке — статус и срок. Ось,
+ * по которой сгруппировано, на карточке не повторяется: повторённая, она
+ * занимает место и ничего не добавляет.
+ *
+ * ⛔ ЭКРАН ЧИТАЕТ, НЕ ПИШЕТ. Отметить выполнение отсюда нельзя (Д-12):
+ * «Готово» ставится в мастере, когда результат внесён, — и подтверждает это
+ * владелец, а не касание в телефоне.
+ *
+ * ⚠ Данные готовит генератор: ряд, приоритет, связки, дата срока и признак
+ * просрочки приезжают полями (Д-29). Разбор markdown в компоненте был бы
+ * вторым парсером той же разметки — однажды они разойдутся.
+ */
 const openTasks = computed(() => (props.data.tasks || []).filter((t) => !t.done))
+
+const TASK_ROW_FILTERS = [
+  { id: 'all', label: 'Все' },
+  { id: 'DOC', label: 'Визиты' },
+  { id: 'LAB', label: 'Анализы' },
+  { id: 'MED', label: 'Препараты' },
+  { id: 'DATA', label: 'Архив' },
+  { id: 'SYS', label: 'Контур' },
+]
+const TASK_PRIORITIES = [
+  { rank: 1, mark: '🔴', label: 'Горит' },
+  { rank: 2, mark: '🟠', label: 'Высокий' },
+  { rank: 3, mark: '🟡', label: 'Средний' },
+  { rank: 4, mark: '⚪', label: 'Бэклог' },
+]
+const taskRow = ref('all')
+const taskOpen = reactive({ 1: false, 2: false, 3: false, 4: false })
+const taskDetail = ref(null)
+
+const visibleTasks = computed(() =>
+  taskRow.value === 'all'
+    ? openTasks.value
+    : openTasks.value.filter((t) => t.row === taskRow.value),
+)
+/* Только непустые группы. Пустая группа «Горит» с нулём читалась бы как
+ * «сегодня ничего не горит» — а она означала бы всего лишь фильтр. */
+const taskGroups = computed(() =>
+  TASK_PRIORITIES
+    .map((p) => ({ ...p, items: visibleTasks.value.filter((t) => t.priority === p.rank) }))
+    .filter((g) => g.items.length),
+)
+const overdueCount = computed(() => visibleTasks.value.filter((t) => t.overdue).length)
+
+function taskWord(n) {
+  const m10 = n % 10
+  const m100 = n % 100
+  if (m10 === 1 && m100 !== 11) return 'задача'
+  if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return 'задачи'
+  return 'задач'
+}
 
 const lastDrawAge = computed(() => ageDays(props.data.last_draw))
 
@@ -446,29 +508,135 @@ const medDetail = ref(null)
 
     <!-- ═══ ЗАДАЧИ ═══ -->
     <template v-else>
-      <p class="kh-balance text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
+      <!-- фильтр по рядам; «Визиты» стоит первым после «Все»:
+           у визитов есть срок, который закрывается сам собой -->
+      <div class="kh-scroll -mx-5 flex gap-1.5 overflow-x-auto px-5 pb-0.5">
+        <button
+          v-for="f in TASK_ROW_FILTERS"
+          :key="f.id"
+          type="button"
+          class="min-h-[36px] shrink-0 rounded-full border px-3.5 text-[0.8125rem] active:opacity-70"
+          :style="taskRow === f.id
+            ? { background: 'var(--action)', color: 'var(--action-ink)', borderColor: 'var(--action)' }
+            : { background: 'var(--surface)', borderColor: 'var(--rim)', color: 'var(--text-secondary)' }"
+          @click="taskRow = f.id"
+        >{{ f.label }}</button>
+      </div>
+
+      <p class="px-1 text-[0.8125rem]" :style="{ color: 'var(--text-muted)' }">
+        Открыто {{ visibleTasks.length }} {{ taskWord(visibleTasks.length) }}<template v-if="overdueCount">, срок вышел у {{ overdueCount }}</template>
+      </p>
+
+      <div class="flex flex-col gap-3">
+        <section v-for="g in taskGroups" :key="g.rank" class="flex flex-col gap-2">
+          <button
+            type="button"
+            class="flex min-h-[44px] items-center gap-2 rounded-[12px] px-1 text-left active:opacity-70"
+            :aria-expanded="taskOpen[g.rank]"
+            @click="taskOpen[g.rank] = !taskOpen[g.rank]"
+          >
+            <svg
+              viewBox="0 0 16 16"
+              class="h-4 w-4 shrink-0 transition-transform duration-150"
+              :class="taskOpen[g.rank] ? 'rotate-90' : ''"
+              fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round"
+              :style="{ color: 'var(--text-muted)' }"
+              aria-hidden="true"
+            ><path d="M6 3l5 5-5 5" /></svg>
+            <span class="text-[1rem] font-semibold">{{ g.mark }} {{ g.label }}</span>
+            <span
+              class="inline-flex h-6 min-w-[1.5rem] items-center justify-center rounded-full px-1.5 text-[0.8125rem] font-medium leading-none"
+              :style="{ background: 'var(--line)', color: 'var(--text-secondary)' }"
+            >{{ g.items.length }}</span>
+          </button>
+
+          <div v-show="taskOpen[g.rank]" class="flex flex-col gap-2">
+            <button
+              v-for="t in g.items"
+              :key="t.code"
+              type="button"
+              class="flex w-full flex-col gap-2 rounded-[16px] border px-4 py-3.5 text-left active:opacity-70"
+              :style="{ background: 'var(--surface)', borderColor: t.overdue ? 'var(--sig-alarm)' : 'var(--rim)' }"
+              @click="taskDetail = t"
+            >
+              <div class="flex flex-wrap items-center gap-1.5">
+                <span
+                  class="inline-flex items-center rounded-full px-2 py-0.5 text-[0.75rem] font-medium leading-tight"
+                  :style="{ background: 'var(--line)', color: 'var(--text-secondary)' }"
+                >{{ t.row_label }}</span>
+                <span class="font-mono text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">{{ t.code }}</span>
+              </div>
+
+              <span class="text-[0.9375rem] font-medium leading-snug">{{ t.what }}</span>
+
+              <div class="flex flex-wrap items-center gap-2">
+                <span class="text-[0.6875rem] uppercase tracking-[0.08em]" :style="{ color: 'var(--text-muted)' }">{{ t.status }}</span>
+                <span
+                  v-if="t.due"
+                  class="text-[0.75rem]"
+                  :style="{ color: t.overdue ? 'var(--sig-alarm)' : 'var(--text-muted)' }"
+                >{{ t.due }}</span>
+                <span
+                  v-for="l in t.links"
+                  :key="l"
+                  class="inline-flex items-center rounded-full border px-1.5 py-0.5 font-mono text-[0.6875rem] leading-tight"
+                  :style="{ borderColor: 'var(--rim)', color: 'var(--text-muted)' }"
+                >{{ l }}</span>
+              </div>
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <p v-if="!visibleTasks.length" class="px-1 text-[0.875rem]" :style="{ color: 'var(--text-muted)' }">
+        В этом ряду открытых задач нет.
+      </p>
+
+      <p class="kh-balance px-1 pb-2 text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
         ⛔ Приложение не закрывает задачи. «Готово» ставится в контуре, когда результат
         внесён в мастер, — не когда сходил.
       </p>
-      <div class="flex flex-col gap-2">
-        <article
-          v-for="t in openTasks"
-          :key="t.code"
-          class="rounded-[16px] border px-4 py-3.5"
-          :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
-        >
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="font-mono text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">{{ t.code }}</span>
-            <span class="text-[0.6875rem] uppercase tracking-[0.08em]" :style="{ color: 'var(--text-muted)' }">{{ t.status }}</span>
-            <span v-if="t.due" class="ml-auto shrink-0 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">{{ t.due }}</span>
-          </div>
-          <p class="mt-1.5 text-[0.9375rem] leading-snug">{{ t.what }}</p>
-          <p v-if="t.why" class="mt-1.5 text-[0.8125rem] leading-snug" :style="{ color: 'var(--text-secondary)' }">
-            {{ t.why }}
-          </p>
-        </article>
-      </div>
     </template>
+
+    <!-- ═══ КАРТОЧКА ЗАДАЧИ (read-only, как в эталоне) ═══ -->
+    <BottomSheet
+      :open="!!taskDetail"
+      :title="taskDetail?.code || ''"
+      :subtitle="taskDetail ? `${taskDetail.row_label} · ${taskDetail.priority_label}` : ''"
+      @close="taskDetail = null"
+    >
+      <template v-if="taskDetail">
+        <p class="text-[1rem] font-medium leading-snug">{{ taskDetail.what }}</p>
+        <dl class="mt-4 flex flex-col gap-3">
+          <div>
+            <dt class="font-label text-[0.75rem] uppercase tracking-[0.12em]" :style="{ color: 'var(--text-muted)' }">Статус</dt>
+            <dd class="mt-0.5 text-[0.9375rem]">{{ taskDetail.status }}</dd>
+          </div>
+          <div v-if="taskDetail.due">
+            <dt class="font-label text-[0.75rem] uppercase tracking-[0.12em]" :style="{ color: 'var(--text-muted)' }">Срок</dt>
+            <dd class="mt-0.5 text-[0.9375rem]" :style="{ color: taskDetail.overdue ? 'var(--sig-alarm)' : 'var(--text)' }">
+              {{ taskDetail.due }}<template v-if="taskDetail.overdue"> · срок вышел</template>
+            </dd>
+          </div>
+          <div v-if="taskDetail.why">
+            <!-- ⛔ «Зачем» — обязательное поле реестра: задача, для которой
+                 нельзя назвать закрываемый пробел или риск, в реестр не
+                 попадает (Д-12). Поэтому оно здесь, а не спрятано. -->
+            <dt class="font-label text-[0.75rem] uppercase tracking-[0.12em]" :style="{ color: 'var(--text-muted)' }">Зачем</dt>
+            <dd class="mt-0.5 text-[0.9375rem] leading-snug">{{ taskDetail.why }}</dd>
+          </div>
+          <div v-if="taskDetail.linked">
+            <dt class="font-label text-[0.75rem] uppercase tracking-[0.12em]" :style="{ color: 'var(--text-muted)' }">Связано</dt>
+            <dd class="mt-0.5 text-[0.9375rem] leading-snug">{{ taskDetail.linked }}</dd>
+          </div>
+        </dl>
+        <p class="mt-4 text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
+          ⛔ Отсюда задачу нельзя закрыть, перенести или изменить: реестр —
+          workspace/ЗАДАЧИ.md, и статус в нём меняется по подтверждению владельца.
+        </p>
+      </template>
+    </BottomSheet>
 
     <!-- ═══ КАРТОЧКА ПРЕПАРАТА ═══ -->
     <BottomSheet
