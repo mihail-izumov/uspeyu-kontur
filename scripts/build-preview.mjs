@@ -40,6 +40,11 @@ if (!js || !css) {
 }
 
 const data = readFileSync(join(root, 'public', 'data', 'health.json'), 'utf8')
+// Д-45: публичный слой вкладывается ОТДЕЛЬНЫМ блоком, как и живёт отдельным
+// файлом. Дым обязан видеть ровно ту границу, что уедет наружу: если слить
+// два файла в один, проверка «на публичной странице нет медицины» перестанет
+// что-либо значить.
+const pub = readFileSync(join(root, 'public', 'data', 'public.json'), 'utf8')
 const style = readFileSync(join(assets, css), 'utf8')
 const script = readFileSync(join(assets, js), 'utf8')
 
@@ -52,6 +57,8 @@ const out = [
   // данных не ломают страницу. Единственное, что нужно закрыть, — </script>.
   `<script type="application/json" id="kontur-data">${data.replace(/<\/script/gi, '<\\/script')}</script>`,
   '<script>window.__KONTUR_DATA__ = JSON.parse(document.getElementById("kontur-data").textContent)</script>',
+  `<script type="application/json" id="kontur-public">${pub.replace(/<\/script/gi, '<\\/script')}</script>`,
+  '<script>window.__KONTUR_PUBLIC__ = JSON.parse(document.getElementById("kontur-public").textContent)</script>',
   `<script type="module">${script}</script>`,
 ].join('\n')
 

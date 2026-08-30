@@ -68,6 +68,21 @@
   --ink-inverse-muted: #A5A29B;
   --surface-inverse-soft: #34322C;
 
+  /* ── КАЛЕНДАРЬ ЖИЗНИ (Д-42/Д-45) ─────────────────────────────────────
+     Четыре тона недели — и ни одним больше: пятый читатель уже не различит
+     на сетке из двух тысяч точек.
+       review — неделя, закрытая воскресным разбором;
+       lived  — прожита без разбора;
+       ahead  — впереди, в пределах текущей вилки;
+       target — впереди, между текущей и целевой: то, что «на столе».
+     ⛔ Зелёный здесь НЕ светофорный `--sig-ok`: тот означает «показатель в
+     цели», а этот — «неделя закрыта». Один цвет на два разных смысла в
+     приложении, где светофор несущий, — прямой путь к ошибке чтения. */
+  --wk-review: #1F7A43;
+  --wk-lived: #C7C4BB;
+  --wk-ahead: #E3E1DB;
+  --wk-target: #EFEDE7;
+
   --sheet: #F7F6F3;
   --ink-on-color: #FFFFFF;
   --ink-on-color-muted: #BAB9B8;
@@ -241,3 +256,45 @@
 
 /* Прокрутка внутри шторки не должна утаскивать за собой страницу. */
 .kh-scroll { -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ПУБЛИЧНЫЙ СЛОЙ (Д-45) — утилиты страницы ДО входа.
+
+   Перенесены из витрины «Успею» вместе с её экранами, когда два приложения
+   слились в одно. Префикс `up-` («Успею») сохранён нарочно: он показывает,
+   что этими классами верстается ПУБЛИЧНАЯ половина, а не медкарта. Внутри
+   приложения вёрстка своя, на Tailwind, и смешивать их не нужно.
+   ═══════════════════════════════════════════════════════════════════════ */
+.up-wrap { max-width: 640px; margin: 0 auto; padding: 0 18px 120px; }
+.up-card {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 20px; padding: 18px;
+}
+.up-muted { color: var(--text-muted); }
+.up-sec {
+  margin: 28px 0 10px; font-size: 13px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.up-digit { font-variant-numeric: tabular-nums; }
+
+/* Шапка публичной страницы: имя продукта и вход. Отдельно от AppShell —
+   до входа приложения ещё нет, есть витрина. */
+.up-topbar {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 640px; margin: 0 auto;
+  padding: calc(env(safe-area-inset-top) + 14px) 18px 0;
+}
+.up-brand { font-size: 15px; font-weight: 700; letter-spacing: -.01em; }
+.up-enter {
+  border: 1px solid var(--line); background: var(--surface); color: var(--action-text);
+  padding: 7px 14px; border-radius: 999px; font-size: 13px; font-weight: 600; cursor: pointer;
+}
+.up-state { padding-top: 60px; text-align: center; }
+.up-state h1 { font-size: 30px; margin: 0 0 10px; }
+.up-small { font-size: 12px; margin-top: 10px; }
+.up-back {
+  position: fixed; z-index: 30;
+  top: calc(env(safe-area-inset-top) + 12px); left: 14px;
+  border: 0; background: transparent; color: var(--text-secondary);
+  font-size: 14px; padding: 8px 10px; cursor: pointer;
+}

@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref } from 'vue'
 import BottomSheet from '../components/BottomSheet.vue'
+import HorizonScreen from './HorizonScreen.vue'
 import StatusChip from '../components/StatusChip.vue'
 import { exportWeek, fmtWeekRange, weekSunday } from '../composables/useWeekly.js'
 
@@ -24,7 +25,22 @@ const props = defineProps({
   pendingExport: { type: Array, default: () => [] },
   currentWeek: { type: String, required: true },
   chargeMethod: { type: String, default: '' },
+  /* Д-45: «Горизонт» — второй подраздел этого экрана. Данные приезжают
+     готовыми из генератора, приложение их не считает (Д-29). */
+  life: { type: Object, default: () => ({}) },
+  onboarding: { type: Object, default: () => ({ sections: [] }) },
+  reviewed: { type: Array, default: () => [] },
+  streak: { type: Number, default: 0 },
 })
+
+/* ⚠ Подразделы, а не шестая вкладка. В App.vue записано, почему вкладок
+   пять. «Прогресс» — раздел про ВРЕМЯ: недели это ближняя дистанция,
+   горизонт — дальняя. Приём тот же, что у «Задач» внутри «Данных». */
+const SUB = [
+  { id: 'weeks', label: 'Недели' },
+  { id: 'horizon', label: 'Горизонт' },
+]
+const sub = ref('weeks')
 const emit = defineEmits(['open-survey'])
 
 const exporting = ref(null)
@@ -87,6 +103,29 @@ async function copyExport() {
 
 <template>
   <div class="flex flex-col gap-5">
+    <!-- ═══ ПОДРАЗДЕЛЫ ═══ (приём перенесён из «Данных») -->
+    <div class="flex gap-1 rounded-full p-1" :style="{ background: 'var(--surface-2)' }">
+      <button
+        v-for="s in SUB"
+        :key="s.id"
+        type="button"
+        class="min-h-[40px] flex-1 rounded-full text-[0.8125rem] active:opacity-70"
+        :style="sub === s.id
+          ? { background: 'var(--surface)', color: 'var(--text)', boxShadow: 'var(--card-shadow)' }
+          : { color: 'var(--text-muted)' }"
+        @click="sub = s.id"
+      >{{ s.label }}</button>
+    </div>
+
+    <HorizonScreen
+      v-if="sub === 'horizon'"
+      :life="life"
+      :onboarding="onboarding"
+      :reviewed="reviewed"
+      :streak="streak"
+    />
+
+    <template v-else>
     <!-- ═══ ЧТО НЕ ПЕРЕНЕСЕНО В МАСТЕР ═══
          Стоит первым и намеренно: отметка, оставшаяся только в телефоне,
          для контура не существует — по ней не проверить ни одну гипотезу. -->
@@ -294,5 +333,6 @@ async function copyExport() {
         неделя перестанет числиться «только в телефоне».
       </p>
     </BottomSheet>
+    </template>
   </div>
 </template>

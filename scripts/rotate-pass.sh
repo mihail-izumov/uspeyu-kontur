@@ -2,7 +2,7 @@
 # ═══════════════════════════════════════════════════════════════════════
 # Смена пароля приложения ОДНОЙ командой (приёмка ТЗ-1, 29.08.2026).
 #
-#     cd ~/mihizumov-healthbook/app && ./scripts/rotate-pass.sh
+#     cd ~/mihizumov-healthbook/uspeyu-kontur && ./scripts/rotate-pass.sh
 #
 # Фраза спрашивается вслепую (не видна на экране, не попадает в историю
 # шелла и в argv процессов). Дальше скрипт сам: хеш → src/config.js →
@@ -15,7 +15,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 command -v node >/dev/null || { echo "⛔ node не найден"; exit 1; }
-test -f src/config.js || { echo "⛔ запускать из app/"; exit 1; }
+test -f src/config.js || { echo "⛔ запускать из uspeyu-kontur/"; exit 1; }
 
 printf "Новая фраза (ввод скрыт, минимум 12 символов): "
 read -rs P1; echo
@@ -26,7 +26,7 @@ read -rs P2; echo
 [ ${#P1} -ge 12 ] || { echo "⛔ Короче 12 символов — перебирается по словарю. Ничего не изменено."; exit 1; }
 
 echo "→ считаю хеш и вписываю в src/config.js…"
-HASH=$(node scripts/passcode.mjs "$P1" | grep -oE '[0-9a-f]{64}' | head -1)
+HASH=$(printf '%s' "$P1" | node scripts/passcode.mjs | grep -oE '[0-9a-f]{64}' | head -1)
 [ -n "$HASH" ] || { echo "⛔ passcode.mjs не вернул хеш"; exit 1; }
 
 node -e "

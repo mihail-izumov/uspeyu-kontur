@@ -2,7 +2,14 @@
 /**
  * Считает хеш пароля для src/config.js.
  *
- *     node scripts/passcode.mjs "моя новая фраза"
+ *     echo -n "моя новая фраза" | node scripts/passcode.mjs   ← так правильно
+ *     node scripts/passcode.mjs "моя новая фраза"             ← работает, но хуже
+ *
+ * ⚠ ФРАЗУ ЛУЧШЕ ПОДАВАТЬ НА ВХОД, А НЕ АРГУМЕНТОМ: аргументы видны в `ps` и
+ *   оседают в истории шелла. Это правило записано в scripts/encrypt-data.mjs,
+ *   но сам этот скрипт его не соблюдал, и rotate-pass.sh честно передавал
+ *   фразу аргументом. Поправлено 29.08.2026 в обоих приложениях сразу.
+ *   Обычный путь — `./scripts/rotate-pass.sh`, он спрашивает вслепую.
  *
  * Алгоритм обязан совпадать с тем, что делает браузер в
  * src/composables/useGate.js: PBKDF2-HMAC-SHA256, та же соль, то же число
@@ -25,9 +32,13 @@ if (!salt || !iterations) {
   process.exit(1)
 }
 
-const phrase = process.argv.slice(2).join(' ')
+/** Фраза: со стандартного входа (правильно) или аргументом (устаревший путь). */
+const phrase = process.argv.length > 2
+  ? process.argv.slice(2).join(' ')
+  : (process.stdin.isTTY ? '' : readFileSync(0, 'utf8').replace(/\r?\n$/, ''))
 if (!phrase) {
-  console.error('Использование: node scripts/passcode.mjs "фраза"')
+  console.error('Использование: echo -n "фраза" | node scripts/passcode.mjs')
+  console.error('Обычный путь: ./scripts/rotate-pass.sh — спросит вслепую.')
   process.exit(1)
 }
 

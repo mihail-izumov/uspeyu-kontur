@@ -56,6 +56,40 @@ export function waitingForKey() {
   return pendingCipher !== null
 }
 
+/* ═══ Д-45: ПУБЛИЧНЫЙ СЛОЙ ═══
+ * `data/public.json` — открытый файл, его читает страница ДО входа. Собран
+ * генератором строго по списку `docs/PUBLIC-WHITELIST.md`: вилки, агрегаты
+ * недель, свежесть, манифест. Ни показателей, ни тревог, ни препаратов там
+ * нет и быть не может.
+ *
+ * ⛔ Грузится ОТДЕЛЬНО от health.enc.json и НЕ ждёт пароля — иначе публичная
+ *   страница окажется заложником приватной половины, и ошибка шифрования
+ *   погасит сайт для всех. Обратный порядок тоже неверен: медкарта не
+ *   грузится, пока человек не вошёл (см. комментарий выше про честность).
+ */
+const publicData = ref(null)
+let publicStarted = false
+
+export function usePublicData() {
+  async function loadPublic() {
+    if (publicStarted) return
+    publicStarted = true
+    try {
+      if (globalThis.__KONTUR_PUBLIC__) {
+        publicData.value = globalThis.__KONTUR_PUBLIC__
+        return
+      }
+      const base = import.meta.env.BASE_URL || './'
+      const res = await fetch(`${base}data/public.json`, { cache: 'no-cache' })
+      if (res.ok) publicData.value = await res.json()
+    } catch {
+      // Публичная страница честно скажет «первый прогон готовится».
+      publicStarted = false
+    }
+  }
+  return { publicData, loadPublic }
+}
+
 export function useData() {
   async function load() {
     if (started) return

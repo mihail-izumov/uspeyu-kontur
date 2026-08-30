@@ -2,6 +2,7 @@
 import { computed, reactive, ref } from 'vue'
 import StatusChip from '../components/StatusChip.vue'
 import BottomSheet from '../components/BottomSheet.vue'
+import ReadingBlocks from '../components/ReadingBlocks.vue'
 import { humanAge, fmtDate, ageDays } from '../composables/useData.js'
 
 /* «Данные» — служебный раздел. Аналог Health Checklist в Apple Health:
@@ -161,9 +162,45 @@ const TABS = [
   { id: 'meds', label: 'Препараты' },
   { id: 'conditions', label: 'Диагнозы' },
   { id: 'tasks', label: 'Задачи' },
+  { id: 'answers', label: 'Ответы' },
 ]
 
 const medDetail = ref(null)
+
+/* ═══ ОТВЕТЫ (ряд О-NN, Д-48) ═══
+ *
+ * ⛔ Текст здесь НЕ живёт и не сокращается. Мастер — `docs/JOURNAL-otvety.md`,
+ *   генератор кладёт записи в health.json дословно. Разметчик общий с
+ *   онбордингом (ReadingBlocks): один и тот же абзац обязан читаться
+ *   одинаково на всех экранах, иначе две копии разметки разъедутся.
+ *
+ * ⚠ Пятая вкладка внутри «Данных», а НЕ шестая вкладка приложения. Причина
+ *   записана в App.vue: шесть вкладок в капсуле перестают читаться, и первым
+ *   перестаёт читаться то, что реже открывают. Ответы читают реже, чем
+ *   «Заряд», — значит именно они бы и пропали.
+ *
+ * ⚠ Фильтр — по ЗАКРЫТОМУ словарю тегов из мастера, список приезжает готовым
+ *   с числом записей. Приложение теги не выдумывает и не нормализует: иначе
+ *   «давление» и «АД» разрезали бы один ряд на две половины молча.
+ */
+const answers = computed(() => props.data.answers || { entries: [], tags: [] })
+const answerTag = ref('')          // '' = все
+const openAnswer = ref(null)
+
+const answersFiltered = computed(() => {
+  const t = answerTag.value
+  return answers.value.entries.filter((e) => !t || e.tags.includes(t))
+})
+
+/* Один ответ — одна секция для ReadingBlocks: разметчик принимает массив
+ * {title, body}, и карточка отдаёт ему ровно своё тело. */
+const openAnswerSections = computed(() =>
+  openAnswer.value ? [{ title: '', body: openAnswer.value.body }] : [],
+)
+
+function tagTitle(tag) {
+  return answers.value.tags.find((t) => t.tag === tag)?.title || ''
+}
 </script>
 
 <template>
@@ -507,7 +544,12 @@ const medDetail = ref(null)
     </template>
 
     <!-- ═══ ЗАДАЧИ ═══ -->
-    <template v-else>
+    <!-- ⚠ Именно v-else-if, а НЕ v-else. Раньше «Задачи» были последней
+         вкладкой и стояли под `v-else`; с появлением «Ответов» (Д-48) такой
+         хвост присвоил бы себе и их — задачи рисовались бы на обеих вкладках,
+         а цепочка v-if разорвалась бы (`v-else/v-else-if has no adjacent
+         v-if`). Тот же дефект уже ловили в App.vue, там его нашёл дым. -->
+    <template v-else-if="tab === 'tasks'">
       <!-- фильтр по рядам; «Визиты» стоит первым после «Все»:
            у визитов есть срок, который закрывается сам собой -->
       <div class="kh-scroll -mx-5 flex gap-1.5 overflow-x-auto px-5 pb-0.5">
@@ -598,6 +640,100 @@ const medDetail = ref(null)
         внесён в мастер, — не когда сходил.
       </p>
     </template>
+
+    <!-- ═══ ОТВЕТЫ (ряд О-NN, Д-48) ═══ -->
+    <template v-else-if="tab === 'answers'">
+      <section>
+        <p class="text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
+          Развёрнутые ответы контура — дословно, как были даны в разговоре.
+          ⛔ Ни один из них не является назначением: контур не назначает и не отменяет.
+        </p>
+      </section>
+
+      <!-- фильтр по закрытому словарю тегов -->
+      <section v-if="answers.tags.length" class="-mx-1 flex flex-wrap gap-1.5 px-1">
+        <button
+          type="button"
+          class="min-h-[34px] rounded-full border px-3 text-[0.8125rem] active:opacity-70"
+          :style="answerTag === ''
+            ? { background: 'var(--nav-accent)', color: 'var(--nav-accent-ink)', borderColor: 'transparent' }
+            : { background: 'var(--surface)', color: 'var(--text-muted)', borderColor: 'var(--rim)' }"
+          @click="answerTag = ''"
+        >Все · {{ answers.entries.length }}</button>
+        <button
+          v-for="t in answers.tags"
+          :key="t.tag"
+          type="button"
+          :title="t.title"
+          class="min-h-[34px] rounded-full border px-3 text-[0.8125rem] active:opacity-70"
+          :style="answerTag === t.tag
+            ? { background: 'var(--nav-accent)', color: 'var(--nav-accent-ink)', borderColor: 'transparent' }
+            : { background: 'var(--surface)', color: 'var(--text-muted)', borderColor: 'var(--rim)' }"
+          @click="answerTag = answerTag === t.tag ? '' : t.tag"
+        >{{ t.tag }} · {{ t.count }}</button>
+      </section>
+
+      <section v-if="answerTag" class="rounded-[14px] px-4 py-2.5" :style="{ background: 'var(--surface-2)' }">
+        <p class="text-[0.8125rem]" :style="{ color: 'var(--text-muted)' }">{{ tagTitle(answerTag) }}</p>
+      </section>
+
+      <section class="flex flex-col gap-1.5">
+        <button
+          v-for="a in answersFiltered"
+          :key="a.id"
+          type="button"
+          class="w-full rounded-[14px] border px-4 py-3 text-left active:opacity-80"
+          :style="{ background: 'var(--surface)', borderColor: 'var(--rim)' }"
+          @click="openAnswer = a"
+        >
+          <div class="flex items-center gap-2 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">
+            <span class="font-mono">{{ a.id }}</span>
+            <span>·</span>
+            <span>{{ fmtDate(a.date) }}</span>
+            <span v-if="a.stale" class="ml-auto">устарел</span>
+          </div>
+          <p class="mt-1 text-[0.9375rem] font-medium leading-snug">{{ a.title }}</p>
+          <p
+            v-if="a.question && a.question !== '—'"
+            class="mt-1 line-clamp-2 text-[0.8125rem] leading-snug"
+            :style="{ color: 'var(--text-muted)' }"
+          >«{{ a.question }}»</p>
+          <p class="mt-1 text-[0.75rem]" :style="{ color: 'var(--text-muted)' }">{{ a.tags.join(' · ') }}</p>
+        </button>
+        <p
+          v-if="!answersFiltered.length"
+          class="rounded-[14px] px-4 py-3 text-[0.875rem]"
+          :style="{ background: 'var(--surface-2)', color: 'var(--text-muted)' }"
+        >По этому тегу записей пока нет.</p>
+      </section>
+    </template>
+
+    <!-- ═══ ЧТЕНИЕ ОДНОГО ОТВЕТА ═══ -->
+    <BottomSheet
+      :open="!!openAnswer"
+      :title="openAnswer ? openAnswer.title : ''"
+      :subtitle="openAnswer ? `${openAnswer.id} · ${fmtDate(openAnswer.date)} · ${openAnswer.tags.join(' · ')}` : ''"
+      @close="openAnswer = null"
+    >
+      <template v-if="openAnswer">
+        <!-- ⚠ Вопрос стоит НАД ответом и приводится дословно. Ответ без
+             вопроса через месяц читается как проповедь: непонятно, на что
+             он отвечал и почему именно так. -->
+        <p
+          v-if="openAnswer.question && openAnswer.question !== '—'"
+          class="mb-4 rounded-[14px] px-4 py-3 text-[0.875rem] leading-relaxed"
+          :style="{ background: 'var(--surface-2)', color: 'var(--text-muted)' }"
+        >
+          <span class="font-label text-[0.6875rem] uppercase tracking-[0.12em]">Вопрос · {{ fmtDate(openAnswer.asked) }}</span><br>
+          «{{ openAnswer.question }}»
+        </p>
+        <ReadingBlocks :sections="openAnswerSections" />
+        <p class="mt-5 text-[0.8125rem] leading-relaxed" :style="{ color: 'var(--text-muted)' }">
+          ⛔ Ответ приведён дословно и задним числом не переписывается. Если он устарел,
+          в ряду появляется новая запись, а эта помечается. Решения принимает врач.
+        </p>
+      </template>
+    </BottomSheet>
 
     <!-- ═══ КАРТОЧКА ЗАДАЧИ (read-only, как в эталоне) ═══ -->
     <BottomSheet
