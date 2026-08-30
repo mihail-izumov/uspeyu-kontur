@@ -192,12 +192,21 @@ check('верный пароль пускает', !text().includes('Доступ
 // но всё равно через микротаск), поэтому ждём не вкладки, а содержимое.
 // ⚠ Пять, а не четыре: 29.08.2026 добавлен «День» (SYS-10, Д-33). «Задачи»
 //   вкладкой не стали — они раздел внутри «Данных» (SYS-15).
-const TAB_COUNT = 5
+/* ⚠ Шесть, а не пять (решение владельца 30.08.2026). Первой стоит
+   «Горизонт» — та же публичная страница, что видна до входа: войдя, вернуться
+   к ней было нельзя вообще никак, кроме перезагрузки вкладки. */
+const TAB_COUNT = 6
 await until(() => document.querySelectorAll('[role="tab"]').length === TAB_COUNT)
 await until(() => /полнота \d+%/.test(text()))
 const screens = {}
 const tabs = [...document.querySelectorAll('[role="tab"]')]
-check('пять вкладок', tabs.length === TAB_COUNT, `найдено ${tabs.length} · ${text().slice(0, 200)}`)
+check('шесть вкладок', tabs.length === TAB_COUNT, `найдено ${tabs.length} · ${text().slice(0, 200)}`)
+/* ⛔ Выход обязателен и стоит на каждом экране: без него человек, вошедший
+   на телефоне в полноэкранном режиме, заперт внутри — перезагрузить нечем. */
+check('кнопка «Выйти» есть в шапке',
+  [...document.querySelectorAll('button')].some((b) => b.textContent.trim() === 'Выйти'))
+check('плитки разделов на «Заряде»', text().includes('Разделы'))
+check('«Контроль рисков» доступен с первого экрана', text().includes('Контроль рисков'))
 // Без вкладок дальше идти некуда: следующая строка обратилась бы к tabs[0] и
 // упала бы трейсбеком, спрятав уже собранные результаты. Печатаем их и выходим.
 if (tabs.length !== TAB_COUNT) {
@@ -209,9 +218,21 @@ screens['Заряд'] = text()
 check('заряд: полнота показана', /полнота \d+%/.test(screens['Заряд']))
 check('заряд: граница контура на экране', screens['Заряд'].includes('не назначает и не отменяет'))
 
-for (const [i, label] of ['Заряд', 'День', 'Системы', 'Прогресс', 'Данные'].entries()) {
-  tabs[i].dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
-  await wait(120)
+/* ⚠ Разделы открываются ПО ПОДПИСИ, а не по номеру вкладки. Номера здесь
+   уже подводили: 30.08.2026 первой в капсулу встал «Горизонт», нумерация
+   сдвинулась на единицу, и девять проверок разом позеленели бы на чужих
+   экранах, если бы искали текст не там, где думают. Подпись переживает
+   любой порядок. */
+const openTab = (label) => {
+  const b = [...document.querySelectorAll('[role="tab"]')]
+    .find((x) => x.textContent.trim() === label)
+  if (!b) return false
+  b.dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+  return true
+}
+for (const label of ['Заряд', 'День', 'Системы', 'Прогресс', 'Данные']) {
+  check(`вкладка «${label}» есть в капсуле`, openTab(label))
+  await wait(140)
   screens[label] = text()
 }
 
@@ -235,7 +256,7 @@ check('день: отметка — только отклонения',
  * кликом по капсуле, а переходом на под-вкладку внутри «Данных». Текст
  * раздела кладётся в общий свод screens — значит, он попадает в обход
  * запрещённых формулировок ниже автоматически, как и все экраны. */
-tabs[4].dispatchEvent(new window.MouseEvent('click', { bubbles: true }))
+openTab('Данные')
 await wait(120)
 const tasksTab = [...document.querySelectorAll('button')]
   .find((b) => b.textContent.trim() === 'Задачи')

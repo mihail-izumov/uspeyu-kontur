@@ -17,6 +17,16 @@ const emit = defineEmits(['open-survey', 'open-system', 'go'])
 
 const breakdownOpen = ref(false)
 
+/* Плитки разделов. Подпись — не пересказ названия, а то, зачем туда идти:
+   иначе плитка повторяет иконку в капсуле и не добавляет ничего. */
+const SECTIONS = [
+  { id: 'horizon', label: 'Горизонт', hint: 'вилка лет, рычаги, календарь недель' },
+  { id: 'day', label: 'День', hint: 'плановый приём и отметка события' },
+  { id: 'systems', label: 'Системы', hint: 'шесть органов-мишеней и их показатели' },
+  { id: 'progress', label: 'Прогресс', hint: 'недели, ряд «Заряда», разборы' },
+  { id: 'data', label: 'Данные', hint: 'пробелы, просрочки, препараты, задачи' },
+]
+
 /* Дельта берётся против ПРЕДЫДУЩЕЙ недели ряда, а не против «прошлого
  * запуска приложения». Иначе балл менялся бы от того, что человек открыл
  * экран, а не от того, что изменилось в теле. */
@@ -113,6 +123,54 @@ const lastDrawAge = computed(() => ageDays(props.data.last_draw))
           </div>
         </li>
       </ul>
+    </section>
+
+    <!-- ═══ РАЗДЕЛЫ ПЛИТКАМИ (решение владельца 30.08.2026) ═══
+         Приём перенесён с пульта «Бумбастика»: карточки в два столбца, у
+         каждой имя раздела и одна строка «что там». Нижнее меню никуда не
+         делось — плитки дублируют его нарочно.
+
+         ⚠ Дублирование здесь не избыточность. Капсула внизу — это «куда
+         перейти», плитки — «что вообще есть»: на первый экран человек
+         попадает каждый раз, а иконки в капсуле подписаны одним словом и
+         не говорят, что внутри. Разница видна на разделах, которые
+         открывают редко. -->
+    <section>
+      <h2 class="mb-2 font-label text-[0.75rem] uppercase tracking-[0.14em]"
+          :style="{ color: 'var(--text-muted)' }">Разделы</h2>
+      <div class="grid grid-cols-2 gap-3">
+        <button
+          v-for="s in SECTIONS"
+          :key="s.id"
+          type="button"
+          class="rounded-[18px] border px-4 py-4 text-left active:opacity-90"
+          :style="{ background: 'var(--surface)', borderColor: 'var(--rim)', boxShadow: 'var(--card-shadow)' }"
+          @click="emit('go', s.id)"
+        >
+          <p class="text-[0.9375rem] font-semibold">{{ s.label }}</p>
+          <p class="mt-1 text-[0.8125rem] leading-snug" :style="{ color: 'var(--text-muted)' }">{{ s.hint }}</p>
+        </button>
+      </div>
+
+      <!-- ⛔ «Риски» — ЭКРАН, а не ссылка на apps/risk/health-risk.html.
+           Тот файл открытый, и в публичном репозитории он означал бы
+           выложенные наружу тревоги и показатели. На телефоне его к тому же
+           просто нет: он живёт на машине владельца. Здесь те же данные, но
+           из health.json, то есть за входом. -->
+      <button
+        type="button"
+        class="mt-3 flex w-full items-center justify-between rounded-[18px] border px-5 py-4 text-left active:opacity-90"
+        :style="{ background: 'var(--surface)', borderColor: 'var(--rim)', boxShadow: 'var(--card-shadow)' }"
+        @click="emit('go', 'risk')"
+      >
+        <span>
+          <span class="block text-[0.9375rem] font-semibold">Контроль рисков</span>
+          <span class="mt-1 block text-[0.8125rem]" :style="{ color: 'var(--text-muted)' }">
+            светофор органов, тревоги с исходами, точность контура
+          </span>
+        </span>
+        <span class="ml-3 shrink-0 text-[1.25rem]" :style="{ color: 'var(--text-muted)' }">›</span>
+      </button>
     </section>
 
     <!-- ═══ ВОСКРЕСНАЯ ОТМЕТКА ═══ -->

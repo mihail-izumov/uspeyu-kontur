@@ -9,6 +9,7 @@ import SystemsScreen from './screens/SystemsScreen.vue'
 import ProgressScreen from './screens/ProgressScreen.vue'
 import DataScreen from './screens/DataScreen.vue'
 import PublicScreen from './screens/PublicScreen.vue'
+import RiskScreen from './screens/RiskScreen.vue'
 import { useGate } from './composables/useGate.js'
 import { useData, usePublicData } from './composables/useData.js'
 import { useWeekly } from './composables/useWeekly.js'
@@ -48,6 +49,13 @@ const intake = useIntake(masterEvents)
  *   пробелы и препараты. Шесть вкладок в капсуле перестают читаться —
  *   и первым перестаёт читаться то, что реже открывают. */
 const TABS = [
+  /* ⚠ ШЕСТАЯ ВКЛАДКА — решение владельца 30.08.2026, и оно осознанно
+     отменяет прежнее правило «вкладок пять» (комментарий ниже оставлен как
+     повод, а не как действующий запрет). Повод отмены: войдя в контур,
+     владелец не мог вернуться на публичную страницу вообще никак — она
+     показывалась только до входа, и единственным выходом была перезагрузка.
+     «Горизонт» стоит первым, потому что это лицо продукта. */
+  { id: 'horizon', label: 'Горизонт', icon: 'charge', title: 'Успею' },
   { id: 'charge', label: 'Заряд', icon: 'charge', title: 'Заряд' },
   { id: 'day', label: 'День', icon: 'day', title: 'День' },
   { id: 'systems', label: 'Системы', icon: 'systems', title: 'Системы' },
@@ -63,6 +71,16 @@ const surveyWeek = ref(null)
  * входа, за которым в сети уже проехали все диагнозы, обещает не то, что
  * делает. Заодно первый экран рисуется быстрее. */
 watch(() => gate.authed.value, (v) => { if (v) load() })
+/* ⚠ Выход СБРАСЫВАЕТ showGate. Без этого после «Выйти» показывался экран
+   ввода пароля: гейт оставался «открытым» с момента входа, и человек, вместо
+   того чтобы оказаться на публичной странице, упирался в форму — то есть
+   выйти по-настоящему было нельзя. */
+function signOut() {
+  gate.logout()
+  showGate.value = false
+  active.value = 'charge'
+}
+
 onMounted(loadPublic)
 
 /* ⚠ Тёмная тема системной шапки на входе и светлая внутри. Атрибут висит на
@@ -113,7 +131,13 @@ function saveSurvey(fields) {
   active.value = 'progress'
 }
 
-const shellTitle = computed(() => TABS.find((t) => t.id === active.value)?.title || '')
+/* ⚠ «Риски» открываются плиткой с «Заряда», а не вкладкой: шесть пунктов в
+   капсуле — уже предел, седьмой перестал бы читаться. Но заголовок в шапке
+   ему нужен так же, как остальным, иначе экран выглядит подвешенным. */
+const OFF_TAB_TITLES = { risk: 'Контроль рисков' }
+const shellTitle = computed(
+  () => TABS.find((t) => t.id === active.value)?.title || OFF_TAB_TITLES[active.value] || '',
+)
 const shellSubtitle = computed(() => {
   if (!data.value) return ''
   if (active.value === 'charge') return `Метод ${charge.value?.method || ''}`
@@ -185,6 +209,19 @@ onMounted(() => {
     :subtitle="shellSubtitle"
     @select="active = $event"
   >
+    <!-- ⛔ ВЫХОД ОБЯЗАТЕЛЕН И СТОИТ НА КАЖДОМ ЭКРАНЕ. Его не было вовсе:
+         войдя, человек оставался внутри до перезагрузки вкладки — а на
+         телефоне в полноэкранном режиме перезагрузить нечем. Поймано
+         владельцем 30.08.2026 на живом приложении. -->
+    <template #header-trailing>
+      <button
+        type="button"
+        class="shrink-0 rounded-full border px-3 py-1.5 text-[0.8125rem] active:opacity-70"
+        :style="{ borderColor: 'var(--line)', color: 'var(--text-muted)' }"
+        @click="signOut"
+      >Выйти</button>
+    </template>
+
     <div v-if="dataError" class="rounded-[20px] border px-5 py-5" :style="{ background: 'var(--sig-alarm-fill)', borderColor: 'var(--sig-alarm)' }">
       <p class="text-[0.9375rem] leading-relaxed" :style="{ color: 'var(--sig-alarm-ink)' }">{{ dataError }}</p>
     </div>
@@ -196,14 +233,18 @@ onMounted(() => {
     </div>
 
     <template v-else>
+      <!-- ⚠ ТА ЖЕ публичная страница, что видна до входа, а не её копия.
+           Копия разошлась бы с оригиналом в первую же правку текста. -->
+      <PublicScreen v-if="active === 'horizon' && publicData && publicData.horizon" :pub="publicData" />
       <ChargeScreen
-        v-if="active === 'charge'"
+        v-else-if="active === 'charge'"
         :data="data"
         :charge="charge"
         :series="series"
         :week-filled="currentWeekFilled"
         :is-survey-due="isSurveyDue"
         @open-survey="openSurvey"
+        @go="active = $event"
       />
       <DayScreen
         v-else-if="active === 'day'"
@@ -227,6 +268,7 @@ onMounted(() => {
         :streak="(publicData && publicData.weeks && publicData.weeks.streak) || 0"
         @open-survey="openSurvey"
       />
+      <RiskScreen v-else-if="active === 'risk'" :data="data" />
       <DataScreen v-else :data="data" />
     </template>
   </AppShell>
