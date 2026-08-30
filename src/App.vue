@@ -268,7 +268,7 @@ onMounted(() => {
         :streak="(publicData && publicData.weeks && publicData.weeks.streak) || 0"
         @open-survey="openSurvey"
       />
-      <RiskScreen v-else-if="active === 'risk'" :data="data" />
+      <RiskScreen v-else-if="active === 'risk'" :risk="data.risk || {}" />
       <DataScreen v-else :data="data" />
     </template>
   </AppShell>
