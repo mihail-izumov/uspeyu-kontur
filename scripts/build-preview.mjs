@@ -17,7 +17,7 @@
  * ⚠ Тег <title> есть, а <html>/<head>/<body> — нет: файл рассчитан на
  *   вставку в готовый каркас страницы.
  */
-import { readFileSync, writeFileSync, readdirSync } from 'node:fs'
+import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -39,7 +39,13 @@ if (!js || !css) {
   process.exit(1)
 }
 
-const data = readFileSync(join(root, 'public', 'data', 'health.json'), 'utf8')
+// ⚠ Д-46: health.json может ОТСУТСТВОВАТЬ — в CI он появляется только после
+// расшифровки, а она с 30.08.2026 не обязана удаваться (разъехавшийся секрет
+// не должен гасить публичную страницу). Тогда вкладывается null: приложение
+// честно скажет про данные, а публичная половина, у которой свой открытый
+// файл, отработает полностью.
+const healthPath = join(root, 'public', 'data', 'health.json')
+const data = existsSync(healthPath) ? readFileSync(healthPath, 'utf8') : 'null'
 // Д-45: публичный слой вкладывается ОТДЕЛЬНЫМ блоком, как и живёт отдельным
 // файлом. Дым обязан видеть ровно ту границу, что уедет наружу: если слить
 // два файла в один, проверка «на публичной странице нет медицины» перестанет
